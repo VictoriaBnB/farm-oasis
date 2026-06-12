@@ -35,28 +35,64 @@
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"BedAndBreakfast",
-  "name":"New Bright Modern Farm Oasis",
-  "description":"Airbnb Superhost-rated 2-bedroom + loft B&B suite in North Saanich, BC. Farm views, beach access, private entrance.",
-  "url":"https://victoriabnb.github.io/farm-oasis/",
-  "image":"https://i.imgur.com/RizYbWh.jpeg",
-  "address":{
-    "@type":"PostalAddress",
-    "streetAddress":"1345 Munro Road",
-    "addressLocality":"North Saanich",
-    "addressRegion":"BC",
-    "addressCountry":"CA"
-  },
-  "geo":{"@type":"GeoCoordinates","latitude":48.65,"longitude":-123.41},
-  "priceRange":"$285–$390 CAD/night",
-  "numberOfRooms":3,
-  "amenityFeature":[
-    {"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},
-    {"@type":"LocationFeatureSpecification","name":"Private entrance","value":true},
-    {"@type":"LocationFeatureSpecification","name":"Beach access","value":true},
-    {"@type":"LocationFeatureSpecification","name":"Free parking","value":true}
-  ],
-  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"88"}
+  "@graph":[
+    {
+      "@type":"BedAndBreakfast",
+      "@id":"https://victoriabnb.github.io/farm-oasis/#suite",
+      "name":"New Bright Modern Farm Oasis",
+      "description":"Airbnb Superhost-rated 2-bedroom + loft B&B suite in North Saanich, BC. Farm views, beach access, private entrance.",
+      "url":"https://victoriabnb.github.io/farm-oasis/",
+      "image":"https://i.imgur.com/RizYbWh.jpeg",
+      "address":{
+        "@type":"PostalAddress",
+        "streetAddress":"1345 Munro Road",
+        "addressLocality":"North Saanich",
+        "addressRegion":"BC",
+        "addressCountry":"CA"
+      },
+      "geo":{"@type":"GeoCoordinates","latitude":48.65,"longitude":-123.41},
+      "priceRange":"$285–$390 CAD/night",
+      "numberOfRooms":3,
+      "numberOfBedrooms":2,
+      "numberOfBathroomsTotal":2.5,
+      "occupancy":{"@type":"QuantitativeValue","maxValue":6},
+      "amenityFeature":[
+        {"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},
+        {"@type":"LocationFeatureSpecification","name":"Private entrance","value":true},
+        {"@type":"LocationFeatureSpecification","name":"Beach access","value":true},
+        {"@type":"LocationFeatureSpecification","name":"Free parking","value":true}
+      ],
+      "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"88"},
+      "sameAs":"https://airbnb.ca/h/modernfarmoasis"
+    },
+    {
+      "@type":"House",
+      "@id":"https://victoriabnb.github.io/farm-oasis/#smarthome",
+      "name":"Modern Farm Oasis — 4BR Solar Smart Home",
+      "description":"4,500 sq ft solar-powered smart home on the same North Saanich property as New Bright Modern Farm Oasis, with 4 bedrooms (each with a private bathroom), open-concept living, and a chef's kitchen that seats 12. Shares the same farm views and beach access.",
+      "url":"https://victoriabnb.github.io/farm-oasis/#stays",
+      "image":"https://i.imgur.com/AXktjBd.jpeg",
+      "address":{
+        "@type":"PostalAddress",
+        "streetAddress":"1345 Munro Road",
+        "addressLocality":"North Saanich",
+        "addressRegion":"BC",
+        "addressCountry":"CA"
+      },
+      "geo":{"@type":"GeoCoordinates","latitude":48.65,"longitude":-123.41},
+      "numberOfRooms":4,
+      "numberOfBedrooms":4,
+      "numberOfBathroomsTotal":5.5,
+      "occupancy":{"@type":"QuantitativeValue","maxValue":8},
+      "amenityFeature":[
+        {"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},
+        {"@type":"LocationFeatureSpecification","name":"Beach access","value":true},
+        {"@type":"LocationFeatureSpecification","name":"Free parking","value":true},
+        {"@type":"LocationFeatureSpecification","name":"Wheelchair accessible","value":true}
+      ],
+      "sameAs":"https://airbnb.ca/h/modernfarmoasis2"
+    }
+  ]
 }
 </script>
 
@@ -348,6 +384,27 @@ section{padding:5rem 2rem}
 .mosaic img.sq{aspect-ratio:1/1}
 
 /* ══════════════════════════════════════════
+   TWO WAYS TO STAY
+══════════════════════════════════════════ */
+.stays-section{background:var(--parchment)}
+.stays-intro{font-size:15px;color:var(--mid);max-width:760px;margin:0 auto 3rem;text-align:center;line-height:1.85}
+.stays-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.stay-card{
+  background:var(--white);border-radius:10px;padding:2.5rem;overflow:hidden;
+  border:1px solid var(--border-light);display:flex;flex-direction:column;
+}
+.stay-card-img{margin:-2.5rem -2.5rem 1.75rem;aspect-ratio:16/10;overflow:hidden}
+.stay-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.stay-card-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:0.6rem}
+.stay-card-title{font-family:var(--serif);font-size:1.7rem;font-weight:400;color:var(--charcoal);line-height:1.25;margin-bottom:0.9rem}
+.stay-card-desc{font-size:14.5px;color:var(--mid);line-height:1.85;margin-bottom:1.75rem}
+.stay-stats{display:flex;gap:0.75rem;margin-top:auto;margin-bottom:1.75rem}
+.stay-stat{flex:1;background:var(--sage-pale);border-radius:6px;padding:12px 8px;text-align:center}
+.stay-stat-num{display:block;font-family:var(--serif);font-size:1.6rem;color:var(--sage-dark);line-height:1.1}
+.stay-stat-label{display:block;font-size:10px;color:var(--mid);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+.stay-link{align-self:flex-start}
+
+/* ══════════════════════════════════════════
    LOCATION TILES
 ══════════════════════════════════════════ */
 .tiles-section{background:var(--sage-dark);padding:3.5rem 2rem}
@@ -626,7 +683,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
   .tiles-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:1024px){
-  .about-grid,.loc-grid{grid-template-columns:1fr}
+  .about-grid,.loc-grid,.stays-grid{grid-template-columns:1fr}
   .mosaic{position:static;display:grid;grid-template-columns:repeat(3,1fr)}
   .mosaic img.tall{aspect-ratio:4/3;grid-row:auto}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -823,6 +880,42 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
   </div>
 </section>
 
+<!-- ══ TWO WAYS TO STAY ══ -->
+<section id="stays" class="stays-section">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">More Space on the Farm</div>
+    <h2 class="section-title" style="text-align:center">Two Ways to Stay</h2>
+    <div class="rule" style="margin-left:auto;margin-right:auto"></div>
+    <p class="stays-intro">Modern Farm Oasis is one of two independent rentals on the same peaceful property. Whether it&rsquo;s just the two of you or the whole family, here&rsquo;s the space that fits your trip &mdash; both just steps from Pat Bay Beach and minutes from the airport.</p>
+    <div class="stays-grid">
+      <div class="stay-card">
+        <div class="stay-card-img"><img src="https://i.imgur.com/RizYbWh.jpeg" alt="New Bright Modern Farm Oasis — 2-bedroom + loft suite with farm views" loading="lazy"></div>
+        <div class="stay-card-eyebrow">Listing 1 &middot; Featured on This Site</div>
+        <h3 class="stay-card-title">Modern Farm Oasis &mdash; 2BR + Loft Suite</h3>
+        <p class="stay-card-desc">Our bright, brand-new 2-bedroom + loft suite with a private entrance and patio overlooking the farm. Each bedroom has its own full ensuite bathroom, plus a queen loft and powder room in the open-plan living &amp; dining area. Perfect for couples, small families, or two couples traveling together.</p>
+        <div class="stay-stats">
+          <div class="stay-stat"><span class="stay-stat-num">2</span><span class="stay-stat-label">Bedrooms + Loft</span></div>
+          <div class="stay-stat"><span class="stay-stat-num">2.5</span><span class="stay-stat-label">Bathrooms</span></div>
+          <div class="stay-stat"><span class="stay-stat-num">6</span><span class="stay-stat-label">Max Guests</span></div>
+        </div>
+        <a href="https://airbnb.ca/h/modernfarmoasis" target="_blank" rel="noopener" class="btn-primary stay-link">View on Airbnb &rarr;</a>
+      </div>
+      <div class="stay-card">
+        <div class="stay-card-img"><img src="https://i.imgur.com/AXktjBd.jpeg" alt="Modern Farm Oasis 4-bedroom solar-powered smart home exterior" loading="lazy"></div>
+        <div class="stay-card-eyebrow">Listing 2 &middot; Solar-Powered Smart Home</div>
+        <h3 class="stay-card-title">Modern Farm Oasis &mdash; 4BR Smart Home</h3>
+        <p class="stay-card-desc">A 4,500&nbsp;sq&nbsp;ft solar-powered smart home built for family reunions and group getaways, with open-concept living and a chef&rsquo;s kitchen that seats 12. All four bedrooms come with their own private bathroom, and the home is loaded with extras &mdash; gigabit WiFi, a Samsung Frame TV with Sonos sound, a home gym, and a spacious patio with the same farm views. Steps to the beach and wheelchair accessible.</p>
+        <div class="stay-stats">
+          <div class="stay-stat"><span class="stay-stat-num">4</span><span class="stay-stat-label">Bedrooms</span></div>
+          <div class="stay-stat"><span class="stay-stat-num">5.5</span><span class="stay-stat-label">Bathrooms</span></div>
+          <div class="stay-stat"><span class="stay-stat-num">8</span><span class="stay-stat-label">Max Guests</span></div>
+        </div>
+        <a href="https://airbnb.ca/h/modernfarmoasis2" target="_blank" rel="noopener" class="btn-primary stay-link">View on Airbnb &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ LOCATION TILES ══ -->
 <div class="tiles-section">
   <div class="tiles-grid">
@@ -847,6 +940,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <button class="gtab" onclick="filterGal('bedroom',this)">Bedrooms &amp; Loft</button>
       <button class="gtab" onclick="filterGal('bath',this)">Bathrooms</button>
       <button class="gtab" onclick="filterGal('exterior',this)">Exterior &amp; Views</button>
+      <button class="gtab" onclick="filterGal('smarthome',this)">Smart Home (4BR)</button>
     </div>
     <div class="gallery-grid" id="galGrid">
       <!-- Living & Dining -->
@@ -881,6 +975,27 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/cjuB1ui.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/cjuB1ui.jpeg" alt="Exterior entry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/8hScObI.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/8hScObI.jpeg" alt="Pat Bay Beach" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/C1R4G1B.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C1R4G1B.jpeg" alt="Pat Bay Beach sunset" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <!-- Smart Home (Listing 2) -->
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/AXktjBd.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AXktjBd.jpeg" alt="Smart home — solar-powered exterior" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/YGXktQl.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/YGXktQl.jpeg" alt="Smart home — grand entrance foyer" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/xFPKFr9.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/xFPKFr9.jpeg" alt="Smart home — open-concept living room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/OdVNjiq.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OdVNjiq.jpeg" alt="Smart home — living room with Samsung Frame TV" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/1i66pgv.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/1i66pgv.jpeg" alt="Smart home — bright living area with farm views" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/L7Gt1yx.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/L7Gt1yx.jpeg" alt="Smart home — spacious living room seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/lbIYx2V.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/lbIYx2V.jpeg" alt="Smart home — chef's kitchen with island" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/C2NtyGf.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C2NtyGf.jpeg" alt="Smart home — chef's kitchen" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/rwU5OIw.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/rwU5OIw.jpeg" alt="Smart home — kitchen island and bar seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/5nkjA7u.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/5nkjA7u.jpeg" alt="Smart home — dining room seating twelve" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/qiW1VEb.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/qiW1VEb.jpeg" alt="Smart home — master bedroom with king bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/OfW5WLJ.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OfW5WLJ.jpeg" alt="Smart home — master bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/VAc28Sn.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/VAc28Sn.jpeg" alt="Smart home — master ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/OhK4QQE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OhK4QQE.jpeg" alt="Smart home — master ensuite bath and shower" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/KagwPTE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/KagwPTE.jpeg" alt="Smart home — second bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/AYbuw1F.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AYbuw1F.jpeg" alt="Smart home — third bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/ZrFEOcg.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/ZrFEOcg.jpeg" alt="Smart home — fourth bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/M9JvNNO.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/M9JvNNO.jpeg" alt="Smart home — second bedroom ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/CKWhQD2.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/CKWhQD2.jpeg" alt="Smart home — private home gym" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/Olra7VN.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Olra7VN.jpeg" alt="Smart home — home gym equipment" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
     </div>
   </div>
 </section>
