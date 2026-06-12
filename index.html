@@ -3,9 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Preload hero image for faster LCP -->
-<link rel="preload" as="image" href="https://i.imgur.com/RizYbWh.jpeg" fetchpriority="high">
-
 <meta name="google-site-verification" content="rO23pJtUpddJh-Ff_tb8Mhn9gmcTHkGr_yMFFsFKg_Q" />
 
 <!-- ═══ SEO META ═══ -->
@@ -201,114 +198,35 @@ img{display:block;max-width:100%}
 .mobile-menu a:last-child{border-bottom:none}
 
 /* ══════════════════════════════════════════
-   HERO — Luxury Rustic
+   HERO — Slim solid-sage banner
 ══════════════════════════════════════════ */
-@keyframes kbZoom{
-  0%{transform:scale(1.0)}
-  100%{transform:scale(1.1)}
-}
-@keyframes heroReveal{
-  from{opacity:0;transform:translateY(22px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes scrollDrop{
-  0%{top:-100%}
-  100%{top:200%}
-}
 .hero{
-  position:relative;height:88vh;min-height:560px;max-height:920px;
-  overflow:hidden;display:flex;align-items:center;justify-content:center;
-  background:#0d1a0e;
-}
-.hero-bg{
-  position:absolute;inset:-7%;
-  background-image:url('https://i.imgur.com/RizYbWh.jpeg');
-  background-size:cover;background-position:center 28%;
-  filter:brightness(0.58) saturate(1.2);
-  animation:kbZoom 24s ease-in-out infinite alternate;
-  will-change:transform;
-}
-.hero-grain{
-  position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.038;
-  background-image:url("data:image/svg+xml,<svg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  background-size:220px 220px;
-}
-.hero-overlay{
-  position:absolute;inset:0;z-index:1;
-  background:
-    linear-gradient(180deg,rgba(8,18,9,0.74) 0%,rgba(8,18,9,0.18) 40%,rgba(8,18,9,0.64) 100%),
-    radial-gradient(ellipse 80% 55% at 50% 62%,rgba(170,125,40,0.11) 0%,transparent 70%);
+  background:var(--sage-dark);
+  min-height:260px;padding:2.75rem 2rem;
+  display:flex;align-items:center;justify-content:center;text-align:center;
 }
 .hero-content{
-  position:relative;z-index:2;text-align:center;
-  max-width:780px;padding:0 2rem;
-  display:flex;flex-direction:column;align-items:center;
+  max-width:760px;
+  display:flex;flex-direction:column;align-items:center;gap:0.85rem;
 }
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:14px;
-  color:rgba(205,172,108,0.88);font-size:10px;letter-spacing:4px;text-transform:uppercase;
-  font-family:var(--sans);font-weight:400;margin-bottom:1.5rem;
-  background:none;border:none;backdrop-filter:none;padding:0;border-radius:0;
-  animation:heroReveal 1.1s 0.1s ease both;
+  display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+  color:rgba(205,172,108,0.92);font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  font-family:var(--sans);font-weight:400;
 }
-.hero-eyebrow::before,.hero-eyebrow::after{
-  content:'';display:block;width:28px;height:1px;
-  background:rgba(196,150,58,0.45);
-}
-.hero-eyebrow-star{color:#B8882E;letter-spacing:3px;font-size:9px}
-.hero-ornament{
-  display:flex;align-items:center;gap:10px;
-  width:100%;max-width:340px;margin:0.9rem 0;
-  animation:heroReveal 1.1s 0.35s ease both;
-}
-.hero-ornament-b{animation-delay:0.65s}
-.hero-ornament-line{
-  flex:1;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(196,150,58,0.38),transparent);
-}
-.hero-ornament-diamond{
-  width:6px;height:6px;border:1px solid rgba(196,150,58,0.6);
-  transform:rotate(45deg);flex-shrink:0;
-}
-.hero-ornament-dot{
-  width:2.5px;height:2.5px;border-radius:50%;
-  background:rgba(196,150,58,0.48);flex-shrink:0;
-}
+.hero-eyebrow-star{color:#E0B85C;letter-spacing:2px;font-size:9px}
 .hero h1{
-  font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.5rem);
-  color:white;font-weight:300;line-height:1.04;letter-spacing:-0.5px;
-  text-shadow:0 2px 70px rgba(0,0,0,0.45);margin:0;
-  animation:heroReveal 1.1s 0.5s ease both;
+  font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.1rem);
+  color:white;font-weight:300;line-height:1.08;letter-spacing:-0.3px;margin:0;
 }
-.hero h1 em{font-style:italic;color:rgba(240,215,162,0.95);display:block}
+.hero h1 em{font-style:italic;color:rgba(240,215,162,0.95)}
 .hero-sub{
-  font-size:14px;color:rgba(255,255,255,0.65);
-  line-height:1.82;max-width:450px;font-weight:300;letter-spacing:0.1px;
-  margin-top:0.6rem;
-  animation:heroReveal 1.1s 0.78s ease both;
+  font-size:14px;color:rgba(255,255,255,0.74);line-height:1.7;
+  max-width:620px;font-weight:300;margin:0;
 }
-.hero-btns{
-  display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2.2rem;
-  animation:heroReveal 1.1s 0.98s ease both;
-}
-.hero-scroll{
-  position:absolute;bottom:2.8rem;left:50%;transform:translateX(-50%);
-  z-index:3;display:flex;flex-direction:column;align-items:center;gap:7px;
-  animation:heroReveal 1.1s 1.3s ease both;
-}
-.hero-scroll-label{
-  font-size:8px;letter-spacing:4px;text-transform:uppercase;
-  color:rgba(255,255,255,0.32);font-family:var(--sans);
-}
-.hero-scroll-track{
-  width:1px;height:42px;background:rgba(196,150,58,0.2);
-  position:relative;overflow:hidden;
-}
-.hero-scroll-track::after{
-  content:'';position:absolute;top:-100%;left:0;width:100%;height:50%;
-  background:linear-gradient(to bottom,transparent,rgba(196,150,58,0.85),transparent);
-  animation:scrollDrop 2.2s cubic-bezier(0.4,0,0.6,1) 2s infinite;
-}
+.hero-btns{display:flex;gap:0.9rem;flex-wrap:wrap;justify-content:center;margin-top:0.4rem}
+
+/* ── Buttons (shared) ── */
 .btn-primary{
   background:var(--sage-dark);color:white;
   padding:13px 30px;border-radius:5px;text-decoration:none;
@@ -768,52 +686,25 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
   <a href="#booking" onclick="closeMobile()" style="color:var(--sage-dark);font-weight:600">Book Direct ↓</a>
 </div>
 
-<!-- ══ HERO — Static, elegant, no slideshow ══ -->
+<!-- ══ HERO — Slim solid-sage banner ══ -->
 <div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-star">★★★★★</span>
       Airbnb Superhost &nbsp;·&nbsp; 4.9 · 88 Reviews &nbsp;·&nbsp; North Saanich, BC
     </div>
-    <div class="hero-ornament">
-      <div class="hero-ornament-line"></div>
-      <div class="hero-ornament-dot"></div>
-      <div class="hero-ornament-diamond"></div>
-      <div class="hero-ornament-dot"></div>
-      <div class="hero-ornament-line"></div>
-    </div>
-    <h1>New Bright Modern<br><em>Farm Oasis</em></h1>
-    <div class="hero-ornament hero-ornament-b">
-      <div class="hero-ornament-line"></div>
-      <div class="hero-ornament-dot"></div>
-      <div class="hero-ornament-diamond"></div>
-      <div class="hero-ornament-dot"></div>
-      <div class="hero-ornament-line"></div>
-    </div>
-    <p class="hero-sub">Farm views, beach steps away. 2 bedrooms + loft, private entrance. Minutes from Victoria Airport, Butchart Gardens &amp; BC Ferries.</p>
+    <h1>New Bright Modern <em>Farm Oasis</em></h1>
+    <p class="hero-sub">Two beautiful stays on one serene farm property. Steps to Pat Bay Beach, minutes to Victoria Airport, Butchart Gardens &amp; BC Ferries.</p>
     <div class="hero-btns">
       <a href="#booking" class="btn-primary">Book Direct &amp; Save</a>
       <a href="#gallery" class="btn-outline">View Photos</a>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <span class="hero-scroll-label">Discover</span>
-    <div class="hero-scroll-track"></div>
   </div>
 </div>
 
 <!-- ══ STATS BAR ══ -->
 <div class="stats-bar">
   <div class="stats-bar-inner">
-    <div class="stat"><strong>2 Bedrooms</strong>&nbsp;+ Loft</div>
-    <div class="stat-sep"></div>
-    <div class="stat">2 Bathrooms + <strong>Powder Room</strong></div>
-    <div class="stat-sep"></div>
-    <div class="stat"><strong>6</strong>&nbsp;Guests max</div>
-    <div class="stat-sep"></div>
     <div class="stat">✈️ <strong>3 min</strong>&nbsp;to YYJ Airport</div>
     <div class="stat-sep"></div>
     <div class="stat">🏖️ <strong>Steps</strong>&nbsp;to Pat Bay Beach</div>
