@@ -77,6 +77,7 @@
         "addressCountry":"CA"
       },
       "geo":{"@type":"GeoCoordinates","latitude":48.65,"longitude":-123.41},
+      "priceRange":"$1,000–$1,250 CAD/night",
       "numberOfRooms":4,
       "numberOfBedrooms":4,
       "numberOfBathroomsTotal":5.5,
@@ -469,6 +470,7 @@ section{padding:5rem 2rem}
 ══════════════════════════════════════════ */
 .pricing-section{background:var(--white)}
 .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;margin-top:2.5rem}
+.pricing-sub{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--charcoal);margin-bottom:0.2rem}
 .price-card{border:1px solid var(--border);border-radius:8px;padding:1.75rem;text-align:center;position:relative;transition:border-color 0.2s}
 .price-card:hover{border-color:var(--sage)}
 .price-card.featured{border:2px solid var(--sage-dark)}
@@ -1141,7 +1143,10 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <div class="eyebrow">Transparent Pricing</div>
     <h2 class="section-title">Rates &amp; Policies</h2>
     <div class="rule"></div>
-    <div class="pricing-grid">
+    <!-- ── Listing 1: The Suite ── -->
+    <div class="eyebrow" style="margin-top:1.25rem">Listing 1 &middot; 2BR + Loft Suite</div>
+    <h3 class="pricing-sub">The Suite</h3>
+    <div class="pricing-grid" style="margin-top:1.25rem">
       <div class="price-card">
         <div class="price-label">Nightly Rate</div>
         <div class="price-amount"><sup>$</sup>390</div>
@@ -1179,10 +1184,51 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       </div>
     </div>
 
+    <!-- ── Listing 2: The Smart Home ── -->
+    <div class="eyebrow" style="margin-top:3rem">Listing 2 &middot; 4BR Solar Smart Home</div>
+    <h3 class="pricing-sub">The Smart Home</h3>
+    <div class="pricing-grid" style="margin-top:1.25rem">
+      <div class="price-card">
+        <div class="price-label">Nightly Rate</div>
+        <div class="price-amount"><sup>$</sup>1,250</div>
+        <div class="price-per">per night · CAD</div>
+        <div class="price-fees">
+          <div class="price-fee-row"><span>Cleaning fee (one-time)</span><strong>$175</strong></div>
+          <div class="price-fee-row"><span>Check-in</span><strong>3:00 PM</strong></div>
+          <div class="price-fee-row"><span>Check-out</span><strong>10:00 AM</strong></div>
+          <div class="price-fee-row"><span>Max guests</span><strong>8</strong></div>
+        </div>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Best Value — 7+ Nights</div>
+        <div class="price-label">Weekly Stay</div>
+        <div class="price-amount"><sup>$</sup>1,125</div>
+        <div class="price-per">per night · 10% off</div>
+        <div class="price-save">Save $875 per week</div>
+        <div class="price-fees">
+          <div class="price-fee-row"><span>7 nights subtotal</span><strong>$7,875</strong></div>
+          <div class="price-fee-row"><span>+ Cleaning fee</span><strong>$175</strong></div>
+          <div class="price-fee-row"><span>Total for 7 nights</span><strong>$8,050</strong></div>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-badge" style="background:var(--gold)">Best Rate — 28+ Nights</div>
+        <div class="price-label">Monthly Stay</div>
+        <div class="price-amount"><sup>$</sup>1,000</div>
+        <div class="price-per">per night · 20% off</div>
+        <div class="price-save">Save $7,500+ per month</div>
+        <div class="price-fees">
+          <div class="price-fee-row"><span>30 nights subtotal</span><strong>$30,000</strong></div>
+          <div class="price-fee-row"><span>+ Cleaning fee</span><strong>$175</strong></div>
+          <div class="price-fee-row"><span>Total for 30 nights</span><strong>$30,175</strong></div>
+        </div>
+      </div>
+    </div>
+
     <h3 style="font-family:var(--serif);font-size:1.55rem;font-weight:400;margin-top:3.5rem;margin-bottom:0.4rem">House Rules</h3>
     <div class="rule"></div>
     <div class="rules-grid">
-      <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Families &amp; Groups</div><div class="rule-note">Up to 6 guests welcome</div></div>
+      <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Families &amp; Groups</div><div class="rule-note">Up to 6 (Suite) or 8 (Smart Home)</div></div>
       <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Self Check-in</div><div class="rule-note">Private entrance, flexible arrival</div></div>
       <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Long Stays Welcome</div><div class="rule-note">Weekly &amp; monthly discounts</div></div>
       <div class="rule-card rule-no"><span class="rule-icon">✗</span><div class="rule-name">No Pets</div><div class="rule-note">Cannot accommodate pets</div></div>
@@ -1237,6 +1283,12 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <input type="hidden" name="_cc" value="jessicawerk@telus.net">
       <input type="hidden" name="_subject" value="New Booking Inquiry - Modern Farm Oasis">
 
+      <div class="fg full"><label for="bProperty">Which property?</label>
+        <select name="property" id="bProperty" onchange="onPropertyChange()">
+          <option value="suite">The Suite — 2BR + Loft (max 6)</option>
+          <option value="smarthome">The Smart Home — 4BR (max 8)</option>
+        </select>
+      </div>
       <div class="fg"><label for="bIn">Check-in Date</label><input type="date" name="checkin" id="bIn" onchange="calcPrice()" required></div>
       <div class="fg"><label for="bOut">Check-out Date</label><input type="date" name="checkout" id="bOut" onchange="calcPrice()" required></div>
       <div class="fg"><label for="bGuests">Guests</label>
@@ -1256,7 +1308,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         <div style="font-size:12.5px;font-weight:600;color:white;margin-bottom:9px">Price Estimate</div>
         <div class="pp-row"><span id="ppNights">Nightly rate</span><span id="ppNightsAmt"></span></div>
         <div class="pp-row pp-disc" id="ppDiscRow" style="display:none"><span id="ppDiscLabel">Discount</span><span id="ppDiscAmt"></span></div>
-        <div class="pp-row"><span>Cleaning fee (one-time)</span><span>$150 CAD</span></div>
+        <div class="pp-row"><span>Cleaning fee (one-time)</span><span id="ppCleanAmt">$150 CAD</span></div>
         <div class="pp-row pp-total"><span>Estimated Total</span><span id="ppTotal"></span></div>
       </div>
       <div class="etx-box" id="etxBox">
@@ -1279,7 +1331,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <div class="footer-name">New Bright Modern Farm Oasis</div>
       <div class="footer-loc">North Saanich, BC · Canada</div>
       <p>Airbnb Superhost-rated suite with farm views and beach access. 2 bedrooms + loft, 2 bathrooms + powder room. Steps from Pat Bay Beach. Minutes to Victoria Airport, Butchart Gardens &amp; BC Ferries.</p>
-      <p style="margin-top:0.75rem;font-size:11px;color:rgba(255,255,255,0.28)">Check-in 3:00 PM · Check-out 10:00 AM · Max 6 guests · No pets, smoking or vaping</p>
+      <p style="margin-top:0.75rem;font-size:11px;color:rgba(255,255,255,0.28)">Check-in 3:00 PM · Check-out 10:00 AM · Two rental suites · Up to 6 or 8 guests · No pets, smoking or vaping</p>
     </div>
     <div class="footer-col">
       <h4>The Suite</h4>
@@ -1387,25 +1439,45 @@ document.addEventListener('keydown',e=>{
 });
 document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLb()});
 
-/* ── PRICE CALCULATOR ── */
+/* ── PRICE CALCULATOR (per property) ── */
+const PRICING={
+  suite:{base:390,clean:150,tiers:[
+    {min:30,rate:285,label:'Monthly discount (25%)'},
+    {min:7,rate:323,label:'Weekly discount (15%)'}]},
+  smarthome:{base:1250,clean:175,tiers:[
+    {min:28,rate:1000,label:'Monthly discount (20%)'},
+    {min:7,rate:1125,label:'Weekly discount (10%)'}]}
+};
 function calcPrice(){
   const ci=document.getElementById('bIn').value;
   const co=document.getElementById('bOut').value;
   if(!ci||!co)return;
   const nights=Math.round((new Date(co)-new Date(ci))/86400000);
   if(nights<=0)return;
-  let rate=390,discLabel='',discAmt=0;
-  if(nights>=30){rate=285;discLabel='Monthly discount (25%)';discAmt=nights*(390-285);}
-  else if(nights>=7){rate=323;discLabel='Weekly discount (15%)';discAmt=nights*(390-323);}
-  const sub=Math.round(nights*rate),total=sub+150;
-  document.getElementById('ppNights').textContent=nights+' night'+(nights>1?'s':'')+' × $'+rate;
+  const pe=document.getElementById('bProperty');
+  const p=PRICING[pe&&pe.value?pe.value:'suite']||PRICING.suite;
+  let rate=p.base,discLabel='',discAmt=0;
+  for(const t of p.tiers){if(nights>=t.min){rate=t.rate;discLabel=t.label;discAmt=nights*(p.base-rate);break;}}
+  const sub=Math.round(nights*rate),total=sub+p.clean;
+  document.getElementById('ppNights').textContent=nights+' night'+(nights>1?'s':'')+' × $'+rate.toLocaleString();
   document.getElementById('ppNightsAmt').textContent='$'+sub.toLocaleString()+' CAD';
   const dr=document.getElementById('ppDiscRow');
   if(discAmt>0){dr.style.display='flex';document.getElementById('ppDiscLabel').textContent=discLabel;document.getElementById('ppDiscAmt').textContent='-$'+Math.round(discAmt).toLocaleString();}
   else dr.style.display='none';
+  document.getElementById('ppCleanAmt').textContent='$'+p.clean.toLocaleString()+' CAD';
   document.getElementById('ppTotal').textContent='$'+total.toLocaleString()+' CAD';
   document.getElementById('pricePreview').style.display='block';
   document.getElementById('etxBox').style.display='block';
+}
+/* Rebuild guest options (Suite 1–6, Smart Home 1–8) when property changes */
+function onPropertyChange(){
+  const max=document.getElementById('bProperty').value==='smarthome'?8:6;
+  const sel=document.getElementById('bGuests');
+  const cur=parseInt(sel.value)||1, keep=Math.min(cur,max);
+  sel.innerHTML='';
+  for(let i=1;i<=max;i++){const lbl=i+(i>1?' guests':' guest');const o=document.createElement('option');o.value=lbl;o.textContent=lbl;sel.appendChild(o);}
+  sel.value=keep+(keep>1?' guests':' guest');
+  calcPrice();
 }
 
 /* ── BOOKING FORM SUBMISSION (Formspree, AJAX) ── */
