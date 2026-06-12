@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Preload hero image for faster LCP -->
+<link rel="preload" as="image" href="https://i.imgur.com/RizYbWh.jpeg" fetchpriority="high">
 
 <meta name="google-site-verification" content="rO23pJtUpddJh-Ff_tb8Mhn9gmcTHkGr_yMFFsFKg_Q" />
 
 <!-- ═══ SEO META ═══ -->
-<title>New Bright Modern Farm Oasis | Bed &amp; Breakfast North Saanich BC | Near Victoria Airport &amp; Butchart Gardens</title>
-<meta name="description" content="Airbnb Superhost B&B in North Saanich, BC. Brand-new 2-bedroom + loft suite, 3 bathrooms, private entrance, farm views. Steps to Pat Bay Beach. 3 min to Victoria Airport (YYJ), 10 min BC Ferries, 15 min Butchart Gardens. Book direct and save.">
+<title>Farm Oasis B&amp;B – North Saanich, BC | Near YYJ Airport</title>
+<meta name="description" content="Airbnb Superhost B&amp;B in North Saanich, BC. New 2-bed + loft suite with farm views, steps to Pat Bay Beach. 3 min to YYJ Airport, 15 min to Butchart Gardens.">
 <meta name="keywords" content="North Saanich bed and breakfast, Victoria airport accommodation YYJ, Butchart Gardens lodging BC, Sidney BC vacation rental, Pat Bay Beach accommodation, BC Ferries Swartz Bay B&B, Saanich Peninsula bed and breakfast, farm stay North Saanich, North Saanich suite rental, bed and breakfast near Victoria airport BC">
 <meta name="robots" content="index, follow">
 <meta name="author" content="New Bright Modern Farm Oasis">
@@ -20,6 +22,14 @@
 <meta property="og:description" content="2-bed + loft farm suite. Beach steps away, 3 min to YYJ airport, 15 min to Butchart Gardens. 88 five-star reviews. Book direct.">
 <meta property="og:image" content="https://i.imgur.com/RizYbWh.jpeg">
 <meta property="og:url" content="https://victoriabnb.github.io/farm-oasis/">
+<meta property="og:image:width" content="480">
+<meta property="og:image:height" content="421">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Farm Oasis B&amp;B – North Saanich, BC">
+<meta name="twitter:description" content="Farm Oasis B&amp;B – Superhost-rated 2-bed + loft suite with farm views. Steps to Pat Bay Beach, 3 min to YYJ Airport, 15 min to Butchart Gardens.">
+<meta name="twitter:image" content="https://i.imgur.com/RizYbWh.jpeg">
 
 <!-- Schema.org structured data for SEO -->
 <script type="application/ld+json">
@@ -28,7 +38,7 @@
   "@type":"BedAndBreakfast",
   "name":"New Bright Modern Farm Oasis",
   "description":"Airbnb Superhost-rated 2-bedroom + loft B&B suite in North Saanich, BC. Farm views, beach access, private entrance.",
-  "url":"https://farmoasis.ca/",
+  "url":"https://victoriabnb.github.io/farm-oasis/",
   "image":"https://i.imgur.com/RizYbWh.jpeg",
   "address":{
     "@type":"PostalAddress",
@@ -38,7 +48,7 @@
     "addressCountry":"CA"
   },
   "geo":{"@type":"GeoCoordinates","latitude":48.65,"longitude":-123.41},
-  "priceRange":"$390–$530 CAD/night",
+  "priceRange":"$285–$390 CAD/night",
   "numberOfRooms":3,
   "amenityFeature":[
     {"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},
@@ -155,50 +165,114 @@ img{display:block;max-width:100%}
 .mobile-menu a:last-child{border-bottom:none}
 
 /* ══════════════════════════════════════════
-   HERO — static, non-sliding, rich background
+   HERO — Luxury Rustic
 ══════════════════════════════════════════ */
+@keyframes kbZoom{
+  0%{transform:scale(1.0)}
+  100%{transform:scale(1.1)}
+}
+@keyframes heroReveal{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes scrollDrop{
+  0%{top:-100%}
+  100%{top:200%}
+}
 .hero{
-  position:relative;height:56vh;min-height:380px;max-height:560px;
+  position:relative;height:88vh;min-height:560px;max-height:920px;
   overflow:hidden;display:flex;align-items:center;justify-content:center;
-  background:#1a2e1c; /* deep green fallback */
+  background:#0d1a0e;
 }
 .hero-bg{
-  position:absolute;inset:0;
+  position:absolute;inset:-7%;
   background-image:url('https://i.imgur.com/RizYbWh.jpeg');
-  background-size:cover;background-position:center 30%;
-  filter:brightness(0.72) saturate(1.1);
-  transform:scale(1.03);
-  transition:transform 8s ease;
+  background-size:cover;background-position:center 28%;
+  filter:brightness(0.58) saturate(1.2);
+  animation:kbZoom 24s ease-in-out infinite alternate;
+  will-change:transform;
 }
-.hero:hover .hero-bg{transform:scale(1.06)}
+.hero-grain{
+  position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.038;
+  background-image:url("data:image/svg+xml,<svg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size:220px 220px;
+}
 .hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(160deg,rgba(15,30,16,0.6) 0%,rgba(15,30,16,0.25) 50%,rgba(15,30,16,0.55) 100%);
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(180deg,rgba(8,18,9,0.74) 0%,rgba(8,18,9,0.18) 40%,rgba(8,18,9,0.64) 100%),
+    radial-gradient(ellipse 80% 55% at 50% 62%,rgba(170,125,40,0.11) 0%,transparent 70%);
 }
 .hero-content{
   position:relative;z-index:2;text-align:center;
-  max-width:800px;padding:0 2rem;
+  max-width:780px;padding:0 2rem;
+  display:flex;flex-direction:column;align-items:center;
 }
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.3);
-  color:rgba(255,255,255,0.93);font-size:11px;letter-spacing:1.8px;text-transform:uppercase;
-  padding:7px 18px;border-radius:20px;margin-bottom:1.4rem;
-  backdrop-filter:blur(6px);
+  display:inline-flex;align-items:center;gap:14px;
+  color:rgba(205,172,108,0.88);font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  font-family:var(--sans);font-weight:400;margin-bottom:1.5rem;
+  background:none;border:none;backdrop-filter:none;padding:0;border-radius:0;
+  animation:heroReveal 1.1s 0.1s ease both;
 }
-.hero-eyebrow-star{color:#FFD700;letter-spacing:2px}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:'';display:block;width:28px;height:1px;
+  background:rgba(196,150,58,0.45);
+}
+.hero-eyebrow-star{color:#B8882E;letter-spacing:3px;font-size:9px}
+.hero-ornament{
+  display:flex;align-items:center;gap:10px;
+  width:100%;max-width:340px;margin:0.9rem 0;
+  animation:heroReveal 1.1s 0.35s ease both;
+}
+.hero-ornament-b{animation-delay:0.65s}
+.hero-ornament-line{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(196,150,58,0.38),transparent);
+}
+.hero-ornament-diamond{
+  width:6px;height:6px;border:1px solid rgba(196,150,58,0.6);
+  transform:rotate(45deg);flex-shrink:0;
+}
+.hero-ornament-dot{
+  width:2.5px;height:2.5px;border-radius:50%;
+  background:rgba(196,150,58,0.48);flex-shrink:0;
+}
 .hero h1{
-  font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,4.2rem);
-  color:white;font-weight:300;line-height:1.1;
-  margin-bottom:1rem;letter-spacing:-0.3px;
-  text-shadow:0 2px 40px rgba(0,0,0,0.3);
+  font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.5rem);
+  color:white;font-weight:300;line-height:1.04;letter-spacing:-0.5px;
+  text-shadow:0 2px 70px rgba(0,0,0,0.45);margin:0;
+  animation:heroReveal 1.1s 0.5s ease both;
 }
-.hero h1 em{font-style:italic;color:rgba(255,255,255,0.88)}
+.hero h1 em{font-style:italic;color:rgba(240,215,162,0.95);display:block}
 .hero-sub{
-  font-size:15px;color:rgba(255,255,255,0.82);
-  margin-bottom:2rem;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto;
+  font-size:14px;color:rgba(255,255,255,0.65);
+  line-height:1.82;max-width:450px;font-weight:300;letter-spacing:0.1px;
+  margin-top:0.6rem;
+  animation:heroReveal 1.1s 0.78s ease both;
 }
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.hero-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2.2rem;
+  animation:heroReveal 1.1s 0.98s ease both;
+}
+.hero-scroll{
+  position:absolute;bottom:2.8rem;left:50%;transform:translateX(-50%);
+  z-index:3;display:flex;flex-direction:column;align-items:center;gap:7px;
+  animation:heroReveal 1.1s 1.3s ease both;
+}
+.hero-scroll-label{
+  font-size:8px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(255,255,255,0.32);font-family:var(--sans);
+}
+.hero-scroll-track{
+  width:1px;height:42px;background:rgba(196,150,58,0.2);
+  position:relative;overflow:hidden;
+}
+.hero-scroll-track::after{
+  content:'';position:absolute;top:-100%;left:0;width:100%;height:50%;
+  background:linear-gradient(to bottom,transparent,rgba(196,150,58,0.85),transparent);
+  animation:scrollDrop 2.2s cubic-bezier(0.4,0,0.6,1) 2s infinite;
+}
 .btn-primary{
   background:var(--sage-dark);color:white;
   padding:13px 30px;border-radius:5px;text-decoration:none;
@@ -531,7 +605,6 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 .footer-col a{color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s}
 .footer-col a:hover{color:white}
 .footer-bottom{max-width:1280px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
-.footer-seo{font-size:10px;color:rgba(255,255,255,0.18)}
 
 /* ══════════════════════════════════════════
    LIGHTBOX
@@ -579,6 +652,13 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
   .rules-grid{grid-template-columns:1fr 1fr}
   .tiles-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* ════════════════════════════════════════════
+   TOUCH TARGET SIZING (invisible hit-area expansion)
+════════════════════════════════════════════ */
+.gtab{position:relative}
+.gtab::after{content:'';position:absolute;inset:-7px}
+.hamburger{position:relative}
+.hamburger::before{content:'';position:absolute;inset:-4px}
 </style>
 </head>
 <body>
@@ -618,7 +698,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="menuClose">×</button>
+  <button class="mobile-close" id="menuClose" aria-label="Close menu">×</button>
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#gallery" onclick="closeMobile()">Photos</a>
   <a href="#reviews" onclick="closeMobile()">Reviews</a>
@@ -632,18 +712,37 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 <!-- ══ HERO — Static, elegant, no slideshow ══ -->
 <div class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-star">★★★★★</span>
       Airbnb Superhost &nbsp;·&nbsp; 4.9 · 88 Reviews &nbsp;·&nbsp; North Saanich, BC
     </div>
+    <div class="hero-ornament">
+      <div class="hero-ornament-line"></div>
+      <div class="hero-ornament-dot"></div>
+      <div class="hero-ornament-diamond"></div>
+      <div class="hero-ornament-dot"></div>
+      <div class="hero-ornament-line"></div>
+    </div>
     <h1>New Bright Modern<br><em>Farm Oasis</em></h1>
+    <div class="hero-ornament hero-ornament-b">
+      <div class="hero-ornament-line"></div>
+      <div class="hero-ornament-dot"></div>
+      <div class="hero-ornament-diamond"></div>
+      <div class="hero-ornament-dot"></div>
+      <div class="hero-ornament-line"></div>
+    </div>
     <p class="hero-sub">Farm views, beach steps away. 2 bedrooms + loft, private entrance. Minutes from Victoria Airport, Butchart Gardens &amp; BC Ferries.</p>
     <div class="hero-btns">
-      <a href="#booking" class="btn-primary">📅 Book Direct &amp; Save</a>
+      <a href="#booking" class="btn-primary">Book Direct &amp; Save</a>
       <a href="#gallery" class="btn-outline">View Photos</a>
     </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="hero-scroll-label">Discover</span>
+    <div class="hero-scroll-track"></div>
   </div>
 </div>
 
@@ -849,8 +948,8 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     </div>
     <div>
       <ul class="dist-list">
-        <li class="dist-item"><a href="https://www.victoriaairport.com/" target="_blank" rel="noopener">✈️ &nbsp;Victoria Airport (YYJ)</a><span class="dist-time">2 min drive</span></li>
-	<li class="dist-item"><a href="https://share.google/wbha6LIpyqGbepPtW" target="_blank" rel="noopener">🏖️ &nbsp;Pat Bay Beach</a><span class="dist-time">2 min walk</span></li>
+        <li class="dist-item"><a href="https://www.victoriaairport.com/" target="_blank" rel="noopener">✈️ &nbsp;Victoria Airport (YYJ)</a><span class="dist-time">3 min drive</span></li>
+	<li class="dist-item"><a href="https://www.google.com/maps/search/?api=1&query=Patricia+Bay+Beach+North+Saanich+BC" target="_blank" rel="noopener">🏖️ &nbsp;Pat Bay Beach</a><span class="dist-time">2 min walk</span></li>
         <li class="dist-item"><a href="https://www.sidney.ca/" target="_blank" rel="noopener">🏘️ &nbsp;Sidney, BC</a><span class="dist-time">5 min drive</span></li>
         <li class="dist-item"><a href="https://www.bcferries.com/" target="_blank" rel="noopener">⛴️ &nbsp;BC Ferries — Swartz Bay</a><span class="dist-time">10 min drive</span></li>
         <li class="dist-item"><a href="https://www.butchartgardens.com/" target="_blank" rel="noopener">🌸 &nbsp;Butchart Gardens</a><span class="dist-time">15 min drive</span></li>
@@ -883,91 +982,91 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <div class="reviews-scroll" id="reviewScroll">
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/cW1o4YX.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/cW1o4YX.jpeg" alt="Review — Kristen, Tulsa OK" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/cW1o4YXl.jpeg" alt="Review — Kristen, Tulsa OK" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">K</div><div><div class="rev-name">Kristen</div><div class="rev-loc">Tulsa, OK · July 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"The home is amazing — incredibly spacious, new and beautiful. The land it's on is gorgeous. By proximity, very close to the airport and ferry. This is one of our top Airbnb experiences."</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/GTDZE9N.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/GTDZE9N.jpeg" alt="Review — Joanna, Vancouver BC" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/GTDZE9Nl.jpeg" alt="Review — Joanna, Vancouver BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">J</div><div><div class="rev-name">Joanna</div><div class="rev-loc">Vancouver, BC · Aug 2024</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"'Bright Modern Farm Oasis' is a perfect description. Wonderful for a vacation with a day at Butchart Gardens. The master bath shower is as luxurious as it looks in the pictures."</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/ZBvZhy9.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/ZBvZhy9.jpeg" alt="Review — Sachin, Mumbai India" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/ZBvZhy9l.jpeg" alt="Review — Sachin, Mumbai India" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">S</div><div><div class="rev-name">Sachin</div><div class="rev-loc">Mumbai, India · Mar 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Jessica was an exceptional host, and the property was absolutely stunning. Meticulously equipped and designed for incredible comfort. We will undoubtedly return. Thank you, Jessica and Ryan!"</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/YklNWys.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/YklNWys.jpeg" alt="Review — Denise, Penticton BC" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/YklNWysl.jpeg" alt="Review — Denise, Penticton BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">D</div><div><div class="rev-name">Denise</div><div class="rev-loc">Penticton, BC · Oct 2024</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Jessica's home is absolutely beautiful! The high ceilings and large windows bring the amazing surroundings to life. Comfortable beds and fresh linen. Will definitely book again!"</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/GfBhcX6.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/GfBhcX6.jpeg" alt="Review — Nancy, Vancouver BC" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/GfBhcX6l.jpeg" alt="Review — Nancy, Vancouver BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">N</div><div><div class="rev-name">Nancy</div><div class="rev-loc">Vancouver, BC · Aug 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"It's a peaceful and idyllic property. Loved the deer, the chickens, the neighbours' cows and watching airplanes. The owners were so thoughtful in building their dream home and sharing it!"</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/LpLx7NJ.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/LpLx7NJ.jpeg" alt="Review — Haley, Boston MA" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/LpLx7NJl.jpeg" alt="Review — Haley, Boston MA" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">H</div><div><div class="rev-name">Haley</div><div class="rev-loc">Boston, MA · Apr 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"This property was exceptionally beautiful and comfortable. We loved waking up to the chickens and a family of deer on the horizon. 100% would stay here again if visiting the islands."</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/G1sGPu5.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/G1sGPu5.jpeg" alt="Review — Annik, Seattle WA" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/G1sGPu5l.jpeg" alt="Review — Annik, Seattle WA" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">A</div><div><div class="rev-name">Annik</div><div class="rev-loc">Seattle, WA · June 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Beautiful brand new modern farmhouse with sweeping valley views from the back patio. Very spacious and clean inside. Comfortable beds, linens, and plush towels. Quick drive to local markets."</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/Di4DQc8.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/Di4DQc8.jpeg" alt="Review — Amanda, Oct 2025" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/Di4DQc8l.jpeg" alt="Review — Amanda, Oct 2025" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">A</div><div><div class="rev-name">Amanda</div><div class="rev-loc">Oct 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"We had a wonderful stay. The house was bright with beautiful views of the countryside. The shower was a hit — big enough for all five of us! Beds were very comfortable."</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/DczGuLL.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/DczGuLL.jpeg" alt="Review — Laura, Omaha NE" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/DczGuLLl.jpeg" alt="Review — Laura, Omaha NE" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">L</div><div><div class="rev-name">Laura</div><div class="rev-loc">Omaha, NE · Nov 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Beautiful home with amazing views! Pristine condition, we truly felt like we were on an amazing retreat! So peaceful and yet close to many things. Jessica was very helpful and responsive!"</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/ISHYivc.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/ISHYivc.jpeg" alt="Review — Jared, Kaysville UT" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/ISHYivcl.jpeg" alt="Review — Jared, Kaysville UT" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">J</div><div><div class="rev-name">Jared</div><div class="rev-loc">Kaysville, UT · Apr 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Absolutely beautiful location, with a home to match. Jessica was great to work with and reached out to make sure things were going smoothly. Will definitely stay here again."</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/4KPV0Ce.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/4KPV0Ce.jpeg" alt="Review — Keeley, Surrey BC" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/4KPV0Cel.jpeg" alt="Review — Keeley, Surrey BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">K</div><div><div class="rev-name">Keeley</div><div class="rev-loc">Surrey, BC · Apr 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"So much space and gorgeous! Was perfect for our family of 5, great location and so beautiful."</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/5KOGgNq.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/5KOGgNq.jpeg" alt="Review — Kyra, St. Albert AB" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/5KOGgNql.jpeg" alt="Review — Kyra, St. Albert AB" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">K</div><div><div class="rev-name">Kyra</div><div class="rev-loc">St. Albert, AB · Oct 2024</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"The bright, modern, very clean farm house was beautiful and peaceful. The kitchen is well stocked. We enjoyed coffee on the back patio watching the cows graze on the neighbouring hill."</div>
       </div>
 
       <div class="rev-card" onclick="openRevLb('https://i.imgur.com/d6iqT7B.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/d6iqT7B.jpeg" alt="Review — Sophie, Vancouver BC" loading="lazy"></div>
+        <div class="rev-thumb"><img src="https://i.imgur.com/d6iqT7Bl.jpeg" alt="Review — Sophie, Vancouver BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">S</div><div><div class="rev-name">Sophie</div><div class="rev-loc">Vancouver, BC · Sep 2024</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"We were so impressed! Absolutely beautiful, modern home with a lovely patio overlooking farmland. My husband and I stayed with our 2 adult sons — plenty of room for all. Highly recommend!"</div>
@@ -1057,7 +1156,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <iframe
         src="https://calendar.google.com/calendar/embed?src=modernfarmoasisbNb@gmail.com&ctz=America%2FVancouver&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&mode=MONTH&color=%233D5E41"
         style="border:0;width:100%;height:520px;display:block"
-        frameborder="0" scrolling="no"
+        frameborder="0" scrolling="no" loading="lazy"
         title="Farm Oasis Availability Calendar — North Saanich BC">
       </iframe>
     </div>
@@ -1076,24 +1175,23 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <p class="booking-intro">Fill in your details and we'll confirm availability and send e-transfer payment instructions within a few hours. No platform fees when you book direct. Credit card payments coming soon.</p>
     
     <form id="bookingForm" action="https://formspree.io/f/mvzdaryl" method="POST" class="bform">
-      
+
       <!-- Hidden fields so both you and Jessica get the email -->
       <input type="hidden" name="_cc" value="jessicawerk@telus.net">
       <input type="hidden" name="_subject" value="New Booking Inquiry - Modern Farm Oasis">
-      <input type="hidden" name="_next" value="#booking"> 
 
-      <div class="fg"><label>Check-in Date</label><input type="date" name="checkin" id="bIn" onchange="calcPrice()" required></div>
-      <div class="fg"><label>Check-out Date</label><input type="date" name="checkout" id="bOut" onchange="calcPrice()" required></div>
-      <div class="fg"><label>Guests</label>
+      <div class="fg"><label for="bIn">Check-in Date</label><input type="date" name="checkin" id="bIn" onchange="calcPrice()" required></div>
+      <div class="fg"><label for="bOut">Check-out Date</label><input type="date" name="checkout" id="bOut" onchange="calcPrice()" required></div>
+      <div class="fg"><label for="bGuests">Guests</label>
         <select name="guests" id="bGuests">
           <option>1 guest</option><option>2 guests</option><option>3 guests</option>
           <option>4 guests</option><option>5 guests</option><option>6 guests</option>
         </select>
       </div>
-      <div class="fg"><label>Full Name</label><input type="text" name="name" id="bName" placeholder="Your full name" required></div>
-      <div class="fg"><label>Email Address</label><input type="email" name="email" id="bEmail" placeholder="your@email.com" required></div>
-      <div class="fg"><label>Phone (optional)</label><input type="tel" name="phone" id="bPhone" placeholder="+1 (250) 555-0000"></div>
-      <div class="fg full"><label>Message / Special Requests</label>
+      <div class="fg"><label for="bName">Full Name</label><input type="text" name="name" id="bName" placeholder="Your full name" required></div>
+      <div class="fg"><label for="bEmail">Email Address</label><input type="email" name="email" id="bEmail" placeholder="your@email.com" required></div>
+      <div class="fg"><label for="bPhone">Phone (optional)</label><input type="tel" name="phone" id="bPhone" placeholder="+1 (250) 555-0000"></div>
+      <div class="fg full"><label for="bMsg">Message / Special Requests</label>
         <textarea name="message" id="bMsg" rows="3" placeholder="Any questions, special requests, or trip details?"></textarea>
       </div>
 
@@ -1156,20 +1254,19 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     </div>
   </div>
   <div class="footer-bottom">
-	  <p style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:0.5rem">
+<p style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:0.5rem">
   🔒 Privacy: We use your information only to process your booking and will never share your data with third parties.
 </p>
     <span>© 2025 New Bright Modern Farm Oasis · North Saanich, BC</span>
-    <span class="footer-seo">North Saanich bed and breakfast · Victoria airport accommodation YYJ · Butchart Gardens lodging BC · Sidney BC vacation rental · Pat Bay Beach rental · Saanich Peninsula B&B · BC Ferries Swartz Bay accommodation</span>
   </div>
 </footer>
 
 <!-- ══ LIGHTBOX ══ -->
 <div class="lb" id="lightbox">
-  <button class="lb-close" onclick="closeLb()">×</button>
-  <button class="lb-arrow" id="lbPrev">&#8592;</button>
+  <button class="lb-close" onclick="closeLb()" aria-label="Close image viewer">×</button>
+  <button class="lb-arrow" id="lbPrev" aria-label="Previous image">&#8592;</button>
   <img class="lb-img" id="lbImg" src="" alt="">
-  <button class="lb-arrow" id="lbNext">&#8594;</button>
+  <button class="lb-arrow" id="lbNext" aria-label="Next image">&#8594;</button>
   <div class="lb-counter" id="lbCounter"></div>
 </div>
 
@@ -1193,7 +1290,7 @@ function filterGal(cat,btn){
 let lbImgs=[],lbIdx=0;
 function openLb(el){
   const vis=[...document.querySelectorAll('.gitem')].filter(e=>e.style.display!=='none');
-  lbImgs=vis.map(e=>e.dataset.src);
+  lbImgs=vis.map(e=>({src:e.dataset.src,alt:e.querySelector('img').alt}));
   lbIdx=vis.indexOf(el);
   showLb();
   document.getElementById('lightbox').classList.add('open');
@@ -1201,13 +1298,20 @@ function openLb(el){
 }
 /* ── LIGHTBOX (review screenshot) ── */
 function openRevLb(src){
-  lbImgs=[src];lbIdx=0;
+  let alt='Guest review screenshot';
+  const m=src.match(/\/([A-Za-z0-9]+)\.[a-z]+$/i);
+  if(m){
+    const thumb=document.querySelector('.rev-thumb img[src*="'+m[1]+'"]');
+    if(thumb) alt=thumb.alt;
+  }
+  lbImgs=[{src:src,alt:alt}];lbIdx=0;
   showLb();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
 }
 function showLb(){
-  document.getElementById('lbImg').src=lbImgs[lbIdx];
+  document.getElementById('lbImg').src=lbImgs[lbIdx].src;
+  document.getElementById('lbImg').alt=lbImgs[lbIdx].alt;
   document.getElementById('lbCounter').textContent=(lbIdx+1)+' / '+lbImgs.length;
 }
 function closeLb(){
@@ -1245,16 +1349,37 @@ function calcPrice(){
   document.getElementById('etxBox').style.display='block';
 }
 
-/* ── BOOKING FORM SUBMISSION (Formspree) ── */
+/* ── BOOKING FORM SUBMISSION (Formspree, AJAX) ── */
 const bookingForm = document.getElementById('bookingForm');
 
-bookingForm.addEventListener('submit', function() {
-  // Formspree will handle the actual sending
-  // Show success message after submission
-  setTimeout(() => {
-    document.getElementById('submitOk').style.display = 'block';
-    document.getElementById('submitOk').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }, 800); // small delay so user sees the form submit
+bookingForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  const submitBtn = bookingForm.querySelector('.submit-btn');
+  const originalBtnText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  fetch(bookingForm.action, {
+    method: 'POST',
+    body: new FormData(bookingForm),
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      bookingForm.reset();
+      document.getElementById('pricePreview').style.display = 'none';
+      document.getElementById('etxBox').style.display = 'none';
+      submitBtn.style.display = 'none';
+      const ok = document.getElementById('submitOk');
+      ok.style.display = 'block';
+      ok.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      throw new Error('Submission failed');
+    }
+  }).catch(() => {
+    alert('Sorry, something went wrong sending your inquiry. Please try again, or email us directly.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
+  });
 });
 
 /* ── TOUCH SWIPE — reviews ── */
@@ -1265,6 +1390,34 @@ rs.addEventListener('touchend',e=>{
   const diff=tsX-e.changedTouches[0].clientX;
   if(Math.abs(diff)>40)rs.scrollBy({left:diff>0?250:-250,behavior:'smooth'});
 },{passive:true});
+/* ── ACCESSIBILITY: keyboard support for gallery & review cards ── */
+document.querySelectorAll('.gitem').forEach(el=>{
+  el.setAttribute('role','button');
+  el.setAttribute('tabindex','0');
+  const img=el.querySelector('img');
+  el.setAttribute('aria-label','View larger photo: '+(img?img.alt:'gallery image'));
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}
+  });
+});
+document.querySelectorAll('.rev-card').forEach(el=>{
+  el.setAttribute('role','button');
+  el.setAttribute('tabindex','0');
+  const name=el.querySelector('.rev-name');
+  el.setAttribute('aria-label','View full review screenshot'+(name?' from '+name.textContent:''));
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}
+  });
+});
+
+/* ── ACCESSIBILITY: decorative icons & star ratings ── */
+document.querySelectorAll('.hero-eyebrow-star, .rating-stars, .am-check, .hl-icon, .tile-icon, .rule-icon, .sh-icon, .cancel-dot, .stat-sep, .sh-div, .gitem-zoom').forEach(el=>{
+  el.setAttribute('aria-hidden','true');
+});
+document.querySelectorAll('.rev-stars').forEach(el=>{
+  el.setAttribute('role','img');
+  el.setAttribute('aria-label','5 out of 5 stars');
+});
 </script>
 </body>
 </html>

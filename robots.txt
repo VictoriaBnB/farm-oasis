@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victoriabnb.github.io/farm-oasis/sitemap.xml
