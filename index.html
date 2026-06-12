@@ -71,7 +71,7 @@
       "name":"Modern Farm Oasis — 4BR Solar Smart Home",
       "description":"4,500 sq ft solar-powered smart home on the same North Saanich property as New Bright Modern Farm Oasis, with 4 bedrooms (each with a private bathroom), open-concept living, and a chef's kitchen that seats 12. Shares the same farm views and beach access.",
       "url":"https://victoriabnb.github.io/farm-oasis/#stays",
-      "image":"https://i.imgur.com/AXktjBd.jpeg",
+      "image":"https://i.imgur.com/lbIYx2V.jpeg",
       "address":{
         "@type":"PostalAddress",
         "streetAddress":"1345 Munro Road",
@@ -434,6 +434,8 @@ section{padding:5rem 2rem}
 .gtab:hover{border-color:var(--sage);color:var(--sage-dark)}
 .gtab.active{background:var(--sage-dark);color:white;border-color:var(--sage-dark)}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:9px}
+.gallery-block{scroll-margin-top:80px}
+.gallery-block + .gallery-block{margin-top:3.25rem;padding-top:3.25rem;border-top:1px solid var(--border)}
 .gitem{overflow:hidden;border-radius:6px;cursor:pointer;aspect-ratio:4/3;position:relative}
 .gitem img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
 .gitem:hover img{transform:scale(1.06)}
@@ -738,7 +740,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     </div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#gallery">Photos</a></li>
+      <li><a href="#gallery-suite">Photos</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#amenities">Amenities</a></li>
       <li><a href="#location">Location</a></li>
@@ -757,7 +759,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="menuClose" aria-label="Close menu">×</button>
   <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#gallery" onclick="closeMobile()">Photos</a>
+  <a href="#gallery-suite" onclick="closeMobile()">Photos</a>
   <a href="#reviews" onclick="closeMobile()">Reviews</a>
   <a href="#amenities" onclick="closeMobile()">Amenities</a>
   <a href="#location" onclick="closeMobile()">Location</a>
@@ -901,10 +903,10 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         <a href="https://airbnb.ca/h/modernfarmoasis" target="_blank" rel="noopener" class="btn-primary stay-link">View on Airbnb &rarr;</a>
       </div>
       <div class="stay-card">
-        <div class="stay-card-img"><img src="https://i.imgur.com/AXktjBd.jpeg" alt="Modern Farm Oasis 4-bedroom solar-powered smart home exterior" loading="lazy"></div>
+        <div class="stay-card-img"><img src="https://i.imgur.com/lbIYx2V.jpeg" alt="Modern Farm Oasis smart home — chef's kitchen with island seating for twelve" loading="lazy"></div>
         <div class="stay-card-eyebrow">Listing 2 &middot; Solar-Powered Smart Home</div>
         <h3 class="stay-card-title">Modern Farm Oasis &mdash; 4BR Smart Home</h3>
-        <p class="stay-card-desc">A 4,500&nbsp;sq&nbsp;ft solar-powered smart home built for family reunions and group getaways, with open-concept living and a chef&rsquo;s kitchen that seats 12. All four bedrooms come with their own private bathroom, and the home is loaded with extras &mdash; gigabit WiFi, a Samsung Frame TV with Sonos sound, a home gym, and a spacious patio with the same farm views. Steps to the beach and wheelchair accessible.</p>
+        <p class="stay-card-desc">A 4,500&nbsp;sq&nbsp;ft solar-powered smart home built for family reunions and group getaways, with open-concept living and a chef&rsquo;s kitchen that seats 12. All four bedrooms come with their own private bathroom, and the home is loaded with extras &mdash; 1.5 gigabit WiFi, a Samsung Frame TV with Sonos sound, a home gym, and a spacious patio with the same farm views. Steps to the beach and wheelchair accessible.</p>
         <div class="stay-stats">
           <div class="stay-stat"><span class="stay-stat-num">4</span><span class="stay-stat-label">Bedrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">5.5</span><span class="stay-stat-label">Bathrooms</span></div>
@@ -931,19 +933,20 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 <!-- ══ GALLERY ══ -->
 <section id="gallery" class="gallery-section">
   <div class="wrap">
-    <div class="eyebrow">Inside the Oasis</div>
-    <h2 class="section-title">Photo Gallery</h2>
-    <div class="rule"></div>
-    <div class="gtabs">
-      <button class="gtab active" onclick="filterGal('all',this)">All Photos</button>
-      <button class="gtab" onclick="filterGal('living',this)">Living &amp; Dining</button>
-      <button class="gtab" onclick="filterGal('bedroom',this)">Bedrooms &amp; Loft</button>
-      <button class="gtab" onclick="filterGal('bath',this)">Bathrooms</button>
-      <button class="gtab" onclick="filterGal('exterior',this)">Exterior &amp; Views</button>
-      <button class="gtab" onclick="filterGal('smarthome',this)">Smart Home (4BR)</button>
-    </div>
-    <div class="gallery-grid" id="galGrid">
-      <!-- Living & Dining -->
+
+    <!-- ── Gallery 1: The Suite ── -->
+    <div class="gallery-block" id="gallery-suite">
+      <div class="eyebrow">Listing 1 &middot; Featured on This Site</div>
+      <h2 class="section-title">The Suite &mdash; 2BR + Loft</h2>
+      <div class="rule"></div>
+      <div class="gtabs">
+        <button class="gtab active" onclick="filterGal('all',this)">All Photos</button>
+        <button class="gtab" onclick="filterGal('living',this)">Living &amp; Dining</button>
+        <button class="gtab" onclick="filterGal('bedroom',this)">Bedrooms &amp; Loft</button>
+        <button class="gtab" onclick="filterGal('bath',this)">Bathrooms</button>
+        <button class="gtab" onclick="filterGal('exterior',this)">Exterior &amp; Views</button>
+      </div>
+      <div class="gallery-grid">
       <div class="gitem" data-cat="living" data-src="https://i.imgur.com/Tt9ujH1.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Tt9ujH1.jpeg" alt="Family room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="living" data-src="https://i.imgur.com/kM27YaV.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/kM27YaV.jpeg" alt="Family room 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="living" data-src="https://i.imgur.com/GAQJLTM.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/GAQJLTM.jpeg" alt="Living area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
@@ -958,45 +961,93 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <div class="gitem" data-cat="living" data-src="https://i.imgur.com/318UZng.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/318UZng.jpeg" alt="Interior" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="living" data-src="https://i.imgur.com/2Qxawpy.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/2Qxawpy.jpeg" alt="Interior 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="living" data-src="https://i.imgur.com/cOfK1J4.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/cOfK1J4.jpeg" alt="Interior detail 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <!-- Bedrooms & Loft -->
       <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/uUns80D.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/uUns80D.jpeg" alt="Master bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/RxmTkol.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/RxmTkol.jpeg" alt="Master bedroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/lopKK7h.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/lopKK7h.jpeg" alt="Bedroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/YYgrnwQ.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/YYgrnwQ.jpeg" alt="Loft — queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <!-- Bathrooms -->
       <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/sy36lPu.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/sy36lPu.jpeg" alt="Master bath — rain shower" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/B6Ovq9u.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/B6Ovq9u.jpeg" alt="Master bath &amp; laundry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/EnBSoAm.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/EnBSoAm.jpeg" alt="Laundry area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/RxbkiBF.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/RxbkiBF.jpeg" alt="Ensuite bathroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/BqGc3kB.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/BqGc3kB.jpeg" alt="Powder room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/dbeBbBU.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/dbeBbBU.jpeg" alt="Powder room 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <!-- Exterior -->
       <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/RizYbWh.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/RizYbWh.jpeg" alt="Exterior farm views" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/cjuB1ui.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/cjuB1ui.jpeg" alt="Exterior entry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/8hScObI.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/8hScObI.jpeg" alt="Pat Bay Beach" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/C1R4G1B.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C1R4G1B.jpeg" alt="Pat Bay Beach sunset" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <!-- Smart Home (Listing 2) -->
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/AXktjBd.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AXktjBd.jpeg" alt="Smart home — solar-powered exterior" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/YGXktQl.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/YGXktQl.jpeg" alt="Smart home — grand entrance foyer" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/xFPKFr9.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/xFPKFr9.jpeg" alt="Smart home — open-concept living room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/OdVNjiq.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OdVNjiq.jpeg" alt="Smart home — living room with Samsung Frame TV" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/1i66pgv.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/1i66pgv.jpeg" alt="Smart home — bright living area with farm views" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/L7Gt1yx.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/L7Gt1yx.jpeg" alt="Smart home — spacious living room seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/lbIYx2V.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/lbIYx2V.jpeg" alt="Smart home — chef's kitchen with island" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/C2NtyGf.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C2NtyGf.jpeg" alt="Smart home — chef's kitchen" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/rwU5OIw.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/rwU5OIw.jpeg" alt="Smart home — kitchen island and bar seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/5nkjA7u.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/5nkjA7u.jpeg" alt="Smart home — dining room seating twelve" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/qiW1VEb.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/qiW1VEb.jpeg" alt="Smart home — master bedroom with king bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/OfW5WLJ.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OfW5WLJ.jpeg" alt="Smart home — master bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/VAc28Sn.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/VAc28Sn.jpeg" alt="Smart home — master ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/OhK4QQE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OhK4QQE.jpeg" alt="Smart home — master ensuite bath and shower" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/KagwPTE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/KagwPTE.jpeg" alt="Smart home — second bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/AYbuw1F.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AYbuw1F.jpeg" alt="Smart home — third bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/ZrFEOcg.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/ZrFEOcg.jpeg" alt="Smart home — fourth bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/M9JvNNO.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/M9JvNNO.jpeg" alt="Smart home — second bedroom ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/CKWhQD2.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/CKWhQD2.jpeg" alt="Smart home — private home gym" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="smarthome" data-src="https://i.imgur.com/Olra7VN.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Olra7VN.jpeg" alt="Smart home — home gym equipment" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      </div>
     </div>
+
+    <!-- ── Gallery 2: The Smart Home ── -->
+    <div class="gallery-block" id="gallery-smarthome">
+      <div class="eyebrow">Listing 2 &middot; Solar-Powered Smart Home</div>
+      <h2 class="section-title">The Smart Home &mdash; 4BR</h2>
+      <div class="rule"></div>
+      <div class="gtabs">
+        <button class="gtab active" onclick="filterGal('all',this)">All Photos</button>
+        <button class="gtab" onclick="filterGal('living',this)">Living &amp; Kitchen</button>
+        <button class="gtab" onclick="filterGal('bedroom',this)">Bedrooms</button>
+        <button class="gtab" onclick="filterGal('bath',this)">Bathrooms</button>
+        <button class="gtab" onclick="filterGal('gym',this)">Gym &amp; Office</button>
+        <button class="gtab" onclick="filterGal('entrance',this)">Laundry &amp; Entrance</button>
+        <button class="gtab" onclick="filterGal('exterior',this)">Exterior</button>
+      </div>
+      <div class="gallery-grid">
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/xFPKFr9.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/xFPKFr9.jpeg" alt="Smart home — open-concept living room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/OdVNjiq.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OdVNjiq.jpeg" alt="Smart home — living room with Samsung Frame TV" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/1i66pgv.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/1i66pgv.jpeg" alt="Smart home — bright living area with farm views" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/L7Gt1yx.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/L7Gt1yx.jpeg" alt="Smart home — spacious living room seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/8k0Q9lF.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/8k0Q9lF.jpeg" alt="Smart home — living room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/T2q6DXm.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/T2q6DXm.jpeg" alt="Smart home — living room and lounge" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/doVM8Lf.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/doVM8Lf.jpeg" alt="Smart home — living area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/sqZMOZk.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/sqZMOZk.jpeg" alt="Smart home — open living space" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/IOLWHXE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/IOLWHXE.jpeg" alt="Smart home — living room detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/6KHtxdG.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/6KHtxdG.jpeg" alt="Smart home — living and entertainment area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/lbIYx2V.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/lbIYx2V.jpeg" alt="Smart home — chef's kitchen with island" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/C2NtyGf.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C2NtyGf.jpeg" alt="Smart home — chef's kitchen" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/rwU5OIw.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/rwU5OIw.jpeg" alt="Smart home — kitchen island and bar seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/zIyExYs.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/zIyExYs.jpeg" alt="Smart home — kitchen and appliances" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/swpPRq1.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/swpPRq1.jpeg" alt="Smart home — kitchen counters and cabinetry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/rLZZizm.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/rLZZizm.jpeg" alt="Smart home — kitchen detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/C7Jzj2Y.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C7Jzj2Y.jpeg" alt="Smart home — kitchen and dining view" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/DMyUpMY.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/DMyUpMY.jpeg" alt="Smart home — chef's kitchen workspace" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/5nkjA7u.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/5nkjA7u.jpeg" alt="Smart home — dining room seating twelve" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/qiW1VEb.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/qiW1VEb.jpeg" alt="Smart home — master bedroom with king bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/OfW5WLJ.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OfW5WLJ.jpeg" alt="Smart home — master bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/JlfiqG2.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/JlfiqG2.jpeg" alt="Smart home — master walk-in closet" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/igJNM8A.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/igJNM8A.jpeg" alt="Smart home — master walk-in closet storage" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/KagwPTE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/KagwPTE.jpeg" alt="Smart home — second bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/55HXMu5.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/55HXMu5.jpeg" alt="Smart home — second bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/4g3aH6U.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/4g3aH6U.jpeg" alt="Smart home — second bedroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/AYbuw1F.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AYbuw1F.jpeg" alt="Smart home — third bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/AGE0m2R.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AGE0m2R.jpeg" alt="Smart home — third bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/idOWd6H.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/idOWd6H.jpeg" alt="Smart home — third bedroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/ZrFEOcg.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/ZrFEOcg.jpeg" alt="Smart home — fourth bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/GS7EqEY.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/GS7EqEY.jpeg" alt="Smart home — fourth bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/VAc28Sn.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/VAc28Sn.jpeg" alt="Smart home — master ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/OhK4QQE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OhK4QQE.jpeg" alt="Smart home — master ensuite bath and shower" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/RGV0CAn.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/RGV0CAn.jpeg" alt="Smart home — master ensuite detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/M9JvNNO.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/M9JvNNO.jpeg" alt="Smart home — second bedroom ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/CCKXYE4.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/CCKXYE4.jpeg" alt="Smart home — second ensuite bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/GPYsoTd.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/GPYsoTd.jpeg" alt="Smart home — fourth bedroom ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/d22xjtk.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/d22xjtk.jpeg" alt="Smart home — fourth ensuite bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/Kliakky.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Kliakky.jpeg" alt="Smart home — gym bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/OGdcapi.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OGdcapi.jpeg" alt="Smart home — gym bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/CKWhQD2.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/CKWhQD2.jpeg" alt="Smart home — private home gym" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/Olra7VN.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Olra7VN.jpeg" alt="Smart home — home gym equipment" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/WQDpNT0.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/WQDpNT0.jpeg" alt="Smart home — home gym" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/fwhjlJS.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/fwhjlJS.jpeg" alt="Smart home — home gym and weights" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/W8QpNRB.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/W8QpNRB.jpeg" alt="Smart home — home office" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/9jqwb1Y.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/9jqwb1Y.jpeg" alt="Smart home — laundry room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/WIPdt4e.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/WIPdt4e.jpeg" alt="Smart home — laundry room with washer and dryer" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/pLqMMAC.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/pLqMMAC.jpeg" alt="Smart home — laundry and storage" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/YGXktQl.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/YGXktQl.jpeg" alt="Smart home — grand entrance foyer" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/4cXICbn.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/4cXICbn.jpeg" alt="Smart home — entrance hallway" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/zLKhUtA.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/zLKhUtA.jpeg" alt="Smart home — entry and staircase" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/AXktjBd.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AXktjBd.jpeg" alt="Smart home — solar-powered exterior" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1394,9 +1445,10 @@ function closeMobile(){document.getElementById('mobileMenu').classList.remove('o
 
 /* ── GALLERY FILTER ── */
 function filterGal(cat,btn){
-  document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active'));
+  const gal=btn.closest('.gallery-block');
+  gal.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.gitem').forEach(el=>{
+  gal.querySelectorAll('.gitem').forEach(el=>{
     el.style.display=(cat==='all'||el.dataset.cat===cat)?'block':'none';
   });
 }
@@ -1404,7 +1456,8 @@ function filterGal(cat,btn){
 /* ── LIGHTBOX (gallery) ── */
 let lbImgs=[],lbIdx=0;
 function openLb(el){
-  const vis=[...document.querySelectorAll('.gitem')].filter(e=>e.style.display!=='none');
+  const gal=el.closest('.gallery-block')||document;
+  const vis=[...gal.querySelectorAll('.gitem')].filter(e=>e.style.display!=='none');
   lbImgs=vis.map(e=>({src:e.dataset.src,alt:e.querySelector('img').alt}));
   lbIdx=vis.indexOf(el);
   showLb();
