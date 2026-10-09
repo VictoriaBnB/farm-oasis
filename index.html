@@ -17,16 +17,16 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="New Bright Modern Farm Oasis — Farmhouse Stay · Sidney, BC">
 <meta property="og:description" content="Two modern farmhouse rentals in North Saanich: a 2BR + loft suite and a 4BR smart home. Steps to the beach, 3 min to YYJ, 10 min to Swartz Bay ferry. 88 five-star reviews. Book direct.">
-<meta property="og:image" content="https://i.imgur.com/RizYbWh.jpeg">
+<meta property="og:image" content="https://victoriabnb.ca/img/og/pat-bay-beach-sunset.jpg">
 <meta property="og:url" content="https://victoriabnb.ca/">
-<meta property="og:image:width" content="480">
-<meta property="og:image:height" content="421">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Farm Oasis – Farmhouse Stay, Sidney BC">
 <meta name="twitter:description" content="Superhost-rated farmhouse stay with farm views. Steps to Pat Bay Beach, 3 min to YYJ Airport, 10 min to Swartz Bay ferry, 15 min to Butchart Gardens.">
-<meta name="twitter:image" content="https://i.imgur.com/RizYbWh.jpeg">
+<meta name="twitter:image" content="https://victoriabnb.ca/img/og/pat-bay-beach-sunset.jpg">
 
 <!-- Schema.org structured data. Pre-rendered here so every crawler sees it    -->
 <!-- without running JS; injectJsonLd() still refreshes it from PRICING_CONFIG. -->
@@ -47,7 +47,7 @@
       "name": "New Bright Modern Farm Oasis",
       "description": "Airbnb Superhost-rated 2-bedroom + loft farmhouse suite in North Saanich, BC, near Sidney. Self-catering (no breakfast served), farm views, beach access, private entrance. 3 min to Victoria Airport, 10 min to Swartz Bay ferry.",
       "url": "https://victoriabnb.ca/",
-      "image": "https://i.imgur.com/RizYbWh.jpeg",
+      "image": "https://victoriabnb.ca/img/suite-exterior-farm-views.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "1345 Munro Road",
@@ -103,7 +103,7 @@
       "name": "Modern Farm Oasis — 4BR Solar Smart Home",
       "description": "4,500 sq ft solar-powered smart home on the same North Saanich property as New Bright Modern Farm Oasis, with 4 bedrooms (each with a private bathroom), open-concept living, and a chef's kitchen that seats 12. Shares the same farm views and beach access.",
       "url": "https://victoriabnb.ca/#stays",
-      "image": "https://i.imgur.com/lbIYx2V.jpeg",
+      "image": "https://victoriabnb.ca/img/smart-home-chefs-kitchen-island.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "1345 Munro Road",
@@ -152,7 +152,6 @@
 }
 </script>
 
-<link rel="preconnect" href="https://i.imgur.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -698,6 +697,34 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 .hamburger{position:relative}
 .hamburger::before{content:'';position:absolute;inset:-4px}
 
+/* ══ AVAILABILITY CALENDAR (reads /availability.json, filled by GitHub Action from Airbnb) ══ */
+.ac{max-width:940px;margin:2rem auto 0;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem}
+.ac-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.ac-tabs{display:flex;gap:6px;background:var(--parchment);padding:4px;border-radius:8px}
+.ac-tab{border:none;background:none;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--mid);padding:8px 14px;border-radius:6px;cursor:pointer}
+.ac-tab.active{background:var(--white);color:var(--sage-dark);box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.ac-nav{display:flex;gap:6px}
+.ac-nav button{width:38px;height:38px;border:1px solid var(--border);background:var(--white);border-radius:50%;font-size:20px;line-height:1;color:var(--sage-dark);cursor:pointer}
+.ac-nav button:disabled{opacity:0.35;cursor:default}
+.ac-months{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.ac-month h3{font-family:var(--serif);font-weight:400;font-size:1.35rem;text-align:center;margin-bottom:0.6rem;color:var(--charcoal)}
+.ac-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.ac-dow{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--light-mid);text-align:center;padding-bottom:4px}
+.ac-day{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:13px;border-radius:6px;background:var(--sage-pale);color:var(--sage-dark)}
+.ac-day.busy{background:#EDE8E0;color:var(--light-mid);text-decoration:line-through}
+.ac-day.past{background:none;color:#CFC9C0}
+.ac-day.empty{background:none}
+.ac-day.today{outline:2px solid var(--gold);outline-offset:-2px}
+.ac-pending{margin-top:1rem;background:var(--gold-pale);border:1px solid var(--gold-light);border-radius:8px;padding:0.9rem 1rem;font-size:13.5px;color:#6B4E12;text-align:center}
+.ac-legend{display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;margin-top:1.1rem;font-size:12px;color:var(--mid)}
+.ac-sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.ac-sw-free{background:var(--sage-pale);border:1px solid var(--sage-light)}
+.ac-sw-busy{background:#EDE8E0}
+.ac-synced{margin-left:auto;color:var(--light-mid)}
+.ac [hidden],.date-warn[hidden]{display:none!important}
+.date-warn{background:rgba(247,237,216,0.95);color:#5A3800;border-radius:6px;padding:0.75rem 0.9rem;font-size:13px;line-height:1.55}
+@media(max-width:700px){.ac{padding:1rem}.ac-months{grid-template-columns:1fr}.ac-synced{margin-left:0;width:100%}}
+
 /* ══ AREA GUIDES ══ */
 .guides-section{background:var(--parchment)}
 .guides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
@@ -835,9 +862,9 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         </div>
       </div>
       <div class="mosaic">
-        <img src="https://i.imgur.com/Tt9ujH1.jpeg" class="tall" alt="Living area with farm views" loading="lazy">
-        <img src="https://i.imgur.com/Tr4qpvo.jpeg" class="sq" alt="Living &amp; dining area" loading="lazy">
-        <img src="https://i.imgur.com/uUns80D.jpeg" class="sq" alt="Master bedroom" loading="lazy">
+        <img src="/img/suite-living-area-with-farm-views.webp" class="tall" alt="Living area with farm views" loading="lazy">
+        <img src="/img/suite-living-and-dining-area.webp" class="sq" alt="Living &amp; dining area" loading="lazy">
+        <img src="/img/suite-master-bedroom.webp" class="sq" alt="Master bedroom" loading="lazy">
       </div>
     </div>
   </div>
@@ -852,7 +879,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <p class="stays-intro">Modern Farm Oasis is one of two independent rentals on the same peaceful property. Whether it&rsquo;s just the two of you or the whole family, here&rsquo;s the space that fits your trip &mdash; both just steps from Pat Bay Beach and minutes from the airport.</p>
     <div class="stays-grid">
       <div class="stay-card">
-        <div class="stay-card-img"><img src="https://i.imgur.com/RizYbWh.jpeg" alt="New Bright Modern Farm Oasis — 2-bedroom + loft suite with farm views" loading="lazy"></div>
+        <div class="stay-card-img"><img src="/img/suite-exterior-farm-views.webp" alt="New Bright Modern Farm Oasis — 2-bedroom + loft suite with farm views" loading="lazy"></div>
         <div class="stay-card-eyebrow">Listing 1 &middot; Featured on This Site</div>
         <h3 class="stay-card-title">Modern Farm Oasis &mdash; 2BR + Loft Suite</h3>
         <p class="stay-card-desc">Our bright, brand-new 2-bedroom + loft suite with a private entrance and patio overlooking the farm. Each bedroom has its own full ensuite bathroom, plus a queen loft and powder room in the open-plan living &amp; dining area. Perfect for couples, small families, or two couples traveling together.</p>
@@ -864,7 +891,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         <a href="https://airbnb.ca/h/modernfarmoasis" target="_blank" rel="noopener" class="btn-primary stay-link">View on Airbnb &rarr;</a>
       </div>
       <div class="stay-card">
-        <div class="stay-card-img"><img src="https://i.imgur.com/lbIYx2V.jpeg" alt="Modern Farm Oasis smart home — chef's kitchen with island seating for twelve" loading="lazy"></div>
+        <div class="stay-card-img"><img src="/img/smart-home-chefs-kitchen-island.webp" alt="Modern Farm Oasis smart home — chef's kitchen with island seating for twelve" loading="lazy"></div>
         <div class="stay-card-eyebrow">Listing 2 &middot; Solar-Powered Smart Home</div>
         <h3 class="stay-card-title">Modern Farm Oasis &mdash; 4BR Smart Home</h3>
         <p class="stay-card-desc">A 4,500&nbsp;sq&nbsp;ft solar-powered smart home built for family reunions and group getaways, with open-concept living and a chef&rsquo;s kitchen that seats 12. All four bedrooms come with their own private bathroom, and the home is loaded with extras &mdash; 1.5 gigabit WiFi, a Samsung Frame TV with Sonos sound, a home gym, and a spacious patio with the same farm views. Steps to the beach and wheelchair accessible.</p>
@@ -908,34 +935,34 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         <button class="gtab" onclick="filterGal('exterior',this)">Exterior &amp; Views</button>
       </div>
       <div class="gallery-grid">
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/Tt9ujH1.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Tt9ujH1.jpeg" alt="Family room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/kM27YaV.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/kM27YaV.jpeg" alt="Family room 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/GAQJLTM.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/GAQJLTM.jpeg" alt="Living area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/SoaUuff.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/SoaUuff.jpeg" alt="Living space" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/Tr4qpvo.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Tr4qpvo.jpeg" alt="Dining &amp; living area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/SGHvxDX.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/SGHvxDX.jpeg" alt="Dining area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/1tNtfLk.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/1tNtfLk.jpeg" alt="Living &amp; dining" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/st9bBeP.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/st9bBeP.jpeg" alt="Eating area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/FSFah8r.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/FSFah8r.jpeg" alt="Open living" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/KWRjunP.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/KWRjunP.jpeg" alt="Living space" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/fygUWMx.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/fygUWMx.jpeg" alt="Interior detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/318UZng.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/318UZng.jpeg" alt="Interior" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/2Qxawpy.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/2Qxawpy.jpeg" alt="Interior 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/cOfK1J4.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/cOfK1J4.jpeg" alt="Interior detail 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/uUns80D.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/uUns80D.jpeg" alt="Master bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/RxmTkol.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/RxmTkol.jpeg" alt="Master bedroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/lopKK7h.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/lopKK7h.jpeg" alt="Bedroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/YYgrnwQ.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/YYgrnwQ.jpeg" alt="Loft — queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/sy36lPu.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/sy36lPu.jpeg" alt="Master bath — rain shower" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/B6Ovq9u.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/B6Ovq9u.jpeg" alt="Master bath &amp; laundry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/EnBSoAm.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/EnBSoAm.jpeg" alt="Laundry area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/RxbkiBF.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/RxbkiBF.jpeg" alt="Ensuite bathroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/BqGc3kB.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/BqGc3kB.jpeg" alt="Powder room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/dbeBbBU.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/dbeBbBU.jpeg" alt="Powder room 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/RizYbWh.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/RizYbWh.jpeg" alt="Exterior farm views" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/cjuB1ui.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/cjuB1ui.jpeg" alt="Exterior entry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/8hScObI.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/8hScObI.jpeg" alt="Pat Bay Beach" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/C1R4G1B.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C1R4G1B.jpeg" alt="Pat Bay Beach sunset" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-living-area-with-farm-views.webp" onclick="openLb(this)"><img src="/img/suite-living-area-with-farm-views.webp" alt="Family room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-family-room-2.webp" onclick="openLb(this)"><img src="/img/suite-family-room-2.webp" alt="Family room 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-living-area.webp" onclick="openLb(this)"><img src="/img/suite-living-area.webp" alt="Living area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-living-space-soau.webp" onclick="openLb(this)"><img src="/img/suite-living-space-soau.webp" alt="Living space" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-living-and-dining-area.webp" onclick="openLb(this)"><img src="/img/suite-living-and-dining-area.webp" alt="Dining &amp; living area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-dining-area.webp" onclick="openLb(this)"><img src="/img/suite-dining-area.webp" alt="Dining area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-living-and-dining.webp" onclick="openLb(this)"><img src="/img/suite-living-and-dining.webp" alt="Living &amp; dining" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-eating-area.webp" onclick="openLb(this)"><img src="/img/suite-eating-area.webp" alt="Eating area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-open-living.webp" onclick="openLb(this)"><img src="/img/suite-open-living.webp" alt="Open living" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-living-space.webp" onclick="openLb(this)"><img src="/img/suite-living-space.webp" alt="Living space" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-interior-detail.webp" onclick="openLb(this)"><img src="/img/suite-interior-detail-800.webp" alt="Interior detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-interior.webp" onclick="openLb(this)"><img src="/img/suite-interior.webp" alt="Interior" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-interior-2.webp" onclick="openLb(this)"><img src="/img/suite-interior-2.webp" alt="Interior 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/suite-interior-detail-2.webp" onclick="openLb(this)"><img src="/img/suite-interior-detail-2.webp" alt="Interior detail 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/suite-master-bedroom.webp" onclick="openLb(this)"><img src="/img/suite-master-bedroom.webp" alt="Master bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/suite-master-bedroom-2.webp" onclick="openLb(this)"><img src="/img/suite-master-bedroom-2.webp" alt="Master bedroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/suite-bedroom-2.webp" onclick="openLb(this)"><img src="/img/suite-bedroom-2.webp" alt="Bedroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/suite-loft-queen-bed.webp" onclick="openLb(this)"><img src="/img/suite-loft-queen-bed.webp" alt="Loft — queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/suite-master-bath-rain-shower.webp" onclick="openLb(this)"><img src="/img/suite-master-bath-rain-shower.webp" alt="Master bath — rain shower" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/suite-master-bath-and-laundry.webp" onclick="openLb(this)"><img src="/img/suite-master-bath-and-laundry.webp" alt="Master bath &amp; laundry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/suite-laundry-area.webp" onclick="openLb(this)"><img src="/img/suite-laundry-area.webp" alt="Laundry area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/suite-ensuite-bathroom-2.webp" onclick="openLb(this)"><img src="/img/suite-ensuite-bathroom-2.webp" alt="Ensuite bathroom 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/suite-powder-room.webp" onclick="openLb(this)"><img src="/img/suite-powder-room.webp" alt="Powder room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/suite-powder-room-2.webp" onclick="openLb(this)"><img src="/img/suite-powder-room-2.webp" alt="Powder room 2" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="exterior" data-src="/img/suite-exterior-farm-views.webp" onclick="openLb(this)"><img src="/img/suite-exterior-farm-views.webp" alt="Exterior farm views" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="exterior" data-src="/img/suite-exterior-entry.webp" onclick="openLb(this)"><img src="/img/suite-exterior-entry.webp" alt="Exterior entry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="exterior" data-src="/img/pat-bay-beach.webp" onclick="openLb(this)"><img src="/img/pat-bay-beach.webp" alt="Pat Bay Beach" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="exterior" data-src="/img/pat-bay-beach-sunset.webp" onclick="openLb(this)"><img src="/img/pat-bay-beach-sunset-800.webp" alt="Pat Bay Beach sunset" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       </div>
     </div>
 
@@ -954,58 +981,58 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         <button class="gtab" onclick="filterGal('exterior',this)">Exterior</button>
       </div>
       <div class="gallery-grid">
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/xFPKFr9.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/xFPKFr9.jpeg" alt="Smart home — open-concept living room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/OdVNjiq.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OdVNjiq.jpeg" alt="Smart home — living room with Samsung Frame TV" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/1i66pgv.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/1i66pgv.jpeg" alt="Smart home — bright living area with farm views" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/L7Gt1yx.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/L7Gt1yx.jpeg" alt="Smart home — spacious living room seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/8k0Q9lF.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/8k0Q9lF.jpeg" alt="Smart home — living room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/T2q6DXm.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/T2q6DXm.jpeg" alt="Smart home — living room and lounge" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/doVM8Lf.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/doVM8Lf.jpeg" alt="Smart home — living area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/sqZMOZk.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/sqZMOZk.jpeg" alt="Smart home — open living space" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/IOLWHXE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/IOLWHXE.jpeg" alt="Smart home — living room detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/6KHtxdG.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/6KHtxdG.jpeg" alt="Smart home — living and entertainment area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/lbIYx2V.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/lbIYx2V.jpeg" alt="Smart home — chef's kitchen with island" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/C2NtyGf.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C2NtyGf.jpeg" alt="Smart home — chef's kitchen" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/rwU5OIw.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/rwU5OIw.jpeg" alt="Smart home — kitchen island and bar seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/zIyExYs.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/zIyExYs.jpeg" alt="Smart home — kitchen and appliances" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/swpPRq1.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/swpPRq1.jpeg" alt="Smart home — kitchen counters and cabinetry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/rLZZizm.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/rLZZizm.jpeg" alt="Smart home — kitchen detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/C7Jzj2Y.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/C7Jzj2Y.jpeg" alt="Smart home — kitchen and dining view" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/DMyUpMY.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/DMyUpMY.jpeg" alt="Smart home — chef's kitchen workspace" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="living" data-src="https://i.imgur.com/5nkjA7u.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/5nkjA7u.jpeg" alt="Smart home — dining room seating twelve" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/qiW1VEb.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/qiW1VEb.jpeg" alt="Smart home — master bedroom with king bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/OfW5WLJ.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OfW5WLJ.jpeg" alt="Smart home — master bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/JlfiqG2.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/JlfiqG2.jpeg" alt="Smart home — master walk-in closet" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/igJNM8A.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/igJNM8A.jpeg" alt="Smart home — master walk-in closet storage" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/KagwPTE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/KagwPTE.jpeg" alt="Smart home — second bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/55HXMu5.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/55HXMu5.jpeg" alt="Smart home — second bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/4g3aH6U.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/4g3aH6U.jpeg" alt="Smart home — second bedroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/AYbuw1F.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AYbuw1F.jpeg" alt="Smart home — third bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/AGE0m2R.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AGE0m2R.jpeg" alt="Smart home — third bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/idOWd6H.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/idOWd6H.jpeg" alt="Smart home — third bedroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/ZrFEOcg.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/ZrFEOcg.jpeg" alt="Smart home — fourth bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bedroom" data-src="https://i.imgur.com/GS7EqEY.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/GS7EqEY.jpeg" alt="Smart home — fourth bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/VAc28Sn.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/VAc28Sn.jpeg" alt="Smart home — master ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/OhK4QQE.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OhK4QQE.jpeg" alt="Smart home — master ensuite bath and shower" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/RGV0CAn.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/RGV0CAn.jpeg" alt="Smart home — master ensuite detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/M9JvNNO.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/M9JvNNO.jpeg" alt="Smart home — second bedroom ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/CCKXYE4.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/CCKXYE4.jpeg" alt="Smart home — second ensuite bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/GPYsoTd.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/GPYsoTd.jpeg" alt="Smart home — fourth bedroom ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/d22xjtk.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/d22xjtk.jpeg" alt="Smart home — fourth ensuite bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/Kliakky.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Kliakky.jpeg" alt="Smart home — gym bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="bath" data-src="https://i.imgur.com/OGdcapi.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/OGdcapi.jpeg" alt="Smart home — gym bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/CKWhQD2.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/CKWhQD2.jpeg" alt="Smart home — private home gym" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/Olra7VN.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/Olra7VN.jpeg" alt="Smart home — home gym equipment" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/WQDpNT0.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/WQDpNT0.jpeg" alt="Smart home — home gym" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/fwhjlJS.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/fwhjlJS.jpeg" alt="Smart home — home gym and weights" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="gym" data-src="https://i.imgur.com/W8QpNRB.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/W8QpNRB.jpeg" alt="Smart home — home office" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/9jqwb1Y.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/9jqwb1Y.jpeg" alt="Smart home — laundry room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/WIPdt4e.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/WIPdt4e.jpeg" alt="Smart home — laundry room with washer and dryer" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/pLqMMAC.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/pLqMMAC.jpeg" alt="Smart home — laundry and storage" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/YGXktQl.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/YGXktQl.jpeg" alt="Smart home — grand entrance foyer" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/4cXICbn.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/4cXICbn.jpeg" alt="Smart home — entrance hallway" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="entrance" data-src="https://i.imgur.com/zLKhUtA.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/zLKhUtA.jpeg" alt="Smart home — entry and staircase" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
-      <div class="gitem" data-cat="exterior" data-src="https://i.imgur.com/AXktjBd.jpeg" onclick="openLb(this)"><img src="https://i.imgur.com/AXktjBd.jpeg" alt="Smart home — solar-powered exterior" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-open-concept-living-room.webp" onclick="openLb(this)"><img src="/img/smart-home-open-concept-living-room.webp" alt="Smart home — open-concept living room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-living-room-with-samsung-frame-tv.webp" onclick="openLb(this)"><img src="/img/smart-home-living-room-with-samsung-frame-tv.webp" alt="Smart home — living room with Samsung Frame TV" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-bright-living-area-with-farm-views.webp" onclick="openLb(this)"><img src="/img/smart-home-bright-living-area-with-farm-views.webp" alt="Smart home — bright living area with farm views" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-spacious-living-room-seating.webp" onclick="openLb(this)"><img src="/img/smart-home-spacious-living-room-seating.webp" alt="Smart home — spacious living room seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-living-room.webp" onclick="openLb(this)"><img src="/img/smart-home-living-room.webp" alt="Smart home — living room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-living-room-and-lounge.webp" onclick="openLb(this)"><img src="/img/smart-home-living-room-and-lounge.webp" alt="Smart home — living room and lounge" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-living-area.webp" onclick="openLb(this)"><img src="/img/smart-home-living-area.webp" alt="Smart home — living area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-open-living-space.webp" onclick="openLb(this)"><img src="/img/smart-home-open-living-space.webp" alt="Smart home — open living space" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-living-room-detail.webp" onclick="openLb(this)"><img src="/img/smart-home-living-room-detail.webp" alt="Smart home — living room detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-living-and-entertainment-area.webp" onclick="openLb(this)"><img src="/img/smart-home-living-and-entertainment-area.webp" alt="Smart home — living and entertainment area" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-chefs-kitchen-island.webp" onclick="openLb(this)"><img src="/img/smart-home-chefs-kitchen-island.webp" alt="Smart home — chef's kitchen with island" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-chef-s-kitchen.webp" onclick="openLb(this)"><img src="/img/smart-home-chef-s-kitchen.webp" alt="Smart home — chef's kitchen" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-kitchen-island-and-bar-seating.webp" onclick="openLb(this)"><img src="/img/smart-home-kitchen-island-and-bar-seating.webp" alt="Smart home — kitchen island and bar seating" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-kitchen-and-appliances.webp" onclick="openLb(this)"><img src="/img/smart-home-kitchen-and-appliances.webp" alt="Smart home — kitchen and appliances" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-kitchen-counters-and-cabinetry.webp" onclick="openLb(this)"><img src="/img/smart-home-kitchen-counters-and-cabinetry.webp" alt="Smart home — kitchen counters and cabinetry" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-kitchen-detail.webp" onclick="openLb(this)"><img src="/img/smart-home-kitchen-detail.webp" alt="Smart home — kitchen detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-kitchen-and-dining-view.webp" onclick="openLb(this)"><img src="/img/smart-home-kitchen-and-dining-view.webp" alt="Smart home — kitchen and dining view" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-chef-s-kitchen-workspace.webp" onclick="openLb(this)"><img src="/img/smart-home-chef-s-kitchen-workspace.webp" alt="Smart home — chef's kitchen workspace" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="living" data-src="/img/smart-home-dining-room-seating-twelve.webp" onclick="openLb(this)"><img src="/img/smart-home-dining-room-seating-twelve.webp" alt="Smart home — dining room seating twelve" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-master-bedroom-with-king-bed.webp" onclick="openLb(this)"><img src="/img/smart-home-master-bedroom-with-king-bed.webp" alt="Smart home — master bedroom with king bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-master-bedroom.webp" onclick="openLb(this)"><img src="/img/smart-home-master-bedroom.webp" alt="Smart home — master bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-master-walk-in-closet.webp" onclick="openLb(this)"><img src="/img/smart-home-master-walk-in-closet.webp" alt="Smart home — master walk-in closet" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-master-walk-in-closet-storage.webp" onclick="openLb(this)"><img src="/img/smart-home-master-walk-in-closet-storage.webp" alt="Smart home — master walk-in closet storage" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-second-bedroom-with-queen-bed.webp" onclick="openLb(this)"><img src="/img/smart-home-second-bedroom-with-queen-bed.webp" alt="Smart home — second bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-second-bedroom.webp" onclick="openLb(this)"><img src="/img/smart-home-second-bedroom.webp" alt="Smart home — second bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-second-bedroom-detail.webp" onclick="openLb(this)"><img src="/img/smart-home-second-bedroom-detail.webp" alt="Smart home — second bedroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-third-bedroom-with-queen-bed.webp" onclick="openLb(this)"><img src="/img/smart-home-third-bedroom-with-queen-bed.webp" alt="Smart home — third bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-third-bedroom.webp" onclick="openLb(this)"><img src="/img/smart-home-third-bedroom.webp" alt="Smart home — third bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-third-bedroom-detail.webp" onclick="openLb(this)"><img src="/img/smart-home-third-bedroom-detail.webp" alt="Smart home — third bedroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-fourth-bedroom-with-queen-bed.webp" onclick="openLb(this)"><img src="/img/smart-home-fourth-bedroom-with-queen-bed.webp" alt="Smart home — fourth bedroom with queen bed" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bedroom" data-src="/img/smart-home-fourth-bedroom.webp" onclick="openLb(this)"><img src="/img/smart-home-fourth-bedroom.webp" alt="Smart home — fourth bedroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-master-ensuite-bathroom.webp" onclick="openLb(this)"><img src="/img/smart-home-master-ensuite-bathroom.webp" alt="Smart home — master ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-master-ensuite-bath-and-shower.webp" onclick="openLb(this)"><img src="/img/smart-home-master-ensuite-bath-and-shower.webp" alt="Smart home — master ensuite bath and shower" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-master-ensuite-detail.webp" onclick="openLb(this)"><img src="/img/smart-home-master-ensuite-detail.webp" alt="Smart home — master ensuite detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-second-bedroom-ensuite-bathroom.webp" onclick="openLb(this)"><img src="/img/smart-home-second-bedroom-ensuite-bathroom.webp" alt="Smart home — second bedroom ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-second-ensuite-bathroom-detail.webp" onclick="openLb(this)"><img src="/img/smart-home-second-ensuite-bathroom-detail.webp" alt="Smart home — second ensuite bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-fourth-bedroom-ensuite-bathroom.webp" onclick="openLb(this)"><img src="/img/smart-home-fourth-bedroom-ensuite-bathroom.webp" alt="Smart home — fourth bedroom ensuite bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-fourth-ensuite-bathroom-detail.webp" onclick="openLb(this)"><img src="/img/smart-home-fourth-ensuite-bathroom-detail.webp" alt="Smart home — fourth ensuite bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-gym-bathroom.webp" onclick="openLb(this)"><img src="/img/smart-home-gym-bathroom.webp" alt="Smart home — gym bathroom" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="bath" data-src="/img/smart-home-gym-bathroom-detail.webp" onclick="openLb(this)"><img src="/img/smart-home-gym-bathroom-detail.webp" alt="Smart home — gym bathroom detail" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="/img/smart-home-private-home-gym.webp" onclick="openLb(this)"><img src="/img/smart-home-private-home-gym.webp" alt="Smart home — private home gym" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="/img/smart-home-home-gym-equipment.webp" onclick="openLb(this)"><img src="/img/smart-home-home-gym-equipment.webp" alt="Smart home — home gym equipment" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="/img/smart-home-home-gym.webp" onclick="openLb(this)"><img src="/img/smart-home-home-gym.webp" alt="Smart home — home gym" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="/img/smart-home-home-gym-and-weights.webp" onclick="openLb(this)"><img src="/img/smart-home-home-gym-and-weights.webp" alt="Smart home — home gym and weights" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="gym" data-src="/img/smart-home-home-office.webp" onclick="openLb(this)"><img src="/img/smart-home-home-office.webp" alt="Smart home — home office" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="/img/smart-home-laundry-room.webp" onclick="openLb(this)"><img src="/img/smart-home-laundry-room.webp" alt="Smart home — laundry room" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="/img/smart-home-laundry-room-with-washer-and-dryer.webp" onclick="openLb(this)"><img src="/img/smart-home-laundry-room-with-washer-and-dryer.webp" alt="Smart home — laundry room with washer and dryer" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="/img/smart-home-laundry-and-storage.webp" onclick="openLb(this)"><img src="/img/smart-home-laundry-and-storage.webp" alt="Smart home — laundry and storage" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="/img/smart-home-grand-entrance-foyer.webp" onclick="openLb(this)"><img src="/img/smart-home-grand-entrance-foyer.webp" alt="Smart home — grand entrance foyer" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="/img/smart-home-entrance-hallway.webp" onclick="openLb(this)"><img src="/img/smart-home-entrance-hallway.webp" alt="Smart home — entrance hallway" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="entrance" data-src="/img/smart-home-entry-and-staircase.webp" onclick="openLb(this)"><img src="/img/smart-home-entry-and-staircase.webp" alt="Smart home — entry and staircase" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
+      <div class="gitem" data-cat="exterior" data-src="/img/smart-home-solar-powered-exterior.webp" onclick="openLb(this)"><img src="/img/smart-home-solar-powered-exterior.webp" alt="Smart home — solar-powered exterior" loading="lazy"><div class="gitem-overlay"><div class="gitem-zoom">+</div></div></div>
       </div>
     </div>
 
@@ -1100,6 +1127,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <a class="guide-card" href="/farmhouse-stay-victoria-bc/"><span class="guide-eyebrow">Saanich Peninsula · near Victoria</span><span class="guide-title">Farmhouse Stay near Victoria</span><span class="guide-go">Read guide &rarr;</span></a>
       <a class="guide-card" href="/sidney-north-saanich-vacation-rental/"><span class="guide-eyebrow">5 minutes to Sidney</span><span class="guide-title">Sidney & North Saanich</span><span class="guide-go">Read guide &rarr;</span></a>
       <a class="guide-card" href="/victoria-airport-accommodation/"><span class="guide-eyebrow">3 minutes to YYJ</span><span class="guide-title">Near Victoria Airport (YYJ)</span><span class="guide-go">Read guide &rarr;</span></a>
+      <a class="guide-card" href="/butchart-gardens-accommodation/"><span class="guide-eyebrow">15 minutes to Butchart Gardens</span><span class="guide-title">Near Butchart Gardens</span><span class="guide-go">Read guide &rarr;</span></a>
       <a class="guide-card" href="/group-vacation-rental-victoria/"><span class="guide-eyebrow">The Smart Home · sleeps 8</span><span class="guide-title">Groups & Family Reunions</span><span class="guide-go">Read guide &rarr;</span></a>
     </div>
   </div>
@@ -1124,92 +1152,92 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
   <div class="reviews-scroll-outer">
     <div class="reviews-scroll" id="reviewScroll">
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/cW1o4YX.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/cW1o4YXl.jpeg" alt="Review — Kristen, Tulsa OK" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-kristen-tulsa-ok.webp')">
+        <div class="rev-thumb"><img src="/img/review-kristen-tulsa-ok-800.webp" alt="Review — Kristen, Tulsa OK" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">K</div><div><div class="rev-name">Kristen</div><div class="rev-loc">Tulsa, OK · July 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"The home is amazing — incredibly spacious, new and beautiful. The land it's on is gorgeous. By proximity, very close to the airport and ferry. This is one of our top Airbnb experiences."</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/GTDZE9N.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/GTDZE9Nl.jpeg" alt="Review — Joanna, Vancouver BC" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-joanna-vancouver-bc.webp')">
+        <div class="rev-thumb"><img src="/img/review-joanna-vancouver-bc-800.webp" alt="Review — Joanna, Vancouver BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">J</div><div><div class="rev-name">Joanna</div><div class="rev-loc">Vancouver, BC · Aug 2024</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"'Bright Modern Farm Oasis' is a perfect description. Wonderful for a vacation with a day at Butchart Gardens. The master bath shower is as luxurious as it looks in the pictures."</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/ZBvZhy9.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/ZBvZhy9l.jpeg" alt="Review — Sachin, Mumbai India" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-sachin-mumbai-india.webp')">
+        <div class="rev-thumb"><img src="/img/review-sachin-mumbai-india-800.webp" alt="Review — Sachin, Mumbai India" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">S</div><div><div class="rev-name">Sachin</div><div class="rev-loc">Mumbai, India · Mar 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Jessica was an exceptional host, and the property was absolutely stunning. Meticulously equipped and designed for incredible comfort. We will undoubtedly return. Thank you, Jessica and Ryan!"</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/YklNWys.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/YklNWysl.jpeg" alt="Review — Denise, Penticton BC" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-denise-penticton-bc.webp')">
+        <div class="rev-thumb"><img src="/img/review-denise-penticton-bc-800.webp" alt="Review — Denise, Penticton BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">D</div><div><div class="rev-name">Denise</div><div class="rev-loc">Penticton, BC · Oct 2024</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Jessica's home is absolutely beautiful! The high ceilings and large windows bring the amazing surroundings to life. Comfortable beds and fresh linen. Will definitely book again!"</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/GfBhcX6.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/GfBhcX6l.jpeg" alt="Review — Nancy, Vancouver BC" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-nancy-vancouver-bc.webp')">
+        <div class="rev-thumb"><img src="/img/review-nancy-vancouver-bc-800.webp" alt="Review — Nancy, Vancouver BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">N</div><div><div class="rev-name">Nancy</div><div class="rev-loc">Vancouver, BC · Aug 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"It's a peaceful and idyllic property. Loved the deer, the chickens, the neighbours' cows and watching airplanes. The owners were so thoughtful in building their dream home and sharing it!"</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/LpLx7NJ.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/LpLx7NJl.jpeg" alt="Review — Haley, Boston MA" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-haley-boston-ma.webp')">
+        <div class="rev-thumb"><img src="/img/review-haley-boston-ma-800.webp" alt="Review — Haley, Boston MA" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">H</div><div><div class="rev-name">Haley</div><div class="rev-loc">Boston, MA · Apr 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"This property was exceptionally beautiful and comfortable. We loved waking up to the chickens and a family of deer on the horizon. 100% would stay here again if visiting the islands."</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/G1sGPu5.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/G1sGPu5l.jpeg" alt="Review — Annik, Seattle WA" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-annik-seattle-wa.webp')">
+        <div class="rev-thumb"><img src="/img/review-annik-seattle-wa-800.webp" alt="Review — Annik, Seattle WA" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">A</div><div><div class="rev-name">Annik</div><div class="rev-loc">Seattle, WA · June 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Beautiful brand new modern farmhouse with sweeping valley views from the back patio. Very spacious and clean inside. Comfortable beds, linens, and plush towels. Quick drive to local markets."</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/Di4DQc8.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/Di4DQc8l.jpeg" alt="Review — Amanda, Oct 2025" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-amanda-oct-2025.webp')">
+        <div class="rev-thumb"><img src="/img/review-amanda-oct-2025-800.webp" alt="Review — Amanda, Oct 2025" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">A</div><div><div class="rev-name">Amanda</div><div class="rev-loc">Oct 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"We had a wonderful stay. The house was bright with beautiful views of the countryside. The shower was a hit — big enough for all five of us! Beds were very comfortable."</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/DczGuLL.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/DczGuLLl.jpeg" alt="Review — Laura, Omaha NE" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-laura-omaha-ne.webp')">
+        <div class="rev-thumb"><img src="/img/review-laura-omaha-ne-800.webp" alt="Review — Laura, Omaha NE" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">L</div><div><div class="rev-name">Laura</div><div class="rev-loc">Omaha, NE · Nov 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Beautiful home with amazing views! Pristine condition, we truly felt like we were on an amazing retreat! So peaceful and yet close to many things. Jessica was very helpful and responsive!"</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/ISHYivc.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/ISHYivcl.jpeg" alt="Review — Jared, Kaysville UT" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-jared-kaysville-ut.webp')">
+        <div class="rev-thumb"><img src="/img/review-jared-kaysville-ut-800.webp" alt="Review — Jared, Kaysville UT" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">J</div><div><div class="rev-name">Jared</div><div class="rev-loc">Kaysville, UT · Apr 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"Absolutely beautiful location, with a home to match. Jessica was great to work with and reached out to make sure things were going smoothly. Will definitely stay here again."</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/4KPV0Ce.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/4KPV0Cel.jpeg" alt="Review — Keeley, Surrey BC" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-keeley-surrey-bc.webp')">
+        <div class="rev-thumb"><img src="/img/review-keeley-surrey-bc-800.webp" alt="Review — Keeley, Surrey BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">K</div><div><div class="rev-name">Keeley</div><div class="rev-loc">Surrey, BC · Apr 2025</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"So much space and gorgeous! Was perfect for our family of 5, great location and so beautiful."</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/5KOGgNq.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/5KOGgNql.jpeg" alt="Review — Kyra, St. Albert AB" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-kyra-st-albert-ab.webp')">
+        <div class="rev-thumb"><img src="/img/review-kyra-st-albert-ab-800.webp" alt="Review — Kyra, St. Albert AB" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">K</div><div><div class="rev-name">Kyra</div><div class="rev-loc">St. Albert, AB · Oct 2024</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"The bright, modern, very clean farm house was beautiful and peaceful. The kitchen is well stocked. We enjoyed coffee on the back patio watching the cows graze on the neighbouring hill."</div>
       </div>
 
-      <div class="rev-card" onclick="openRevLb('https://i.imgur.com/d6iqT7B.jpeg')">
-        <div class="rev-thumb"><img src="https://i.imgur.com/d6iqT7Bl.jpeg" alt="Review — Sophie, Vancouver BC" loading="lazy"></div>
+      <div class="rev-card" onclick="openRevLb('https://victoriabnb.ca/img/review-sophie-vancouver-bc.webp')">
+        <div class="rev-thumb"><img src="/img/review-sophie-vancouver-bc-800.webp" alt="Review — Sophie, Vancouver BC" loading="lazy"></div>
         <div class="rev-who"><div class="rev-avatar">S</div><div><div class="rev-name">Sophie</div><div class="rev-loc">Vancouver, BC · Sep 2024</div></div></div>
         <div class="rev-stars">★★★★★</div>
         <div class="rev-text">"We were so impressed! Absolutely beautiful, modern home with a lovely patio overlooking farmland. My husband and I stayed with our 2 adult sons — plenty of room for all. Highly recommend!"</div>
@@ -1262,20 +1290,28 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <div class="eyebrow">Availability</div>
     <h2 class="section-title">Check Availability</h2>
     <div class="rule"></div>
-    <p style="font-size:15px;color:var(--mid);max-width:900px">Booked dates sync from Airbnb, and updates can take up to a day to appear. Send us an inquiry and we&rsquo;ll confirm your exact dates within a few hours. Many guests plan their entire BC trip around our openings :).</p>
-    <div class="ical-btns">
-      <a href="#booking" class="ical-btn ical-primary">Send Booking Inquiry ↓</a>
+    <p style="font-size:15px;color:var(--mid);max-width:900px">Booked dates sync automatically from Airbnb every few hours. Pick your property below, then send us an inquiry and we&rsquo;ll confirm your exact dates within a few hours. Many guests plan their entire BC trip around our openings :).</p>
+
+    <div class="ac" id="availCal">
+      <div class="ac-head">
+        <div class="ac-tabs" role="group" aria-label="Choose property">
+          <button type="button" class="ac-tab active" data-prop="suite" aria-pressed="true">The Suite</button>
+          <button type="button" class="ac-tab" data-prop="smarthome" aria-pressed="false">The Smart Home</button>
+        </div>
+        <div class="ac-nav">
+          <button type="button" id="acPrev" aria-label="Previous months">&#8249;</button>
+          <button type="button" id="acNext" aria-label="Next months">&#8250;</button>
+        </div>
+      </div>
+      <div class="ac-months" id="acMonths"></div>
+      <div class="ac-pending" id="acPending" hidden>Live availability for this property is being connected. Send us an inquiry and we&rsquo;ll confirm your dates within a few hours.</div>
+      <div class="ac-legend">
+        <span><i class="ac-sw ac-sw-free"></i>Available</span>
+        <span><i class="ac-sw ac-sw-busy"></i>Booked</span>
+        <span class="ac-synced" id="acSynced"></span>
+      </div>
     </div>
- 
-    <div class="cal-wrap">
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=modernfarmoasisbNb@gmail.com&ctz=America%2FVancouver&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&mode=MONTH&color=%233D5E41"
-        style="border:0;width:100%;height:520px;display:block"
-        frameborder="0" scrolling="no" loading="lazy"
-        title="Farm Oasis Availability Calendar — Sidney BC">
-      </iframe>
-    </div>
-    <p class="cal-note">Synced from Airbnb · Pacific Time · <a href="#booking">Inquire below to book direct</a></p>
+    <p class="cal-note">Nights shown in Pacific Time · Check-in 3 PM, check-out 10 AM · <a href="#booking">Inquire below to book direct</a></p>
   </div>
 </section>
 
@@ -1287,7 +1323,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <div class="rule" style="margin:1.1rem auto 0"></div>
   </div>
   <div class="booking-card">
-    <p class="booking-intro">Fill in your details and we'll confirm availability and send e-transfer payment instructions within a few hours. No platform fees when you book direct. Credit card payments coming soon.</p>
+    <p class="booking-intro">Fill in your details and we'll confirm availability and send e-transfer payment instructions within a few hours. No platform fees when you book direct.</p>
     
     <form id="bookingForm" action="https://formspree.io/f/mvzdaryl" method="POST" class="bform">
 
@@ -1303,6 +1339,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       </div>
       <div class="fg"><label for="bIn">Check-in Date</label><input type="date" name="checkin" id="bIn" onchange="calcPrice()" required></div>
       <div class="fg"><label for="bOut">Check-out Date</label><input type="date" name="checkout" id="bOut" onchange="calcPrice()" required></div>
+      <div class="fg full date-warn" id="dateWarn" hidden></div>
       <div class="fg"><label for="bGuests">Guests</label>
         <select name="guests" id="bGuests">
           <option>1 guest</option><option>2 guests</option><option>3 guests</option>
@@ -1324,7 +1361,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         <div class="pp-row pp-total"><span>Estimated Total</span><span id="ppTotal"></span></div>
       </div>
       <div class="etx-box" id="etxBox">
-        <p>💳 <strong>Payment via Interac E-Transfer.</strong> Once we confirm your dates, we'll send our e-Transfer email address. A 50% deposit holds your booking. Credit card payments coming soon.</p>
+        <p>💳 <strong>Payment via Interac E-Transfer.</strong> Once we confirm your dates, we'll send our e-Transfer email address. A 50% deposit holds your booking.</p>
       </div>
 
       <button type="submit" class="submit-btn">Send Inquiry &amp; Get Confirmed Quote →</button>
@@ -1370,6 +1407,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         <li><a href="/farmhouse-stay-victoria-bc/">Farmhouse Stay near Victoria</a></li>
         <li><a href="/sidney-north-saanich-vacation-rental/">Sidney & North Saanich</a></li>
         <li><a href="/victoria-airport-accommodation/">Near Victoria Airport (YYJ)</a></li>
+        <li><a href="/butchart-gardens-accommodation/">Near Butchart Gardens</a></li>
         <li><a href="/group-vacation-rental-victoria/">Groups & Family Reunions</a></li>
       </ul>
     </div>
@@ -1582,7 +1620,7 @@ function injectJsonLd() {
         'name':  'New Bright Modern Farm Oasis',
         'description': 'Airbnb Superhost-rated 2-bedroom + loft farmhouse suite in North Saanich, BC, near Sidney. Self-catering (no breakfast served), farm views, beach access, private entrance. 3 min to Victoria Airport, 10 min to Swartz Bay ferry.',
         'url':   'https://victoriabnb.ca/',
-        'image': 'https://i.imgur.com/RizYbWh.jpeg',
+        'image': 'https://victoriabnb.ca/img/suite-exterior-farm-views.webp',
         'address': {'@type':'PostalAddress','streetAddress':'1345 Munro Road',
           'addressLocality':'North Saanich','addressRegion':'BC','addressCountry':'CA'},
         'geo': {'@type':'GeoCoordinates','latitude':48.65,'longitude':-123.41},
@@ -1604,7 +1642,7 @@ function injectJsonLd() {
         'name':  'Modern Farm Oasis — 4BR Solar Smart Home',
         'description': '4,500 sq ft solar-powered smart home on the same North Saanich property as New Bright Modern Farm Oasis, with 4 bedrooms (each with a private bathroom), open-concept living, and a chef\'s kitchen that seats 12. Shares the same farm views and beach access.',
         'url':   'https://victoriabnb.ca/#stays',
-        'image': 'https://i.imgur.com/lbIYx2V.jpeg',
+        'image': 'https://victoriabnb.ca/img/smart-home-chefs-kitchen-island.webp',
         'address': {'@type':'PostalAddress','streetAddress':'1345 Munro Road',
           'addressLocality':'North Saanich','addressRegion':'BC','addressCountry':'CA'},
         'geo': {'@type':'GeoCoordinates','latitude':48.65,'longitude':-123.41},
@@ -1730,6 +1768,64 @@ document.querySelectorAll('.rev-stars').forEach(el=>{
 renderPricingCards();
 injectJsonLd();
 (function(){var y=document.getElementById('footerYear');if(y)y.textContent=new Date().getFullYear();})();
+/* ── Availability calendar + booking-form clash check (data: /availability.json) ── */
+(function(){
+  var AV=null, prop='suite', offset=0;
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function busyNights(p){
+    var s=new Set(); if(!AV||!AV[p]||!AV[p].busy) return s;
+    AV[p].busy.forEach(function(r){var d=new Date(r[0]+'T12:00:00'),e=new Date(r[1]+'T12:00:00');while(d<e){s.add(iso(d));d.setDate(d.getDate()+1);}});
+    return s;
+  }
+  function render(){
+    var box=document.getElementById('acMonths'); if(!box) return;
+    var busy=busyNights(prop), now=new Date(), today=iso(now), html='';
+    var connected=!!(AV&&AV[prop]&&AV[prop].connected);
+    for(var m=0;m<2;m++){
+      var first=new Date(now.getFullYear(),now.getMonth()+offset+m,1);
+      var days=new Date(first.getFullYear(),first.getMonth()+1,0).getDate();
+      html+='<div class="ac-month"><h3>'+MONTHS[first.getMonth()]+' '+first.getFullYear()+'</h3><div class="ac-grid">';
+      ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(function(d){html+='<div class="ac-dow">'+d+'</div>';});
+      for(var i=0;i<first.getDay();i++) html+='<div class="ac-day empty"></div>';
+      for(var d=1;d<=days;d++){
+        var k=iso(new Date(first.getFullYear(),first.getMonth(),d)), c='ac-day', label='available';
+        if(k<today){c+=' past';label='past';}
+        else if(connected&&busy.has(k)){c+=' busy';label='booked';}
+        if(k===today) c+=' today';
+        html+='<div class="'+c+'" aria-label="'+k+' '+label+'">'+d+'</div>';
+      }
+      html+='</div></div>';
+    }
+    box.innerHTML=html;
+    document.getElementById('acPending').hidden=connected;
+    box.style.opacity=connected?'1':'0.45';
+    document.getElementById('acPrev').disabled=offset<=0;
+    var s=document.getElementById('acSynced');
+    if(AV&&AV.updated&&connected){var u=new Date(AV.updated);s.textContent='Calendar updated '+u.toLocaleDateString('en-CA',{month:'short',day:'numeric'});} else s.textContent='';
+  }
+  function clash(){
+    var w=document.getElementById('dateWarn'); if(!w) return;
+    var p=(document.getElementById('bProperty')||{}).value||'suite';
+    var ci=document.getElementById('bIn').value, co=document.getElementById('bOut').value;
+    if(!AV||!AV[p]||!AV[p].connected||!ci||!co||co<=ci){w.hidden=true;return;}
+    var busy=busyNights(p), d=new Date(ci+'T12:00:00'), e=new Date(co+'T12:00:00'), hit=false;
+    while(d<e){if(busy.has(iso(d))){hit=true;break;}d.setDate(d.getDate()+1);}
+    w.hidden=!hit;
+    if(hit) w.innerHTML='&#9888;&#65039; Some of those nights look booked on our calendar. Send the inquiry anyway and we&rsquo;ll suggest the closest open dates.';
+  }
+  document.querySelectorAll('.ac-tab').forEach(function(b){b.addEventListener('click',function(){
+    prop=b.dataset.prop;
+    document.querySelectorAll('.ac-tab').forEach(function(x){x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',x===b);});
+    var sel=document.getElementById('bProperty'); if(sel&&sel.value!==prop){sel.value=prop; if(typeof onPropertyChange==='function') onPropertyChange();}
+    render(); clash();
+  });});
+  document.getElementById('acPrev').addEventListener('click',function(){if(offset>0){offset-=2;render();}});
+  document.getElementById('acNext').addEventListener('click',function(){if(offset<22){offset+=2;render();}});
+  ['bIn','bOut','bProperty'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('change',clash);});
+  render();
+  fetch('/availability.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(j){AV=j;render();clash();}).catch(function(){render();});
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,45 @@
+# Copies booked dates from Airbnb into availability.json every 3 hours,
+# then redeploys the site so the on-page calendar stays current.
+# Needs repo secrets AIRBNB_ICAL_SUITE and AIRBNB_ICAL_SMARTHOME (Airbnb "export calendar" links).
+name: Sync Airbnb availability
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: availability-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch Airbnb calendars
+        env:
+          AIRBNB_ICAL_SUITE: ${{ secrets.AIRBNB_ICAL_SUITE }}
+          AIRBNB_ICAL_SMARTHOME: ${{ secrets.AIRBNB_ICAL_SMARTHOME }}
+        run: python3 .github/scripts/sync_availability.py availability.json
+
+      - name: Commit and redeploy if dates changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- availability.json; then
+            echo "No availability changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add availability.json
+          git commit -m "Update availability from Airbnb"
+          git push
+          gh workflow run static.yml --ref main
