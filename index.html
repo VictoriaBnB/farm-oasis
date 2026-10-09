@@ -28,10 +28,125 @@
 <meta name="twitter:description" content="Farm Oasis B&amp;B – Superhost-rated 2-bed + loft suite with farm views. Steps to Pat Bay Beach, 3 min to YYJ Airport, 15 min to Butchart Gardens.">
 <meta name="twitter:image" content="https://i.imgur.com/RizYbWh.jpeg">
 
-<!-- Schema.org structured data — populated by PRICING_CONFIG JS at runtime -->
-<!-- (Googlebot executes JS for structured data and picks this up correctly) -->
-<script type="application/ld+json" id="schemaJsonLd"></script>
+<!-- Schema.org structured data. Pre-rendered here so every crawler sees it    -->
+<!-- without running JS; injectJsonLd() still refreshes it from PRICING_CONFIG. -->
+<!-- If PRICING_CONFIG or property facts change, re-render this block too.      -->
+<script type="application/ld+json" id="schemaJsonLd">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BedAndBreakfast",
+      "@id": "https://victoriabnb.ca/#suite",
+      "name": "New Bright Modern Farm Oasis",
+      "description": "Airbnb Superhost-rated 2-bedroom + loft B&B suite in North Saanich, BC. Farm views, beach access, private entrance.",
+      "url": "https://victoriabnb.ca/",
+      "image": "https://i.imgur.com/RizYbWh.jpeg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1345 Munro Road",
+        "addressLocality": "North Saanich",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.65,
+        "longitude": -123.41
+      },
+      "priceRange": "$299–$380 CAD/night",
+      "numberOfRooms": 3,
+      "numberOfBedrooms": 2,
+      "numberOfBathroomsTotal": 2.5,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 6
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Free WiFi",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Private entrance",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Beach access",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Free parking",
+          "value": true
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "88"
+      },
+      "sameAs": "https://airbnb.ca/h/modernfarmoasis"
+    },
+    {
+      "@type": "House",
+      "@id": "https://victoriabnb.ca/#smarthome",
+      "name": "Modern Farm Oasis — 4BR Solar Smart Home",
+      "description": "4,500 sq ft solar-powered smart home on the same North Saanich property as New Bright Modern Farm Oasis, with 4 bedrooms (each with a private bathroom), open-concept living, and a chef's kitchen that seats 12. Shares the same farm views and beach access.",
+      "url": "https://victoriabnb.ca/#stays",
+      "image": "https://i.imgur.com/lbIYx2V.jpeg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1345 Munro Road",
+        "addressLocality": "North Saanich",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.65,
+        "longitude": -123.41
+      },
+      "priceRange": "$500–$880 CAD/night",
+      "numberOfRooms": 4,
+      "numberOfBedrooms": 4,
+      "numberOfBathroomsTotal": 5.5,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 8
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Free WiFi",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Beach access",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Free parking",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Wheelchair accessible",
+          "value": true
+        }
+      ],
+      "sameAs": "https://airbnb.ca/h/modernfarmoasis2"
+    }
+  ]
+}
+</script>
 
+<link rel="preconnect" href="https://i.imgur.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -1232,7 +1347,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 <p style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:0.5rem">
   🔒 Privacy: We use your information only to process your booking and will never share your data with third parties.
 </p>
-    <span>© 2025 New Bright Modern Farm Oasis · Sidney, BC</span>
+    <span>© <span id="footerYear">2026</span> New Bright Modern Farm Oasis · Sidney, BC</span>
   </div>
 </footer>
 
@@ -1577,6 +1692,7 @@ document.querySelectorAll('.rev-stars').forEach(el=>{
 /* ── Bootstrap: render cards and inject schema from PRICING_CONFIG ── */
 renderPricingCards();
 injectJsonLd();
+(function(){var y=document.getElementById('footerYear');if(y)y.textContent=new Date().getFullYear();})();
 </script>
 </body>
 </html>
