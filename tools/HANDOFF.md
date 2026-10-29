@@ -36,8 +36,10 @@ Read `tools/README.md` first for how the site is put together. This file is the
 - Google Business Profile exists ("Modern Farm Oasis", category Bed & breakfast, phone 250-889-3111).
 
 ## Open items (need the owner)
-- Google Business Profile: add photos, description mentioning self-catering, Farmstay/Vacation home rental as
-  secondary categories, and start collecting Google reviews (review link from the profile).
+- Google Business Profile is DONE (owner, Oct 29: photos etc.). The remaining gap is Google reviews: there are none yet.
+  Airbnb reviews don't carry over, so the first ones have to be asked for, guest by guest, after checkout (post-stay
+  message/text with the GBP review link, a QR card in the welcome binder). Never incentivise reviews (Google policy).
+  Once a few exist: add a "reviews on Google" line/widget to the site, and link to the profile from the footer.
 - Payment option for non-Canadian guests (Interac only today).
 - Review count/rating on site vs Airbnb.
 - If short stays are ever re-opened on Airbnb, keep Airbnb nightly >= direct nightly.
@@ -46,5 +48,6 @@ Read `tools/README.md` first for how the site is put together. This file is the
 - Photography is still the biggest lever: an exterior/patio shot at 2000px+ (or a short walkthrough clip) and full-size
   exports of the gallery photos from Airbnb (most are 480-720px). The hero and galleries are ready to take them.
 - Google reviews widget once the Google Business Profile has reviews.
-- Ranking for "Sidney B&B": the on-page side is done (FAQ answer, map, schema, consistent address/phone). What moves the
-  needle now is off-site: the Google Business Profile (photos, description, secondary categories, review link) and reviews.
+- Ranking for "Sidney B&B": the on-page side is done (FAQ answer, map, schema, consistent address/phone) and the Google
+  Business Profile is set up. What moves the needle now is Google reviews (see Open items) — the map pack ranks
+  profiles with reviews above profiles without, and a self-catering farm stay with zero reviews won't show for "B&B".
