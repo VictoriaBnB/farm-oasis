@@ -45,6 +45,23 @@ FAV = ('<link rel="icon" href="/favicon.ico" sizes="32x32">\n'
        '<meta name="theme-color" content="#3D5E41">')
 HERO_BG = ('<picture class="hero-bg"><source media="(max-width:700px)" srcset="/img/pat-bay-beach-sunset-800.webp">'
            '<img src="/img/pat-bay-beach-sunset.webp" width="1600" height="1200" alt="" fetchpriority="high" decoding="async"></picture>')
+# The house mark: the same drawing as favicon.svg, used in the nav and footer on every page.
+MARK = ('<svg class="nav-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false">'
+        '<rect width="100" height="100" rx="22" fill="#3D5E41"/><circle cx="74" cy="27" r="9" fill="#C4963A"/>'
+        '<polygon points="16,53 43,30 70,53" fill="#FAF7F2"/><rect x="20" y="52" width="46" height="26" fill="#FAF7F2"/>'
+        '<rect x="38.5" y="62" width="9" height="16" fill="#3D5E41"/><rect x="26" y="58" width="8" height="8" fill="#3D5E41"/>'
+        '<rect x="52" y="58" width="8" height="8" fill="#3D5E41"/></svg>')
+MAP_Q = "1345+Munro+Road,+North+Saanich,+BC+V8L+5T8"   # plain address: Google pins the house; a business-name query is riskier
+MAP_HTML = f'''
+  <div class="loc-map">
+    <div class="loc-map-frame">
+      <iframe src="https://www.google.com/maps?q={MAP_Q}&amp;z=13&amp;output=embed" width="1280" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Map: New Bright Modern Farm Oasis, 1345 Munro Road, North Saanich, BC"></iframe>
+    </div>
+    <div class="loc-map-bar">
+      <span>📍 1345 Munro Road, North Saanich (Sidney), BC V8L 5T8 &mdash; between Pat Bay and the airport</span>
+      <span><a href="https://www.google.com/maps/search/?api=1&amp;query=1345+Munro+Road+North+Saanich+BC+V8L+5T8" target="_blank" rel="noopener">Open in Google Maps</a> &nbsp;·&nbsp; <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Victoria+International+Airport+YYJ&amp;destination=1345+Munro+Road+North+Saanich+BC+V8L+5T8" target="_blank" rel="noopener">Directions from the airport</a></span>
+    </div>
+  </div>'''
 
 def esc(s):
     return H.escape(s, quote=True)
@@ -103,9 +120,9 @@ def chrome_top(crumb):
 
 <nav id="mainNav">
   <div class="nav-inner">
-    <a class="nav-logo" href="/" style="text-decoration:none">
-      <span class="nav-logo-name">New Bright Modern Farm Oasis</span>
-      <span class="nav-logo-sub">North Saanich · Sidney, BC</span>
+    <a class="nav-logo" href="/" aria-label="New Bright Modern Farm Oasis — home">
+      {MARK}
+      <span class="nav-logo-text"><span class="nav-logo-name">New Bright Modern Farm Oasis</span><span class="nav-logo-sub">North Saanich · Sidney, BC</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="/the-suite/">The Suite</a></li>
@@ -146,6 +163,31 @@ def hero(eyebrow, h1, sub, btn1=("/#booking", "Check Dates &amp; Book Direct"), 
       <a href="{btn1[0]}" class="btn-primary">{btn1[1]}</a>{b2}
     </div>
   </div>
+</div>
+'''
+
+def hero_split(eyebrow, h1, sub, photo, alt, facts, btn1=("/#booking", "Check Dates &amp; Book Direct"), btn2=None, photo_small=None, size=(1440, 1080)):
+    """Brand panel on the left, a real photo of the home on the right; the facts strip lives in the panel."""
+    b2 = f'\n        <a href="{btn2[0]}" class="btn-outline">{btn2[1]}</a>' if btn2 else ""
+    src = f'<source media="(max-width:700px)" srcset="{photo_small}">\n    ' if photo_small else ""
+    lis = "".join(f"\n        <li>{f}</li>" for f in facts)
+    return f'''
+<div class="hero hero-split hero-short">
+  <div class="hero-panel">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-star">★★★★★</span> {eyebrow}</div>
+      <h1>{h1}</h1>
+      <p class="hero-sub">{sub}</p>
+      <div class="hero-btns">
+        <a href="{btn1[0]}" class="btn-primary">{btn1[1]}</a>{b2}
+      </div>
+      <ul class="hero-facts">{lis}
+      </ul>
+    </div>
+  </div>
+  <picture class="hero-media">
+    {src}<img src="{photo}" width="{size[0]}" height="{size[1]}" alt="{alt}" fetchpriority="high" decoding="async">
+  </picture>
 </div>
 '''
 
@@ -210,7 +252,7 @@ def footer():
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-name">New Bright Modern Farm Oasis</div>
+      <div class="footer-brand">{MARK.replace("nav-mark", "nav-mark footer-mark")}<div class="footer-name">New Bright Modern Farm Oasis</div></div>
       <div class="footer-loc">1345 Munro Road · North Saanich (Sidney), BC V8L 5T8 · Canada</div>
       <p>Two modern vacation rentals on one farm property: a 2-bedroom + loft suite and a 4-bedroom smart home. Steps from Pat Bay Beach, minutes to Victoria Airport, Swartz Bay ferry &amp; Butchart Gardens.</p>
       <p style="margin-top:0.75rem;font-size:13px;color:rgba(255,255,255,0.6)">Call or text <a href="tel:+12508893111" style="color:rgba(255,255,255,0.85)">250-889-3111</a> · or use the <a href="/#booking" style="color:rgba(255,255,255,0.85)">inquiry form</a></p>
@@ -383,7 +425,7 @@ def location_section(eyebrow, title, paras):
 {section_head(eyebrow, title)}      <div class="loc-body">{ps}</div>
     </div>
     <div>{LOC_LIST}</div>
-  </div>
+  </div>{MAP_HTML}
 </section>
 '''
 
@@ -507,11 +549,12 @@ suite["jsonld"] = {"@context": "https://schema.org", "@graph": [
 ]}
 suite["body"] = (
     chrome_top("The Suite")
-    + hero("The Suite &nbsp;·&nbsp; 2 bedrooms + loft &nbsp;·&nbsp; sleeps 6",
+    + hero_split("The Suite &nbsp;·&nbsp; 2 bedrooms + loft &nbsp;·&nbsp; sleeps 6",
            "The Suite: <em>Two Bedrooms, a Loft</em> and the Farm Out the Window",
            "A brand-new, self-contained suite on our North Saanich farm: two bedrooms with their own full bathrooms, a queen loft, a bright open kitchen and a patio looking over the fields. Five minutes from Sidney, three from the airport.",
-           btn2=("#photos", "See the Photos"))
-    + facts_strip(['🛏️ <strong>2 bedrooms</strong>&nbsp;+ queen loft', '🚿 <strong>2.5 baths</strong>&nbsp;· 2 full ensuites', '👨‍👩‍👧‍👦 <strong>Sleeps 6</strong>&nbsp;· 3 real beds', '💰 <strong>From <span data-from-price="suite"></span></strong>&nbsp;/ night direct'])
+           "/img/suite-interior-detail.webp", "The Suite's kitchen, with the farm fields through the window",
+           ['🛏️ <strong>2 bedrooms</strong> + queen loft', '🚿 <strong>2.5 baths</strong> · 2 full ensuites', '👨‍👩‍👧‍👦 <strong>Sleeps 6</strong> · 3 real beds', '💰 <strong>From <span data-from-price="suite"></span></strong> / night direct'],
+           btn2=("#photos", "See the Photos"), photo_small="/img/suite-interior-detail-800.webp")
     + about_section("Finished in 2025", "Everything New, Nothing Shared",
         ["The suite is the newer of our two rentals, finished in 2025 with new appliances, furniture and fixtures throughout. It has its own entrance, so you come and go without passing through anyone else's space, and the patio outside the door has seating for morning coffee or an evening glass of something from <a href=\"https://seacider.ca/\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--sage-dark)\">Sea Cider</a> down the road.",
          "Inside, the living, dining and kitchen area is one bright open room with high ceilings and big windows onto the farm. The kitchen is fully equipped — full-size fridge and freezer, oven and stovetop, dishwasher, microwave, blender, kettle, toaster, and the pots, pans, dishes and basics you need to cook properly. A washer and dryer are in the suite.",
@@ -574,11 +617,12 @@ smart["jsonld"] = {"@context": "https://schema.org", "@graph": [
 ]}
 smart["body"] = (
     chrome_top("The Smart Home")
-    + hero("The Smart Home &nbsp;·&nbsp; 4 bedrooms, 5.5 baths &nbsp;·&nbsp; sleeps 8",
+    + hero_split("The Smart Home &nbsp;·&nbsp; 4 bedrooms, 5.5 baths &nbsp;·&nbsp; sleeps 8",
            "The Smart Home: <em>Four Bedrooms, Four Ensuites</em>, Room for Everyone",
            "A 4,500-square-foot solar-powered house built for families and groups: four bedrooms with private bathrooms, a kitchen that seats twelve, a gym, a home office and a wide patio over the farm. Step-free entry, three minutes from the airport.",
-           btn2=("#photos", "See the Photos"))
-    + facts_strip(['🛏️ <strong>4 bedrooms</strong>&nbsp;· king + 3 queens', '🚿 <strong>5.5 baths</strong>&nbsp;· every bedroom has one', '🍽️ <strong>Seats 12</strong>&nbsp;at the table', '💰 <strong>From <span data-from-price="smarthome"></span></strong>&nbsp;/ night direct'])
+           "/img/smart-home-chefs-kitchen-island.webp", "The Smart Home's chef's kitchen, with the farm through the windows",
+           ['🛏️ <strong>4 bedrooms</strong> · king + 3 queens', '🚿 <strong>5.5 baths</strong> · every bedroom has one', '🍽️ <strong>Seats 12</strong> at the table', '💰 <strong>From <span data-from-price="smarthome"></span></strong> / night direct'],
+           btn2=("#photos", "See the Photos"), size=(720, 540))
     + about_section("4,500 sq ft, solar-powered", "Built for a Full House",
         ["The Smart Home is the larger of our two rentals: a new build on the same North Saanich farm as the suite. The main level is open-concept — kitchen, dining and living room flow together under high ceilings — with big windows and doors out to a large concrete patio with a BBQ and the farm and valley views our guests keep writing about.",
          "The kitchen was designed for cooking for a crowd: an 8-burner gas range with two ovens, two dishwashers, three sinks, a pot filler, a Vitamix and a long island with bar seating, plus a dining table that seats twelve. Everything you'd need for a holiday dinner is already in the drawers.",

@@ -12,6 +12,21 @@ Read `tools/README.md` first for how the site is put together. This file is the
 - Photo hero (Pat Bay sunset), one-time reveals, "from $X/night" on stay cards.
 - Cloudflare Web Analytics beacon enabled (token in config). Baseline for traffic starts 2026-10-29.
 
+## Visual pass (later on 2026-10-29)
+- Home + property pages got a split hero: sage brand panel (title, copy, buttons, four facts) beside a real photo of the
+  Suite kitchen with the farm view (`img/suite-interior-detail.webp`, the only clean 1440px property photo). The stats bar and
+  the gold Superhost banner were folded into the hero panel (the Superhost claim was repeated five times above the fold).
+- House logo mark (favicon drawing, inline SVG) in the nav and footer on every page; the nav's "Superhost" badge was dropped.
+- "The two homes, side by side" table under the stay cards on the home page (prices via the existing config hooks).
+- Key-less Google Maps embed + address bar under the location grid (home, Suite, Smart Home, Monthly); `hasMap` in the schema.
+- Fixed a real layout bug: the About mosaic overflowed the page by 74px on desktop (grid images needed `minmax(0,1fr)`).
+- New social image `img/og/suite-kitchen-farm-view.jpg` (1200x630) for the home page; sitemap lists the hero photo.
+- `tools/shot.py`: headless-Chrome screenshots + checks (see README). Every page passed desktop + mobile before the push.
+- Photos found in `C:/Users/RWERK/Downloads/BBreakfast` but NOT used: `Kitchen.jpg`/`cubbords.jpg` have a composited
+  "Bed & Breakfast" caption (inaccurate), `living2_tv.jpg` (Smart Home great room) and `living_room_tv3.jpg` (Suite living room)
+  have a composited TV welcome screen. If the owner is happy with the TV mock-up, `living2_tv.jpg` (1440px) would make a much
+  sharper Smart Home hero than the current 720px kitchen photo — one `hero_split(...)` argument in `tools/gen_pages.py`.
+
 ## Facts discovered (verify before changing strategy)
 - Airbnb: both listings only bookable for 30+ nights (checked Nov/Dec 2026 and Jul 2027). Suite Airbnb monthly
   total $6,554 incl. tax; smart home $19,745 (Nov) / $23,335 (Jul). Suite base nightly on Airbnb ~ $284.
@@ -27,11 +42,9 @@ Read `tools/README.md` first for how the site is put together. This file is the
 - Review count/rating on site vs Airbnb.
 - If short stays are ever re-opened on Airbnb, keep Airbnb nightly >= direct nightly.
 
-## Ideas for a visual pass (next session)
-- Real hero photography: the property photos in `img/` are only 480-720px wide; a 2000px+ wide exterior/patio
-  shot (or a 15s drone/walkthrough clip) would replace the generic sunset hero. Export originals from the
-  owner's phone/Airbnb at full size, then regenerate galleries at 1200px.
-- Embedded map section (Google Maps place embed, no API key needed).
-- "Compare the two homes" table on the home page.
-- Logo mark in the nav (the favicon house works as a starting point).
-- Google reviews widget once GBP has reviews.
+## Ideas for next time
+- Photography is still the biggest lever: an exterior/patio shot at 2000px+ (or a short walkthrough clip) and full-size
+  exports of the gallery photos from Airbnb (most are 480-720px). The hero and galleries are ready to take them.
+- Google reviews widget once the Google Business Profile has reviews.
+- Ranking for "Sidney B&B": the on-page side is done (FAQ answer, map, schema, consistent address/phone). What moves the
+  needle now is off-site: the Google Business Profile (photos, description, secondary categories, review link) and reviews.

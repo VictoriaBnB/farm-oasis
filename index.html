@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_CA">
 <meta property="og:title" content="New Bright Modern Farm Oasis — Farmhouse Stay · Sidney, BC">
 <meta property="og:description" content="Two modern farmhouse rentals in North Saanich: a 2BR + loft suite and a 4BR smart home. Steps to the beach, 3 min to YYJ, 10 min to Swartz Bay ferry. 88 five-star reviews. Book direct.">
-<meta property="og:image" content="https://victoriabnb.ca/img/og/pat-bay-beach-sunset.jpg">
+<meta property="og:image" content="https://victoriabnb.ca/img/og/suite-kitchen-farm-view.jpg">
 <meta property="og:url" content="https://victoriabnb.ca/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Farm Oasis – Farmhouse Stay, Sidney BC">
 <meta name="twitter:description" content="Superhost-rated farmhouse stay with farm views. Steps to Pat Bay Beach, 3 min to YYJ Airport, 10 min to Swartz Bay ferry, 15 min to Butchart Gardens.">
-<meta name="twitter:image" content="https://victoriabnb.ca/img/og/pat-bay-beach-sunset.jpg">
+<meta name="twitter:image" content="https://victoriabnb.ca/img/og/suite-kitchen-farm-view.jpg">
 
 <!-- Icons -->
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -113,7 +113,8 @@
       "subjectOf": {
         "@id": "https://victoriabnb.ca/the-suite/#webpage"
       },
-      "telephone": "+1-250-889-3111"
+      "telephone": "+1-250-889-3111",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=1345+Munro+Road+North+Saanich+BC+V8L+5T8"
     },
     {
       "@type": "House",
@@ -170,7 +171,8 @@
       "checkoutTime": "10:00",
       "petsAllowed": false,
       "smokingAllowed": false,
-      "telephone": "+1-250-889-3111"
+      "telephone": "+1-250-889-3111",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=1345+Munro+Road+North+Saanich+BC+V8L+5T8"
     },
     {
       "@type": "FAQPage",
@@ -847,10 +849,10 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 <!-- ══ NAV ══ -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <div class="nav-logo">
-      <span class="nav-logo-name">New Bright Modern Farm Oasis</span>
-      <span class="nav-logo-sub">Sidney, BC · Canada</span>
-    </div>
+    <a class="nav-logo" href="/" aria-label="New Bright Modern Farm Oasis — home">
+      <svg class="nav-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" rx="22" fill="#3D5E41"/><circle cx="74" cy="27" r="9" fill="#C4963A"/><polygon points="16,53 43,30 70,53" fill="#FAF7F2"/><rect x="20" y="52" width="46" height="26" fill="#FAF7F2"/><rect x="38.5" y="62" width="9" height="16" fill="#3D5E41"/><rect x="26" y="58" width="8" height="8" fill="#3D5E41"/><rect x="52" y="58" width="8" height="8" fill="#3D5E41"/></svg>
+      <span class="nav-logo-text"><span class="nav-logo-name">New Bright Modern Farm Oasis</span><span class="nav-logo-sub">North Saanich · Sidney, BC</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#stays">Stays</a></li>
       <li><a href="#gallery-suite">Photos</a></li>
@@ -861,7 +863,6 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <li><a href="#availability">Availability</a></li>
       <li><a href="#booking" class="nav-cta">Book Direct</a></li>
     </ul>
-    <div class="nav-badge">⭐ Superhost · 4.9 · 88 Reviews</div>
     <button class="hamburger" id="menuBtn" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -886,63 +887,29 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
   <a href="#booking" onclick="closeMobile()" style="color:var(--sage-dark);font-weight:600">Book Direct ↓</a>
 </div>
 
-<!-- ══ HERO — Slim solid-sage banner ══ -->
-<div class="hero hero-photo">
-  <picture class="hero-bg"><source media="(max-width:700px)" srcset="/img/pat-bay-beach-sunset-800.webp"><img src="/img/pat-bay-beach-sunset.webp" width="1600" height="1200" alt="" fetchpriority="high" decoding="async"></picture>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-star">★★★★★</span>
-      Airbnb Superhost &nbsp;·&nbsp; 4.9 · 88 Reviews &nbsp;·&nbsp; Sidney, BC
-    </div>
-    <h1>New Bright Modern <em>Farm Oasis</em></h1>
-    <p class="hero-sub">Two modern farmhouse stays on one quiet farm in North Saanich: steps to Pat Bay Beach, minutes to Victoria Airport, the Swartz Bay ferry &amp; Butchart Gardens. Book direct for our lowest rates — and the longer you stay, the less each night costs.</p>
-    <div class="hero-btns">
-      <a href="#booking" class="btn-primary">Book Direct &amp; Save</a>
-      <a href="#gallery" class="btn-outline">View Photos</a>
+<!-- ══ HERO — brand panel + a real photo of the Suite (the facts strip and Superhost banner now live in the panel) ══ -->
+<div class="hero hero-split">
+  <div class="hero-panel">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-star">★★★★★</span> Airbnb Superhost &nbsp;·&nbsp; 4.9 · 88 reviews &nbsp;·&nbsp; Sidney, BC</div>
+      <h1>New Bright Modern <em>Farm Oasis</em></h1>
+      <p class="hero-sub">Two self-catering farmhouse stays on one quiet farm near Sidney: a 2-bedroom + loft suite and a 4-bedroom smart home, both with farm views and the beach a short walk away. Book direct for our lowest rates &mdash; the longer you stay, the less each night costs.</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-primary">Book Direct &amp; Save</a>
+        <a href="#gallery" class="btn-outline">See the Photos</a>
+      </div>
+      <ul class="hero-facts">
+        <li>✈️ <strong>3 min</strong> to Victoria Airport</li>
+        <li>🏖️ <strong>Steps</strong> to Pat Bay Beach</li>
+        <li>⛴️ <strong>10 min</strong> to Swartz Bay ferry</li>
+        <li>🌸 <strong>15 min</strong> to Butchart Gardens</li>
+      </ul>
     </div>
   </div>
-</div>
-
-<!-- ══ STATS BAR ══ -->
-<div class="stats-bar">
-  <div class="stats-bar-inner">
-    <div class="stat">✈️ <strong>3 min</strong>&nbsp;to YYJ Airport</div>
-    <div class="stat-sep"></div>
-    <div class="stat">🏖️ <strong>Steps</strong>&nbsp;to Pat Bay Beach</div>
-    <div class="stat-sep"></div>
-    <div class="stat">🌸 <strong>15 min</strong>&nbsp;to Butchart Gardens</div>
-    <div class="stat-sep"></div>
-    <div class="stat">Check-in <strong>3 PM</strong>&nbsp;· Out <strong>10 AM</strong></div>
-  </div>
-</div>
-
-<!-- ══ SUPERHOST BANNER ══ -->
-<div class="sh-banner">
-  <div class="sh-inner">
-    <div class="sh-pill">
-      <div class="sh-icon">★</div>
-      <div>
-        <div style="font-size:13px;font-weight:600;color:#5A3800">Airbnb Superhost</div>
-        <div style="font-size:11px;color:#8B6010;margin-top:1px">Exceptional hospitality, every stay</div>
-      </div>
-    </div>
-    <div class="sh-div"></div>
-    <div class="sh-pill">
-      <span style="color:var(--gold);font-size:15px;letter-spacing:1px">★★★★★</span>
-      <div>
-        <div style="font-size:13px;font-weight:600;color:#5A3800">4.9 / 5.0 Rating</div>
-        <div style="font-size:11px;color:#8B6010;margin-top:1px">88 verified guest reviews</div>
-      </div>
-    </div>
-    <div class="sh-div"></div>
-    <div class="sh-pill">
-      <div class="sh-icon" style="background:var(--sage-dark);font-size:11px">NEW</div>
-      <div>
-        <div style="font-size:13px;font-weight:600;color:#5A3800">Brand New Suite — 2025</div>
-        <div style="font-size:11px;color:#8B6010;margin-top:1px">New appliances, furniture &amp; finishes throughout</div>
-      </div>
-    </div>
-  </div>
+  <picture class="hero-media">
+    <source media="(max-width:700px)" srcset="/img/suite-interior-detail-800.webp">
+    <img src="/img/suite-interior-detail.webp" width="1440" height="1080" alt="The Suite's kitchen at New Bright Modern Farm Oasis, with the farm fields through the window" fetchpriority="high" decoding="async">
+  </picture>
 </div>
 
 <!-- ══ ABOUT ══ -->
@@ -1014,6 +981,34 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
         <a href="/the-smart-home/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
         <p class="stay-alt">Prefer a platform? <a href="https://airbnb.ca/h/modernfarmoasis2" target="_blank" rel="noopener">See the Smart Home on Airbnb</a> (platform fees apply).</p>
       </div>
+    </div>
+    <div class="compare" id="compare">
+      <div class="compare-head">
+        <h3>The two homes, side by side</h3>
+        <p>Same farm, same beach, same hosts &mdash; different sizes. Nightly prices are for direct bookings and include all taxes.</p>
+      </div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr-only">Feature</span></th>
+            <th scope="col" class="compare-name" data-prop="suite">The Suite<small>2 bedrooms + loft &middot; sleeps 6</small></th>
+            <th scope="col" class="compare-name" data-prop="smarthome">The Smart Home<small>4 bedrooms &middot; sleeps 8</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Bedrooms</th><td data-prop="suite">2 bedrooms plus a queen loft</td><td data-prop="smarthome">4 bedrooms</td></tr>
+          <tr><th scope="row">Beds</th><td data-prop="suite">King, queen, and a queen in the loft</td><td data-prop="smarthome">King plus three queens</td></tr>
+          <tr><th scope="row">Bathrooms</th><td data-prop="suite">2.5 &mdash; a full ensuite for each bedroom, plus a powder room</td><td data-prop="smarthome">5.5 &mdash; a private bathroom for every bedroom, plus a gym bath and a powder room</td></tr>
+          <tr><th scope="row">Sleeps</th><td data-prop="suite">Up to 6</td><td data-prop="smarthome">Up to 8 (up to 14 when booked with the Suite)</td></tr>
+          <tr><th scope="row">Kitchen &amp; laundry</th><td data-prop="suite">Full kitchen with dishwasher; washer &amp; dryer in the suite</td><td data-prop="smarthome">Chef&rsquo;s kitchen: 8-burner gas range, two dishwashers, a table for 12; full laundry room</td></tr>
+          <tr><th scope="row">Extras</th><td data-prop="suite">Private entrance &amp; patio, rain shower, infloor heating, smart TV</td><td data-prop="smarthome">Home gym, office, 85&quot; Frame TV with Sonos, air conditioning, gigabit fibre, solar-powered</td></tr>
+          <tr><th scope="row">Access</th><td data-prop="suite">Own entrance; stairs up to the loft</td><td data-prop="smarthome">Step-free entry; guest door wider than 32&quot;</td></tr>
+          <tr><th scope="row">From, per night</th><td data-prop="suite"><span class="compare-price" data-from-price="suite"></span> <small>up to <span data-max-discount="suite"></span> off longer stays</small></td><td data-prop="smarthome"><span class="compare-price" data-from-price="smarthome"></span> <small>up to <span data-max-discount="smarthome"></span> off longer stays</small></td></tr>
+          <tr><th scope="row">Monthly rate</th><td data-prop="suite"><strong data-monthly-total="suite"></strong> for <span data-monthly-nights="suite"></span> nights, on stays of <span data-monthly-min="suite"></span>+ nights</td><td data-prop="smarthome"><strong data-monthly-total="smarthome"></strong> for <span data-monthly-nights="smarthome"></span> nights, on stays of <span data-monthly-min="smarthome"></span>+ nights</td></tr>
+          <tr><th scope="row">Best for</th><td data-prop="suite">Couples, small families, two couples travelling together</td><td data-prop="smarthome">Family reunions, groups of up to 8, long stays that need an office</td></tr>
+          <tr class="compare-links"><th scope="row"><span class="sr-only">Links</span></th><td data-prop="suite"><a class="compare-link" href="/the-suite/">Suite details, photos &amp; rates &rarr;</a></td><td data-prop="smarthome"><a class="compare-link" href="/the-smart-home/">Smart Home details, photos &amp; rates &rarr;</a></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -1223,6 +1218,15 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 	<li class="dist-item"><a href="https://www.surlymermaid.ca/" target="_blank" rel="noopener">🛒 &nbsp;Grocery, Shopping &amp; Restaurants</a><span class="dist-time">~5 min drive</span></li>
         <li class="dist-item"><a href="https://seacider.ca/" target="_blank" rel="noopener">🍏 &nbsp;Sea Cider Farm &amp; Cidery</a><span class="dist-time">5 min drive</span></li>
       </ul>
+    </div>
+  </div>
+  <div class="loc-map">
+    <div class="loc-map-frame">
+      <iframe src="https://www.google.com/maps?q=1345+Munro+Road,+North+Saanich,+BC+V8L+5T8&amp;z=13&amp;output=embed" width="1280" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Map: New Bright Modern Farm Oasis, 1345 Munro Road, North Saanich, BC"></iframe>
+    </div>
+    <div class="loc-map-bar">
+      <span>📍 1345 Munro Road, North Saanich (Sidney), BC V8L 5T8 &mdash; between Pat Bay and the airport</span>
+      <span><a href="https://www.google.com/maps/search/?api=1&amp;query=1345+Munro+Road+North+Saanich+BC+V8L+5T8" target="_blank" rel="noopener">Open in Google Maps</a> &nbsp;·&nbsp; <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Victoria+International+Airport+YYJ&amp;destination=1345+Munro+Road+North+Saanich+BC+V8L+5T8" target="_blank" rel="noopener">Directions from the airport</a></span>
     </div>
   </div>
 </section>
@@ -1517,7 +1521,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-name">New Bright Modern Farm Oasis</div>
+      <div class="footer-brand"><svg class="nav-mark footer-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect width="100" height="100" rx="22" fill="#3D5E41"/><circle cx="74" cy="27" r="9" fill="#C4963A"/><polygon points="16,53 43,30 70,53" fill="#FAF7F2"/><rect x="20" y="52" width="46" height="26" fill="#FAF7F2"/><rect x="38.5" y="62" width="9" height="16" fill="#3D5E41"/><rect x="26" y="58" width="8" height="8" fill="#3D5E41"/><rect x="52" y="58" width="8" height="8" fill="#3D5E41"/></svg><div class="footer-name">New Bright Modern Farm Oasis</div></div>
       <div class="footer-loc">1345 Munro Road · North Saanich (Sidney), BC V8L 5T8 · Canada</div>
       <p>Two modern vacation rentals on one farm: a 2-bedroom + loft suite and a 4-bedroom solar smart home, both with farm views and beach access. Steps from Pat Bay Beach, minutes to Victoria Airport, Butchart Gardens &amp; BC Ferries.</p>
       <p style="margin-top:0.75rem;font-size:13px;color:rgba(255,255,255,0.6)">Call or text <a href="tel:+12508893111" style="color:rgba(255,255,255,0.85)">250-889-3111</a> · or use the inquiry form above</p>
@@ -1659,6 +1663,7 @@ function injectJsonLd() {
         'address': {'@type':'PostalAddress','streetAddress':'1345 Munro Road',
           'addressLocality':'North Saanich','addressRegion':'BC','postalCode':'V8L 5T8','addressCountry':'CA'},
         'telephone': '+1-250-889-3111',
+        'hasMap': 'https://www.google.com/maps/search/?api=1&query=1345+Munro+Road+North+Saanich+BC+V8L+5T8',
         'geo': {'@type':'GeoCoordinates','latitude':48.6612,'longitude':-123.4434},
         'priceRange': '$' + sLow + '–$' + sHigh + ' CAD/night',
         'numberOfRooms': 3, 'numberOfBedrooms': 2, 'numberOfBathroomsTotal': 2.5,
@@ -1684,6 +1689,7 @@ function injectJsonLd() {
         'address': {'@type':'PostalAddress','streetAddress':'1345 Munro Road',
           'addressLocality':'North Saanich','addressRegion':'BC','postalCode':'V8L 5T8','addressCountry':'CA'},
         'telephone': '+1-250-889-3111',
+        'hasMap': 'https://www.google.com/maps/search/?api=1&query=1345+Munro+Road+North+Saanich+BC+V8L+5T8',
         'geo': {'@type':'GeoCoordinates','latitude':48.6612,'longitude':-123.4434},
         'priceRange': '$' + hLow + '–$' + hHigh + ' CAD/night',
         'numberOfRooms': 4, 'numberOfBedrooms': 4, 'numberOfBathroomsTotal': 5.5,

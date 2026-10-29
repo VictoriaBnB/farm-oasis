@@ -14,6 +14,21 @@ Static site on GitHub Pages (`.github/workflows/static.yml` deploys `main` on ev
 | Crawler-visible bits that mirror the config (JSON-LD price range) | `tools/render_static.py` (Site Manager runs it on Save) |
 | Booked dates from Airbnb/Google calendars | `.github/workflows/sync-availability.yml` → `availability.json` every 3 hours |
 | Booking inquiries | Formspree form in `index.html` (`#bookingForm`) |
+| Screenshots + page checks (headless Chrome over the DevTools protocol) | `tools/shot.py` — `python tools/shot.py` captures every page, desktop + mobile, into `tools/shots/` (git-ignored) and reports console errors, broken images, overflow and empty prices; `python tools/shot.py / --clip ".hero" "#location"` captures just those parts |
+
+## Where the visual pieces live (visual pass, 2026-10-29)
+
+* **Logo mark** (the favicon house as inline SVG) sits in the nav and footer of every page: `MARK` in `tools/gen_pages.py`, the same
+  markup in `index.html` and the six hand-written guides. Change `favicon.svg` and the mark together.
+* **Split hero** (sage panel + real photo): home page markup in `index.html` (`.hero.hero-split`), property pages via `hero_split(...)`
+  in `gen_pages.py`. Photos: Suite + home use `img/suite-interior-detail.webp` (1440px, the kitchen), Smart Home uses
+  `img/smart-home-chefs-kitchen-island.webp` (720px — a bigger export from Airbnb would sharpen it). The location facts under the
+  hero text replaced the old stats bar + gold Superhost banner. Guide pages keep the full-bleed Pat Bay sunset hero.
+* **Compare table** (`#compare` in `index.html`): the facts are typed by hand; prices come from the config through the same
+  `data-from-price` / `data-monthly-*` hooks as the stay cards, and each column carries `data-prop` so pausing/hiding a home works.
+* **Map**: a key-less Google Maps embed (`output=embed`, address query) under the location grid on the home page (`index.html`)
+  and on the property + monthly pages (`MAP_HTML` in `gen_pages.py`); both lodging entities in the JSON-LD carry `hasMap`.
+* Styles for all of the above are in `assets/ui.css` (loaded last on every page).
 
 ## Everyday changes
 
@@ -30,4 +45,6 @@ Static site on GitHub Pages (`.github/workflows/static.yml` deploys `main` on ev
 ```
 python tools/render_static.py      # validates the config and syncs index.html
 python tools/gen_pages.py          # regenerates the five generated pages
+python tools/shot.py               # screenshots + checks for every page (desktop + mobile) -> tools/shots/
 ```
+(From Git Bash on Windows prefix the last one with `MSYS_NO_PATHCONV=1` if you pass paths like `/the-suite/`.)
