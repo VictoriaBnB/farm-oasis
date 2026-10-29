@@ -58,6 +58,9 @@ p.prop-note[hidden]{display:none}
 .bform .fg{min-width:0}
 .bform .fg select,.bform .fg input,.bform .fg textarea{max-width:100%}
 
+/* ── Booking estimate: tax line ─ */
+.pp-tax{font-size:11.5px;color:rgba(255,255,255,.7);margin-top:8px;text-align:right}
+
 /* ── Booking estimate: season lines ─────────────────────────────────── */
 .pp-seasons{display:block;font-size:11.5px;color:rgba(255,255,255,.65);margin:-4px 0 8px}
 

@@ -121,23 +121,23 @@
     // worked example: 7 nights starting today
     const t = new Date(); const ci = t.getFullYear() + '-' + pad(t.getMonth() + 1) + '-' + pad(t.getDate());
     const ex = discounts.length ? quote(prop, ci, (function () { const e = new Date(t); e.setDate(t.getDate() + discounts[0].minNights); return e.getFullYear() + '-' + pad(e.getMonth() + 1) + '-' + pad(e.getDate()); })()) : null;
-    const exRow = ex ? '<div class="price-fee-row"><span>e.g. ' + ex.nights + ' nights this month, incl. cleaning</span><strong>' + fmtMoney(ex.total) + '</strong></div>' : '';
+    const exRow = ex ? '<div class="price-fee-row"><span>e.g. ' + ex.nights + ' nights this month, incl. cleaning &amp; taxes</span><strong>' + fmtMoney(ex.total) + '</strong></div>' : '';
     const m = c.monthly;
     const monthlyCard = m ? '<div class="price-card">' +
       '<div class="price-badge" style="background:var(--gold)">Lowest Rate — ' + m.minNights + '+ Nights</div>' +
       '<div class="price-label">Monthly Stay</div>' +
       '<div class="price-amount"><sup>$</sup>' + Math.round(m.total / m.perNights).toLocaleString('en-CA') + '</div>' +
-      '<div class="price-per">per night · CAD</div>' +
+      '<div class="price-per">per night · CAD · taxes included</div>' +
       '<div class="price-save">All year, any season</div>' +
       '<div class="price-fees">' +
       '<div class="price-fee-row"><span>' + m.perNights + ' nights</span><strong>' + fmtMoney(m.total) + '</strong></div>' +
       '<div class="price-fee-row"><span>+ Cleaning fee</span><strong>' + fmtMoney(c.cleaningFee || 0) + '</strong></div>' +
-      '<div class="price-fee-row"><span>Total for ' + m.perNights + ' nights</span><strong>' + fmtMoney(m.total + (c.cleaningFee || 0)) + '</strong></div>' +
+      '<div class="price-fee-row"><span>Total for ' + m.perNights + ' nights, taxes incl.</span><strong>' + fmtMoney(m.total + (c.cleaningFee || 0)) + '</strong></div>' +
       '</div></div>' : '';
     return '<div class="price-card">' +
       '<div class="price-label">Nightly Rate</div>' +
       '<div class="price-amount"><sup>$</sup>' + from.toLocaleString('en-CA') + '</div>' +
-      '<div class="price-per">per night from · CAD</div>' +
+      '<div class="price-per">per night from · CAD · taxes included</div>' +
       '<div class="price-fees price-seasons">' + seasonRowsHTML +
       '<div class="price-fee-row"><span>Cleaning fee (one-time)</span><strong>' + fmtMoney(c.cleaningFee || 0) + '</strong></div>' +
       '<div class="price-fee-row"><span>Max guests</span><strong>' + (c.maxGuests || '') + '</strong></div>' +

@@ -8,7 +8,7 @@
    pricing.<name>.seasons:    nightly rate by date range (MM-DD, inclusive; may wrap the year end)
    pricing.<name>.discounts:  % off the nightly subtotal for stays of at least minNights
    pricing.<name>.monthly:    fixed price for perNights nights, applied to stays of minNights or more
-   analytics:                 leave blank for none; GoatCounter code (e.g. "victoriabnb") or GA4 id ("G-XXXXXXX")
+   analytics:                 leave blank for none; Cloudflare Web Analytics token, GoatCounter code, or GA4 id
 */
 var SITE_CONFIG = {
   "updated": "2026-10-29",
@@ -143,6 +143,7 @@ var SITE_CONFIG = {
   },
   "analytics": {
     "goatcounter": "",
-    "ga4": ""
+    "ga4": "",
+    "cloudflare": ""
   }
 };

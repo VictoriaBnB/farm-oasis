@@ -107,6 +107,12 @@
       s.setAttribute('data-goatcounter', 'https://' + a.goatcounter + '.goatcounter.com/count');
       document.head.appendChild(s);
     }
+    if (a.cloudflare) {
+      const s = document.createElement('script');
+      s.defer = true; s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: a.cloudflare }));
+      document.head.appendChild(s);
+    }
     if (a.ga4) {
       const s = document.createElement('script');
       s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(a.ga4);

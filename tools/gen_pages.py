@@ -211,8 +211,9 @@ def footer():
   <div class="footer-grid">
     <div>
       <div class="footer-name">New Bright Modern Farm Oasis</div>
-      <div class="footer-loc">1345 Munro Road · North Saanich (Sidney), BC V8L 5S9 · Canada</div>
+      <div class="footer-loc">1345 Munro Road · North Saanich (Sidney), BC V8L 5T8 · Canada</div>
       <p>Two modern vacation rentals on one farm property: a 2-bedroom + loft suite and a 4-bedroom smart home. Steps from Pat Bay Beach, minutes to Victoria Airport, Swartz Bay ferry &amp; Butchart Gardens.</p>
+      <p style="margin-top:0.75rem;font-size:13px;color:rgba(255,255,255,0.6)">Call or text <a href="tel:+12508893111" style="color:rgba(255,255,255,0.85)">250-889-3111</a> · or use the <a href="/#booking" style="color:rgba(255,255,255,0.85)">inquiry form</a></p>
       <p style="margin-top:0.75rem;font-size:11px;color:rgba(255,255,255,0.28)">Check-in 3:00 PM · Check-out 10:00 AM · Self-catering (no breakfast served) · No pets, smoking or vaping</p>
     </div>
     <div class="footer-col">
@@ -336,10 +337,10 @@ def rates_section(prop, grid_id, eyebrow, title, name):
     return f'''
 <section id="rates" class="pricing-section">
   <div class="wrap" data-prop="{prop}">
-{section_head(eyebrow, title)}    <p class="pricing-intro">Direct rates are set <strong>below our Airbnb pricing</strong>, with no platform fee on top. Nightly rates change with the season, and every night costs less the longer you stay: <strong><span data-ladder="{prop}"></span></strong>, plus a flat monthly rate for longer stays. The only extra is a one-time cleaning fee, and the booking form applies every discount automatically.</p>
+{section_head(eyebrow, title)}    <p class="pricing-intro">Direct rates are set <strong>below our Airbnb pricing</strong>, with no platform fee on top. Nightly rates change with the season, and every night costs less the longer you stay: <strong><span data-ladder="{prop}"></span></strong>, plus a flat monthly rate for longer stays. The only extra is a one-time cleaning fee, every price includes all taxes, and the booking form applies every discount automatically.</p>
     <div class="pricing-grid" id="{grid_id}" style="margin-top:1.5rem"></div>
     <div class="prop-paused-msg">{name} isn&rsquo;t taking bookings right now. <span class="prop-note"></span></div>
-    <p style="font-size:13.5px;color:var(--mid);margin-top:1.25rem;max-width:760px">Prices in Canadian dollars. Check-in 3:00 PM, check-out 10:00 AM. Self-catering. No pets, smoking or vaping.</p>
+    <p style="font-size:13.5px;color:var(--mid);margin-top:1.25rem;max-width:760px">Prices in Canadian dollars, all taxes included. Check-in 3:00 PM, check-out 10:00 AM. Self-catering. No pets, smoking or vaping.</p>
     <div class="cancel-box">
       <div class="cancel-title">📋 Cancellation Policy — Moderate</div>
       <div class="cancel-row"><div class="cancel-dot"></div><div><strong>Full refund</strong> if cancelled at least 5 days before check-in</div></div>
@@ -478,7 +479,7 @@ SUITE_FAQ = [
     ("Who is the suite best for?", "Couples, small families and two couples travelling together. There are two bedrooms with their own full bathrooms, a queen bed in the loft and a powder room off the living area, so up to six people can stay without anyone sharing a bathroom with strangers."),
     ("Is the suite private?", "Yes. It has its own entrance and patio, its own kitchen and laundry, and it is one of only two rentals on the farm. The second rental, the Smart Home, is a separate house."),
     ("What are the beds?", "A king bed in the master bedroom, a queen in the second bedroom and a queen in the loft. Premium linens, extra pillows and blankets are provided."),
-    ("Do longer stays cost less?", "Yes. Stays of 7+ nights are discounted, 14+ nights more so, and a flat monthly rate applies to the longest stays. The booking form shows the discount instantly when you enter your dates."),
+    ("Do longer stays cost less?", "Yes. Stays of 7+ nights are discounted, 14+ nights more so, and a flat monthly rate applies to the longest stays. The booking form shows the discount instantly when you enter your dates, and every price includes all taxes."),
     ("How do I check in?", "Self check-in from 3:00 PM through the private entrance. Check-out is 10:00 AM. We send arrival details before your stay."),
     ("Is there parking?", "Yes, free parking on the property."),
     ("Can we rent a car nearby?", "The airport is 3 minutes away with the usual rental desks. If you'd rather book a car through Turo, ask us and we'll share a link."),
@@ -544,7 +545,7 @@ suite["body"] = (
 SMART_FAQ = [
     ("How many people can stay?", "Up to 8 guests in four bedrooms: a king in the master and queens in the other three. Every bedroom has its own private bathroom, and there are 5.5 bathrooms in total."),
     ("Is the Smart Home wheelchair accessible?", "It has step-free access and a guest entrance wider than 32 inches (81 cm). If you have specific needs — bathroom layout, bed height, door widths inside the house — tell us in your inquiry and we'll confirm the details honestly before you book."),
-    ("Do longer stays cost less?", "Yes. Stays of 7+ nights are discounted, 14+ nights more so, and a flat monthly rate applies to the longest stays. The booking form shows the discount instantly when you enter your dates."),
+    ("Do longer stays cost less?", "Yes. Stays of 7+ nights are discounted, 14+ nights more so, and a flat monthly rate applies to the longest stays. The booking form shows the discount instantly when you enter your dates, and every price includes all taxes."),
     ("Is there air conditioning?", "Yes. The house has air conditioning for summer and heating for the rest of the year."),
     ("Can we use the gym?", "Yes. The home gym with free weights, a treadmill and a Tacx Neo smart bike (bring your Zwift login) is included with the house."),
     ("Can we book the Smart Home and the Suite together?", "Yes. The two rentals sit on the same farm, so a group of up to 14 can book both and still have separate kitchens, bathrooms and front doors. Ask in your inquiry."),
@@ -756,13 +757,13 @@ monthly["body"] = (
     <div class="eyebrow">Monthly rates</div>
     <h2 class="section-title">What a Month Costs</h2>
     <div class="rule"></div>
-    <p class="pricing-intro">The monthly rate is a flat amount for the first <span data-monthly-nights="suite"></span> nights plus one cleaning fee — a long way below the nightly price, and below our Airbnb monthly pricing too. Because you book direct there are no platform fees on top.</p>
+    <p class="pricing-intro">The monthly rate is a flat amount for the first <span data-monthly-nights="suite"></span> nights plus one cleaning fee — a long way below the nightly price, and below our Airbnb monthly pricing too. Because you book direct there are no platform fees on top, and all taxes are included.</p>
     <div class="rules-grid" style="margin-top:1.5rem">
       <div class="rule-card rule-ok" data-prop="suite"><span class="rule-icon">🏡</span><div class="rule-name">The Suite · 2BR + loft</div><div class="rule-note"><strong data-monthly-total="suite"></strong> for <span data-monthly-nights="suite"></span> nights · about <span data-monthly-night="suite"></span>/night · from <span data-monthly-min="suite"></span> nights · + <span data-cleaning-fee="suite"></span> cleaning</div><p class="prop-note" hidden></p></div>
       <div class="rule-card rule-ok" data-prop="smarthome"><span class="rule-icon">🏠</span><div class="rule-name">The Smart Home · 4BR</div><div class="rule-note"><strong data-monthly-total="smarthome"></strong> for <span data-monthly-nights="smarthome"></span> nights · about <span data-monthly-night="smarthome"></span>/night · from <span data-monthly-min="smarthome"></span> nights · + <span data-cleaning-fee="smarthome"></span> cleaning</div><p class="prop-note" hidden></p></div>
       <div class="rule-card rule-ok"><span class="rule-icon">📅</span><div class="rule-name">Shorter long stays</div><div class="rule-note"><span data-ladder="suite"></span> — applied automatically on the booking form</div></div>
     </div>
-    <p style="font-size:13.5px;color:var(--mid);margin-top:1.25rem;max-width:760px">Prices in Canadian dollars. Your quote confirms the total for your exact dates. Self-catering; no pets, smoking or vaping.</p>
+    <p style="font-size:13.5px;color:var(--mid);margin-top:1.25rem;max-width:760px">Prices in Canadian dollars, all taxes included. Your quote confirms the total for your exact dates. Self-catering; no pets, smoking or vaping.</p>
   </div>
 </section>
 '''
@@ -783,7 +784,7 @@ BD_FAQ = [
     ("Is it safe to book direct?", "You're booking with the same hosts and the same two homes you'll find on Airbnb, where we're a Superhost with more than 80 five-star reviews. The Suite is registered with the Province of BC (registration H295535660). We confirm everything in writing before any deposit is paid."),
     ("Is it really cheaper than Airbnb?", "Yes. Our direct rates are set below our Airbnb pricing, there's no platform guest fee on top, and longer stays are discounted further than anywhere else we list."),
     ("How do I pay?", "By Interac e-Transfer from a Canadian bank account: a 50% deposit holds your dates and we confirm the balance due date in your quote. Travelling from the US or overseas? Say so in your inquiry and we'll let you know your options."),
-    ("What does the quote include?", "The nightly rate for your dates, any long-stay discount, and the one-time cleaning fee. We'll spell out the total in writing so there are no surprises."),
+    ("What does the quote include?", "The nightly rate for your dates, any long-stay discount, the one-time cleaning fee — and all taxes. The total we write down is the total you pay, with nothing added at check-in."),
     ("What is the cancellation policy?", "Moderate: a full refund if you cancel at least 5 days before check-in, and a partial refund inside 5 days."),
     ("How quickly will I hear back?", "Usually within a few hours during the day, and always within 24 hours."),
     ("Can I check availability first?", "Yes. The calendar on the home page syncs from our booking calendars every few hours. If your dates show as free, send the inquiry and we'll confirm them."),
@@ -814,7 +815,7 @@ bookdirect["body"] = (
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
     <div class="steps">
       <div class="step"><div class="step-n">1</div><h3>Send your dates</h3><p>Use the <a href="/#booking" style="color:var(--sage-dark)">inquiry form</a>: pick the Suite or the Smart Home, your check-in and check-out, and how many guests. The form shows a price estimate instantly, discounts included.</p></div>
-      <div class="step"><div class="step-n">2</div><h3>We confirm and quote</h3><p>We check the calendar and reply, usually within a few hours, with your confirmed dates and a written total: nightly rate, any long-stay discount, and the cleaning fee.</p></div>
+      <div class="step"><div class="step-n">2</div><h3>We confirm and quote</h3><p>We check the calendar and reply, usually within a few hours, with your confirmed dates and a written total: nightly rate, any long-stay discount, and the cleaning fee — all taxes included.</p></div>
       <div class="step"><div class="step-n">3</div><h3>Deposit holds the dates</h3><p>A 50% deposit by Interac e-Transfer secures the booking. We confirm the balance due date in the quote. Outside Canada? Tell us and we'll explain your options.</p></div>
       <div class="step"><div class="step-n">4</div><h3>Arrival details</h3><p>Before your stay we send directions, the self check-in details and our phone number. Check-in is from 3:00 PM, check-out 10:00 AM.</p></div>
     </div>
@@ -831,7 +832,7 @@ bookdirect["body"] = (
       <div class="loc-body">
         <p>Platforms charge guests a service fee on top of the host's price — typically around 14% of the subtotal — and charge the host another fee on their side. When you book direct, neither applies, and we pass that on: our direct nightly rates are set below our Airbnb pricing to begin with.</p>
         <p id="bdExample"></p>
-        <p>Longer stays cost less per night — <span data-ladder="suite"></span>, and a flat monthly rate for the longest stays. Prices are in Canadian dollars; your written quote is the number you'll pay.</p>
+        <p>Longer stays cost less per night — <span data-ladder="suite"></span>, and a flat monthly rate for the longest stays. Prices are in Canadian dollars and include all taxes; your written quote is the number you'll pay.</p>
       </div>
     </div>
     <div>
@@ -839,6 +840,7 @@ bookdirect["body"] = (
         <li class="dist-item"><span>✓ &nbsp;Nightly rate for your dates</span><span class="dist-time">Below Airbnb</span></li>
         <li class="dist-item"><span>✓ &nbsp;Long-stay discounts</span><span class="dist-time">Automatic</span></li>
         <li class="dist-item"><span>✓ &nbsp;One cleaning fee per stay</span><span class="dist-time" id="bdClean"></span></li>
+        <li class="dist-item"><span>✓ &nbsp;All taxes</span><span class="dist-time">Included</span></li>
         <li class="dist-item"><span>✗ &nbsp;Platform guest service fee</span><span class="dist-time">None</span></li>
         <li class="dist-item"><span>✗ &nbsp;Hidden extras</span><span class="dist-time">None</span></li>
       </ul>

@@ -157,7 +157,8 @@ class App(tk.Tk):
         f = ttk.Frame(nb, padding=14); nb.add(f, text="Analytics")
         a = self.cfg.get("analytics", {})
         ttk.Label(f, text="Optional. Leave blank for no tracking.", style="Sub.TLabel").pack(anchor="w", pady=(0, 8))
-        for field, text, hint in [("goatcounter", "GoatCounter code", "Sign up free at goatcounter.com, choose a code such as \"victoriabnb\" and paste just the code here. No cookie banner needed."),
+        for field, text, hint in [("cloudflare", "Cloudflare Web Analytics token", "In the Cloudflare dashboard: Analytics & Logs → Web Analytics → your site → Manage site → copy the token value from the snippet (data-cf-beacon). Needed because the site is served by GitHub, not through Cloudflare's proxy."),
+                                  ("goatcounter", "GoatCounter code", "Sign up free at goatcounter.com, choose a code such as \"victoriabnb\" and paste just the code here. No cookie banner needed."),
                                   ("ga4", "Google Analytics 4 measurement ID", "Looks like G-XXXXXXXXXX. Create a property at analytics.google.com.")]:
             lf = ttk.LabelFrame(f, text=text, padding=10); lf.pack(fill="x", pady=6)
             v = tk.StringVar(value=a.get(field, "")); self.vars[f"analytics.{field}"] = v
@@ -211,7 +212,11 @@ class App(tk.Tk):
             c["monthly"] = {"minNights": num(self.vars[f"{key}.monthly.minNights"], f"{key} monthly minimum nights", integer=True),
                             "perNights": num(self.vars[f"{key}.monthly.perNights"], f"{key} monthly nights covered", integer=True),
                             "total": num(self.vars[f"{key}.monthly.total"], f"{key} monthly price")}
-        cfg["analytics"] = {"goatcounter": self.vars["analytics.goatcounter"].get().strip().replace("https://", "").split(".")[0],
+        cf = self.vars["analytics.cloudflare"].get().strip()
+        m = re.search(r'"token"\s*:\s*"([0-9a-f]{32})"', cf)  # accept a pasted snippet too
+        cf = m.group(1) if m else cf
+        cfg["analytics"] = {"cloudflare": cf,
+                            "goatcounter": self.vars["analytics.goatcounter"].get().strip().replace("https://", "").split(".")[0],
                             "ga4": self.vars["analytics.ga4"].get().strip()}
         return cfg
 
