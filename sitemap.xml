@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://victoriabnb.ca/</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://victoriabnb.ca/swartz-bay-ferry-stay/</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://victoriabnb.ca/farmhouse-stay-victoria-bc/</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://victoriabnb.ca/sidney-north-saanich-vacation-rental/</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://victoriabnb.ca/victoria-airport-accommodation/</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://victoriabnb.ca/butchart-gardens-accommodation/</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://victoriabnb.ca/group-vacation-rental-victoria/</loc><lastmod>2026-10-09</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://victoriabnb.ca/</loc><lastmod>2026-10-29</lastmod><image:image><image:loc>https://victoriabnb.ca/img/suite-exterior-farm-views.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/smart-home-chefs-kitchen-island.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/pat-bay-beach-sunset.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/suite-living-area-with-farm-views.webp</image:loc></image:image></url>
+  <url><loc>https://victoriabnb.ca/the-suite/</loc><lastmod>2026-10-29</lastmod><image:image><image:loc>https://victoriabnb.ca/img/suite-exterior-farm-views.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/suite-living-area-with-farm-views.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/suite-master-bath-rain-shower.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/suite-master-bedroom.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/suite-loft-queen-bed.webp</image:loc></image:image></url>
+  <url><loc>https://victoriabnb.ca/the-smart-home/</loc><lastmod>2026-10-29</lastmod><image:image><image:loc>https://victoriabnb.ca/img/smart-home-chefs-kitchen-island.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/smart-home-open-concept-living-room.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/smart-home-master-bedroom-with-king-bed.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/smart-home-private-home-gym.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/smart-home-solar-powered-exterior.webp</image:loc></image:image></url>
+  <url><loc>https://victoriabnb.ca/swartz-bay-ferry-stay/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://victoriabnb.ca/farmhouse-stay-victoria-bc/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://victoriabnb.ca/sidney-north-saanich-vacation-rental/</loc><lastmod>2026-10-29</lastmod><image:image><image:loc>https://victoriabnb.ca/img/pat-bay-beach.webp</image:loc></image:image></url>
+  <url><loc>https://victoriabnb.ca/victoria-airport-accommodation/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://victoriabnb.ca/butchart-gardens-accommodation/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://victoriabnb.ca/group-vacation-rental-victoria/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://victoriabnb.ca/things-to-do-sidney-north-saanich/</loc><lastmod>2026-10-29</lastmod><image:image><image:loc>https://victoriabnb.ca/img/pat-bay-beach.webp</image:loc></image:image><image:image><image:loc>https://victoriabnb.ca/img/pat-bay-beach-sunset.webp</image:loc></image:image></url>
+  <url><loc>https://victoriabnb.ca/monthly-stays-sidney-north-saanich/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://victoriabnb.ca/book-direct/</loc><lastmod>2026-10-29</lastmod></url>
 </urlset>

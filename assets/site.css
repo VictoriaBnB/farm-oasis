@@ -537,3 +537,4 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 .gtab::after{content:'';position:absolute;inset:-7px}
 .hamburger{position:relative}
 .hamburger::before{content:'';position:absolute;inset:-4px}
+@media(max-width:768px){.announce-sep{display:none}}
