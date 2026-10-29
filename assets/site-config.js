@@ -144,6 +144,6 @@ var SITE_CONFIG = {
   "analytics": {
     "goatcounter": "",
     "ga4": "",
-    "cloudflare": ""
+    "cloudflare": "aaf97ceeefb3406aa81579f6e728c04b"
   }
 };
