@@ -76,7 +76,7 @@
           "name": "What is the minimum stay for the monthly rate?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "30 nights for the Suite and 28 nights for the Smart Home. The weekly rate applies from 7 nights."
+            "text": "The monthly rate applies from 28–30 nights depending on the home (the exact minimum is shown on the rate cards). Stays of 7+ and 14+ nights are discounted too."
           }
         },
         {
@@ -92,7 +92,7 @@
           "name": "Is there a cleaning fee on long stays?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "One cleaning fee per stay ($150 for the Suite, $175 for the Smart Home). If you'd like mid-stay cleaning, ask and we'll quote it."
+            "text": "One cleaning fee per stay. If you'd like mid-stay cleaning, ask and we'll quote it."
           }
         },
         {
@@ -129,7 +129,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/assets/guides.css">
+<link rel="stylesheet" href="/assets/ui.css">
 
+<script src="/assets/site-config.js"></script>
+<script src="/assets/pricing.js"></script>
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
 
@@ -138,7 +142,7 @@
   <span class="announce-sep">|</span>
   <span>3 min to Victoria Airport · 10 min to Swartz Bay ferry</span>
   <span class="announce-sep">|</span>
-  <a href="/#booking">Book direct — no platform fees ↓</a>
+  <a href="/#booking">Book direct — lowest rates, no platform fees ↓</a>
 </div>
 
 <nav id="mainNav">
@@ -172,11 +176,12 @@
 
 <div class="crumbs"><a href="/">Farm Oasis</a> &rsaquo; Monthly &amp; Extended Stays</div>
 
-<div class="hero">
+<div class="hero hero-photo hero-short">
+  <picture class="hero-bg"><source media="(max-width:700px)" srcset="/img/pat-bay-beach-sunset-800.webp"><img src="/img/pat-bay-beach-sunset.webp" width="1600" height="1200" alt="" fetchpriority="high" decoding="async"></picture>
   <div class="hero-content">
     <div class="hero-eyebrow"><span class="hero-eyebrow-star">★★★★★</span> Furnished &nbsp;·&nbsp; 28–30+ nights &nbsp;·&nbsp; North Saanich, BC</div>
     <h1>Monthly Stays: <em>Furnished, Equipped</em>, Minutes from the Airport</h1>
-    <p class="hero-sub">Move in with a suitcase. Both rentals come fully furnished with linens, a real kitchen, laundry, fast internet and farm views, at discounted monthly rates. Five minutes from Sidney, three from YYJ.</p>
+    <p class="hero-sub">Move in with a suitcase. Both rentals come fully furnished with linens, a real kitchen, laundry, fast internet and farm views, at a flat monthly rate well below the nightly price. Five minutes from Sidney, three from YYJ.</p>
     <div class="hero-btns">
       <a href="/#booking" class="btn-primary">Check Dates &amp; Book Direct</a>
       <a href="#monthly-rates" class="btn-outline">See Monthly Rates</a>
@@ -204,28 +209,15 @@
     <div class="eyebrow">Monthly rates</div>
     <h2 class="section-title">What a Month Costs</h2>
     <div class="rule"></div>
-    <p style="font-size:15px;color:var(--mid);max-width:760px">Monthly rates are a flat amount for the first 30 nights (28 for the Smart Home), plus one cleaning fee. Compared with the nightly rate they work out to a substantial discount, and because you book direct there are no platform fees on top.</p>
+    <p class="pricing-intro">The monthly rate is a flat amount for the first <span data-monthly-nights="suite"></span> nights plus one cleaning fee — a long way below the nightly price, and below our Airbnb monthly pricing too. Because you book direct there are no platform fees on top.</p>
     <div class="rules-grid" style="margin-top:1.5rem">
-      <div class="rule-card rule-ok"><span class="rule-icon">🏡</span><div class="rule-name">The Suite · 2BR + loft</div><div class="rule-note"><strong id="mSuiteTotal"></strong> for <span id="mSuiteNights"></span> nights · about <span id="mSuiteNight"></span>/night · <span id="mSuitePct"></span> off nightly · + <span id="mSuiteClean"></span> cleaning</div></div>
-      <div class="rule-card rule-ok"><span class="rule-icon">🏠</span><div class="rule-name">The Smart Home · 4BR</div><div class="rule-note"><strong id="mSmartTotal"></strong> for <span id="mSmartNights"></span> nights · about <span id="mSmartNight"></span>/night · <span id="mSmartPct"></span> off nightly · + <span id="mSmartClean"></span> cleaning</div></div>
-      <div class="rule-card rule-ok"><span class="rule-icon">📅</span><div class="rule-name">Weekly stays too</div><div class="rule-note">Discounted weekly rates from 7 nights for both rentals</div></div>
+      <div class="rule-card rule-ok" data-prop="suite"><span class="rule-icon">🏡</span><div class="rule-name">The Suite · 2BR + loft</div><div class="rule-note"><strong data-monthly-total="suite"></strong> for <span data-monthly-nights="suite"></span> nights · about <span data-monthly-night="suite"></span>/night · from <span data-monthly-min="suite"></span> nights · + <span data-cleaning-fee="suite"></span> cleaning</div><p class="prop-note" hidden></p></div>
+      <div class="rule-card rule-ok" data-prop="smarthome"><span class="rule-icon">🏠</span><div class="rule-name">The Smart Home · 4BR</div><div class="rule-note"><strong data-monthly-total="smarthome"></strong> for <span data-monthly-nights="smarthome"></span> nights · about <span data-monthly-night="smarthome"></span>/night · from <span data-monthly-min="smarthome"></span> nights · + <span data-cleaning-fee="smarthome"></span> cleaning</div><p class="prop-note" hidden></p></div>
+      <div class="rule-card rule-ok"><span class="rule-icon">📅</span><div class="rule-name">Shorter long stays</div><div class="rule-note"><span data-ladder="suite"></span> — applied automatically on the booking form</div></div>
     </div>
     <p style="font-size:13.5px;color:var(--mid);margin-top:1.25rem;max-width:760px">Prices in Canadian dollars. Your quote confirms the total for your exact dates. Self-catering; no pets, smoking or vaping.</p>
   </div>
 </section>
-<script src="/assets/pricing.js"></script>
-<script>
-(function(){
-  function $(id){return document.getElementById(id)}
-  var c=PRICING_CONFIG.suite, h=PRICING_CONFIG.smarthome;
-  function fill(p,c){
-    var night=c.monthlyTotal/c.monthlyExNights, pct=Math.round((1-night/c.nightly)*100);
-    $(p+'Total').textContent=fmtMoney(c.monthlyTotal)+' CAD'; $(p+'Nights').textContent=c.monthlyExNights;
-    $(p+'Night').textContent=fmtMoney(night); $(p+'Pct').textContent=pct+'%'; $(p+'Clean').textContent=fmtMoney(c.cleaningFee);
-  }
-  fill('mSuite',c); fill('mSmart',h);
-})();
-</script>
 
 <section class="location-section">
   <div class="loc-grid">
@@ -254,7 +246,8 @@
     <h2 class="section-title" style="text-align:center">Choose Your Space</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
     <div class="stays-grid">
-      <div class="stay-card">
+      <div class="stay-card" data-prop="suite">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/suite-exterior-farm-views.webp" alt="2-bedroom + loft suite with farm views in North Saanich" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Suite &middot; Sleeps 6</div>
         <h3 class="stay-card-title">2BR + Loft Suite</h3>
@@ -264,9 +257,12 @@
           <div class="stay-stat"><span class="stay-stat-num">2.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">6</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="suite"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="suite"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-suite/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
       </div>
-      <div class="stay-card">
+      <div class="stay-card" data-prop="smarthome">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/smart-home-chefs-kitchen-island.webp" alt="4-bedroom solar-powered smart home chef's kitchen" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Smart Home &middot; Sleeps 8</div>
         <h3 class="stay-card-title">4BR Solar Smart Home</h3>
@@ -276,6 +272,8 @@
           <div class="stay-stat"><span class="stay-stat-num">5.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">8</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="smarthome"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="smarthome"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-smart-home/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
       </div>
     </div>
@@ -287,7 +285,7 @@
     <div class="eyebrow" style="text-align:center">Good to know</div>
     <h2 class="section-title" style="text-align:center">Monthly Stay Questions</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
-    <div class="faq-list"><details><summary>What is the minimum stay for the monthly rate?</summary><p>30 nights for the Suite and 28 nights for the Smart Home. The weekly rate applies from 7 nights.</p></details><details><summary>What's included in a monthly stay?</summary><p>Everything a nightly guest gets: furniture, linens and towels, a fully equipped kitchen, washer and dryer, high-speed internet, utilities, parking and the patio. The Smart Home also has a dedicated home office and gigabit fibre.</p></details><details><summary>Is there a cleaning fee on long stays?</summary><p>One cleaning fee per stay ($150 for the Suite, $175 for the Smart Home). If you'd like mid-stay cleaning, ask and we'll quote it.</p></details><details><summary>Can I stay longer than a month?</summary><p>Usually, yes. Tell us your dates in the inquiry and we'll confirm availability and a quote for the full period.</p></details><details><summary>Is it close to the hospital and the airport?</summary><p>Saanich Peninsula Hospital in Saanichton is about 10 minutes, Victoria Airport is 3 minutes, and Victoria General Hospital is roughly 25 minutes.</p></details><details><summary>Are pets allowed on long stays?</summary><p>No. Both rentals are pet-free and smoke- and vape-free for every length of stay.</p></details></div>
+    <div class="faq-list"><details><summary>What is the minimum stay for the monthly rate?</summary><p>The monthly rate applies from 28–30 nights depending on the home (the exact minimum is shown on the rate cards). Stays of 7+ and 14+ nights are discounted too.</p></details><details><summary>What's included in a monthly stay?</summary><p>Everything a nightly guest gets: furniture, linens and towels, a fully equipped kitchen, washer and dryer, high-speed internet, utilities, parking and the patio. The Smart Home also has a dedicated home office and gigabit fibre.</p></details><details><summary>Is there a cleaning fee on long stays?</summary><p>One cleaning fee per stay. If you'd like mid-stay cleaning, ask and we'll quote it.</p></details><details><summary>Can I stay longer than a month?</summary><p>Usually, yes. Tell us your dates in the inquiry and we'll confirm availability and a quote for the full period.</p></details><details><summary>Is it close to the hospital and the airport?</summary><p>Saanich Peninsula Hospital in Saanichton is about 10 minutes, Victoria Airport is 3 minutes, and Victoria General Hospital is roughly 25 minutes.</p></details><details><summary>Are pets allowed on long stays?</summary><p>No. Both rentals are pet-free and smoke- and vape-free for every length of stay.</p></details></div>
   </div>
 </section>
 
@@ -303,7 +301,7 @@
     <h2 class="section-title" style="text-align:center">Area Guides</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
   </div>
-  <div class="guides-grid"><a class="guide-card" href="/swartz-bay-ferry-stay/"><span class="guide-eyebrow">10 minutes to Swartz Bay</span><span class="guide-title">Near Swartz Bay Ferry</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/farmhouse-stay-victoria-bc/"><span class="guide-eyebrow">Saanich Peninsula · near Victoria</span><span class="guide-title">Farmhouse Stay near Victoria</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/sidney-north-saanich-vacation-rental/"><span class="guide-eyebrow">5 minutes to Sidney</span><span class="guide-title">Sidney & North Saanich</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/victoria-airport-accommodation/"><span class="guide-eyebrow">3 minutes to YYJ</span><span class="guide-title">Near Victoria Airport (YYJ)</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/butchart-gardens-accommodation/"><span class="guide-eyebrow">15 minutes to Butchart Gardens</span><span class="guide-title">Near Butchart Gardens</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/group-vacation-rental-victoria/"><span class="guide-eyebrow">The Smart Home · sleeps 8</span><span class="guide-title">Groups & Family Reunions</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/things-to-do-sidney-north-saanich/"><span class="guide-eyebrow">Beaches, gardens, islands</span><span class="guide-title">Things to Do Nearby</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/book-direct/"><span class="guide-eyebrow">No platform fees</span><span class="guide-title">Why Book Direct</span><span class="guide-go">Read guide &rarr;</span></a></div>
+  <div class="guides-grid"><a class="guide-card" href="/swartz-bay-ferry-stay/"><span class="guide-eyebrow">10 minutes to Swartz Bay</span><span class="guide-title">Near Swartz Bay Ferry</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/farmhouse-stay-victoria-bc/"><span class="guide-eyebrow">Saanich Peninsula · near Victoria</span><span class="guide-title">Farmhouse Stay near Victoria</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/sidney-north-saanich-vacation-rental/"><span class="guide-eyebrow">5 minutes to Sidney</span><span class="guide-title">Sidney & North Saanich</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/victoria-airport-accommodation/"><span class="guide-eyebrow">3 minutes to YYJ</span><span class="guide-title">Near Victoria Airport (YYJ)</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/butchart-gardens-accommodation/"><span class="guide-eyebrow">15 minutes to Butchart Gardens</span><span class="guide-title">Near Butchart Gardens</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/group-vacation-rental-victoria/"><span class="guide-eyebrow">The Smart Home · sleeps 8</span><span class="guide-title">Groups & Family Reunions</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/things-to-do-sidney-north-saanich/"><span class="guide-eyebrow">Beaches, gardens, islands</span><span class="guide-title">Things to Do Nearby</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/book-direct/"><span class="guide-eyebrow">Lowest rates, no fees</span><span class="guide-title">Why Book Direct</span><span class="guide-go">Read guide &rarr;</span></a></div>
 </section>
 
 <footer>

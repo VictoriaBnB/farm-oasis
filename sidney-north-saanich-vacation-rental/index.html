@@ -113,6 +113,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/assets/guides.css">
+<link rel="stylesheet" href="/assets/ui.css">
+<script src="/assets/site-config.js"></script>
+<script src="/assets/pricing.js"></script>
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
 
@@ -121,7 +125,7 @@
   <span class="announce-sep">|</span>
   <span>3 min to Victoria Airport · 10 min to Swartz Bay ferry</span>
   <span class="announce-sep">|</span>
-  <a href="/#booking">Book direct — no platform fees ↓</a>
+  <a href="/#booking">Book direct — lowest rates, no platform fees ↓</a>
 </div>
 
 <nav id="mainNav">
@@ -154,7 +158,8 @@
 
 <div class="crumbs"><a href="/">Farm Oasis</a> &rsaquo; Sidney & North Saanich</div>
 
-<div class="hero">
+<div class="hero hero-photo hero-short">
+  <picture class="hero-bg"><source media="(max-width:700px)" srcset="/img/pat-bay-beach-sunset-800.webp"><img src="/img/pat-bay-beach-sunset.webp" width="1600" height="1200" alt="" fetchpriority="high" decoding="async"></picture>
   <div class="hero-content">
     <div class="hero-eyebrow"><span class="hero-eyebrow-star">★★★★★</span> 5 minutes to Sidney &nbsp;·&nbsp; North Saanich, BC</div>
     <h1>Your Home Base in <em>Sidney &amp; North Saanich</em></h1>
@@ -199,7 +204,8 @@
     <h2 class="section-title" style="text-align:center">Choose Your Space</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
     <div class="stays-grid">
-      <div class="stay-card">
+      <div class="stay-card" data-prop="suite">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/suite-exterior-farm-views.webp" alt="2-bedroom + loft suite with farm views in North Saanich" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Suite</div>
         <h3 class="stay-card-title">2BR + Loft Suite</h3>
@@ -209,18 +215,23 @@
           <div class="stay-stat"><span class="stay-stat-num">2.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">6</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="suite"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="suite"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-suite/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
       </div>
-      <div class="stay-card">
+      <div class="stay-card" data-prop="smarthome">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/smart-home-chefs-kitchen-island.webp" alt="4-bedroom solar-powered smart home chef's kitchen" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Smart Home</div>
         <h3 class="stay-card-title">4BR Solar Smart Home</h3>
-        <p class="stay-card-desc">A 4,500&nbsp;sq&nbsp;ft solar-powered home for families and groups: four bedrooms each with a private bathroom, a chef&rsquo;s kitchen that seats 12, a home gym and the same farm views. Wheelchair accessible.</p>
+        <p class="stay-card-desc">A 4,500&nbsp;sq&nbsp;ft solar-powered home for families and groups: four bedrooms each with a private bathroom, a chef&rsquo;s kitchen that seats 12, a home gym and the same farm views. Step-free entry.</p>
         <div class="stay-stats">
           <div class="stay-stat"><span class="stay-stat-num">4</span><span class="stay-stat-label">Bedrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">5.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">8</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="smarthome"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="smarthome"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-smart-home/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
       </div>
     </div>

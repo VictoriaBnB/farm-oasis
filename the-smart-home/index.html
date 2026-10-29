@@ -87,6 +87,14 @@
         },
         {
           "@type": "Question",
+          "name": "Do longer stays cost less?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Stays of 7+ nights are discounted, 14+ nights more so, and a flat monthly rate applies to the longest stays. The booking form shows the discount instantly when you enter your dates."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is there air conditioning?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -135,16 +143,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/assets/guides.css">
+<link rel="stylesheet" href="/assets/ui.css">
 
+<script src="/assets/site-config.js"></script>
+<script src="/assets/pricing.js"></script>
+<script src="/assets/site.js" defer></script>
 </head>
-<body>
+<body data-prop-page="smarthome">
 
 <div class="announce-bar">
   <span>⭐ Airbnb Superhost · 4.9/5 from 88 verified reviews</span>
   <span class="announce-sep">|</span>
   <span>3 min to Victoria Airport · 10 min to Swartz Bay ferry</span>
   <span class="announce-sep">|</span>
-  <a href="/#booking">Book direct — no platform fees ↓</a>
+  <a href="/#booking">Book direct — lowest rates, no platform fees ↓</a>
 </div>
 
 <nav id="mainNav">
@@ -178,7 +190,8 @@
 
 <div class="crumbs"><a href="/">Farm Oasis</a> &rsaquo; The Smart Home</div>
 
-<div class="hero">
+<div class="hero hero-photo hero-short">
+  <picture class="hero-bg"><source media="(max-width:700px)" srcset="/img/pat-bay-beach-sunset-800.webp"><img src="/img/pat-bay-beach-sunset.webp" width="1600" height="1200" alt="" fetchpriority="high" decoding="async"></picture>
   <div class="hero-content">
     <div class="hero-eyebrow"><span class="hero-eyebrow-star">★★★★★</span> The Smart Home &nbsp;·&nbsp; 4 bedrooms, 5.5 baths &nbsp;·&nbsp; sleeps 8</div>
     <h1>The Smart Home: <em>Four Bedrooms, Four Ensuites</em>, Room for Everyone</h1>
@@ -192,7 +205,7 @@
 
 <div class="stats-bar">
   <div class="stats-bar-inner">
-    <div class="stat">🛏️ <strong>4 bedrooms</strong>&nbsp;· king + 3 queens</div><div class="stat-sep"></div><div class="stat">🚿 <strong>5.5 baths</strong>&nbsp;· every bedroom has one</div><div class="stat-sep"></div><div class="stat">🍽️ <strong>Seats 12</strong>&nbsp;at the table</div><div class="stat-sep"></div><div class="stat">♿ <strong>Step-free</strong>&nbsp;entry</div>
+    <div class="stat">🛏️ <strong>4 bedrooms</strong>&nbsp;· king + 3 queens</div><div class="stat-sep"></div><div class="stat">🚿 <strong>5.5 baths</strong>&nbsp;· every bedroom has one</div><div class="stat-sep"></div><div class="stat">🍽️ <strong>Seats 12</strong>&nbsp;at the table</div><div class="stat-sep"></div><div class="stat">💰 <strong>From <span data-from-price="smarthome"></span></strong>&nbsp;/ night direct</div>
   </div>
 </div>
 
@@ -315,13 +328,14 @@
 </section>
 
 <section id="rates" class="pricing-section">
-  <div class="wrap">
+  <div class="wrap" data-prop="smarthome">
     <div class="eyebrow">Rates</div>
     <h2 class="section-title">Smart Home Rates &amp; Policies</h2>
     <div class="rule"></div>
-    <p style="font-size:15px;color:var(--mid);max-width:760px">Rates are in Canadian dollars for the whole house, up to 8 guests. There are no platform fees when you book direct; the only extra is a one-time cleaning fee.</p>
+    <p class="pricing-intro">Direct rates are set <strong>below our Airbnb pricing</strong>, with no platform fee on top. Nightly rates change with the season, and every night costs less the longer you stay: <strong><span data-ladder="smarthome"></span></strong>, plus a flat monthly rate for longer stays. The only extra is a one-time cleaning fee, and the booking form applies every discount automatically.</p>
     <div class="pricing-grid" id="pricingGridSmarthome" style="margin-top:1.5rem"></div>
-    <p style="font-size:13.5px;color:var(--mid);margin-top:1.25rem;max-width:760px">Weekly and monthly rates apply automatically in the price estimate on the booking form. Check-in 3:00 PM, check-out 10:00 AM. Self-catering. No parties or events, pets, smoking or vaping.</p>
+    <div class="prop-paused-msg">The Smart Home isn&rsquo;t taking bookings right now. <span class="prop-note"></span></div>
+    <p style="font-size:13.5px;color:var(--mid);margin-top:1.25rem;max-width:760px">Prices in Canadian dollars. Check-in 3:00 PM, check-out 10:00 AM. Self-catering. No pets, smoking or vaping.</p>
     <div class="cancel-box">
       <div class="cancel-title">📋 Cancellation Policy — Moderate</div>
       <div class="cancel-row"><div class="cancel-dot"></div><div><strong>Full refund</strong> if cancelled at least 5 days before check-in</div></div>
@@ -329,7 +343,6 @@
     </div>
   </div>
 </section>
-<script src="/assets/pricing.js"></script>
 <script>renderPricingCards();</script>
 
 <section class="location-section">
@@ -368,7 +381,7 @@
     <div class="eyebrow" style="text-align:center">Good to know</div>
     <h2 class="section-title" style="text-align:center">Smart Home Questions</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
-    <div class="faq-list"><details><summary>How many people can stay?</summary><p>Up to 8 guests in four bedrooms: a king in the master and queens in the other three. Every bedroom has its own private bathroom, and there are 5.5 bathrooms in total.</p></details><details><summary>Is the Smart Home wheelchair accessible?</summary><p>It has step-free access and a guest entrance wider than 32 inches (81 cm). If you have specific needs — bathroom layout, bed height, door widths inside the house — tell us in your inquiry and we'll confirm the details honestly before you book.</p></details><details><summary>Is there air conditioning?</summary><p>Yes. The house has air conditioning for summer and heating for the rest of the year.</p></details><details><summary>Can we use the gym?</summary><p>Yes. The home gym with free weights, a treadmill and a Tacx Neo smart bike (bring your Zwift login) is included with the house.</p></details><details><summary>Can we book the Smart Home and the Suite together?</summary><p>Yes. The two rentals sit on the same farm, so a group of up to 14 can book both and still have separate kitchens, bathrooms and front doors. Ask in your inquiry.</p></details><details><summary>Can we host a party or event?</summary><p>No. Parties and events aren't permitted, and the house is pet-free and strictly smoke- and vape-free. Family dinners for the twelve the table seats are very much allowed.</p></details><details><summary>How do we check in?</summary><p>Self check-in from 3:00 PM; check-out is 10:00 AM. There is ample parking on the property.</p></details></div>
+    <div class="faq-list"><details><summary>How many people can stay?</summary><p>Up to 8 guests in four bedrooms: a king in the master and queens in the other three. Every bedroom has its own private bathroom, and there are 5.5 bathrooms in total.</p></details><details><summary>Is the Smart Home wheelchair accessible?</summary><p>It has step-free access and a guest entrance wider than 32 inches (81 cm). If you have specific needs — bathroom layout, bed height, door widths inside the house — tell us in your inquiry and we'll confirm the details honestly before you book.</p></details><details><summary>Do longer stays cost less?</summary><p>Yes. Stays of 7+ nights are discounted, 14+ nights more so, and a flat monthly rate applies to the longest stays. The booking form shows the discount instantly when you enter your dates.</p></details><details><summary>Is there air conditioning?</summary><p>Yes. The house has air conditioning for summer and heating for the rest of the year.</p></details><details><summary>Can we use the gym?</summary><p>Yes. The home gym with free weights, a treadmill and a Tacx Neo smart bike (bring your Zwift login) is included with the house.</p></details><details><summary>Can we book the Smart Home and the Suite together?</summary><p>Yes. The two rentals sit on the same farm, so a group of up to 14 can book both and still have separate kitchens, bathrooms and front doors. Ask in your inquiry.</p></details><details><summary>Can we host a party or event?</summary><p>No. Parties and events aren't permitted, and the house is pet-free and strictly smoke- and vape-free. Family dinners for the twelve the table seats are very much allowed.</p></details><details><summary>How do we check in?</summary><p>Self check-in from 3:00 PM; check-out is 10:00 AM. There is ample parking on the property.</p></details></div>
   </div>
 </section>
 
@@ -384,7 +397,8 @@
     <h2 class="section-title" style="text-align:center">Choose Your Space</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
     <div class="stays-grid">
-      <div class="stay-card">
+      <div class="stay-card" data-prop="suite">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/suite-exterior-farm-views.webp" alt="2-bedroom + loft suite with farm views in North Saanich" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Suite &middot; Sleeps 6</div>
         <h3 class="stay-card-title">2BR + Loft Suite</h3>
@@ -394,9 +408,12 @@
           <div class="stay-stat"><span class="stay-stat-num">2.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">6</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="suite"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="suite"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-suite/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
       </div>
-      <div class="stay-card">
+      <div class="stay-card" data-prop="smarthome">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/smart-home-chefs-kitchen-island.webp" alt="4-bedroom solar-powered smart home chef's kitchen" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Smart Home &middot; Sleeps 8</div>
         <h3 class="stay-card-title">4BR Solar Smart Home</h3>
@@ -406,6 +423,8 @@
           <div class="stay-stat"><span class="stay-stat-num">5.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">8</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="smarthome"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="smarthome"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-smart-home/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
       </div>
     </div>
@@ -418,7 +437,7 @@
     <h2 class="section-title" style="text-align:center">Area Guides</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
   </div>
-  <div class="guides-grid"><a class="guide-card" href="/swartz-bay-ferry-stay/"><span class="guide-eyebrow">10 minutes to Swartz Bay</span><span class="guide-title">Near Swartz Bay Ferry</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/farmhouse-stay-victoria-bc/"><span class="guide-eyebrow">Saanich Peninsula · near Victoria</span><span class="guide-title">Farmhouse Stay near Victoria</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/sidney-north-saanich-vacation-rental/"><span class="guide-eyebrow">5 minutes to Sidney</span><span class="guide-title">Sidney & North Saanich</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/victoria-airport-accommodation/"><span class="guide-eyebrow">3 minutes to YYJ</span><span class="guide-title">Near Victoria Airport (YYJ)</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/butchart-gardens-accommodation/"><span class="guide-eyebrow">15 minutes to Butchart Gardens</span><span class="guide-title">Near Butchart Gardens</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/things-to-do-sidney-north-saanich/"><span class="guide-eyebrow">Beaches, gardens, islands</span><span class="guide-title">Things to Do Nearby</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/monthly-stays-sidney-north-saanich/"><span class="guide-eyebrow">28+ nights · furnished</span><span class="guide-title">Monthly &amp; Extended Stays</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/book-direct/"><span class="guide-eyebrow">No platform fees</span><span class="guide-title">Why Book Direct</span><span class="guide-go">Read guide &rarr;</span></a></div>
+  <div class="guides-grid"><a class="guide-card" href="/swartz-bay-ferry-stay/"><span class="guide-eyebrow">10 minutes to Swartz Bay</span><span class="guide-title">Near Swartz Bay Ferry</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/farmhouse-stay-victoria-bc/"><span class="guide-eyebrow">Saanich Peninsula · near Victoria</span><span class="guide-title">Farmhouse Stay near Victoria</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/sidney-north-saanich-vacation-rental/"><span class="guide-eyebrow">5 minutes to Sidney</span><span class="guide-title">Sidney & North Saanich</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/victoria-airport-accommodation/"><span class="guide-eyebrow">3 minutes to YYJ</span><span class="guide-title">Near Victoria Airport (YYJ)</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/butchart-gardens-accommodation/"><span class="guide-eyebrow">15 minutes to Butchart Gardens</span><span class="guide-title">Near Butchart Gardens</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/things-to-do-sidney-north-saanich/"><span class="guide-eyebrow">Beaches, gardens, islands</span><span class="guide-title">Things to Do Nearby</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/monthly-stays-sidney-north-saanich/"><span class="guide-eyebrow">28+ nights · furnished</span><span class="guide-title">Monthly &amp; Extended Stays</span><span class="guide-go">Read guide &rarr;</span></a><a class="guide-card" href="/book-direct/"><span class="guide-eyebrow">Lowest rates, no fees</span><span class="guide-title">Why Book Direct</span><span class="guide-go">Read guide &rarr;</span></a></div>
 </section>
 
 <footer>

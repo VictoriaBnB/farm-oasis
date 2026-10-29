@@ -1,0 +1,75 @@
+/* victoriabnb.ca — shared UI additions: photo hero, reveals, property status, price cards. */
+
+/* ── Photo hero ─────────────────────────────────────────────────────── */
+.hero.hero-photo{position:relative;overflow:hidden;min-height:clamp(420px,64vh,660px);padding:4rem 2rem;background:#2b3f2e;isolation:isolate}
+.hero.hero-photo.hero-short{min-height:clamp(360px,50vh,540px);padding:3.5rem 2rem}
+.hero-bg{position:absolute;inset:0;z-index:0;margin:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 58%;display:block;transform:scale(1.07);animation:heroZoom 26s ease-out forwards}
+.hero.hero-photo::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(24,36,27,.42) 0%,rgba(24,36,27,.6) 55%,rgba(30,44,33,.78) 100%)}
+.hero.hero-photo .hero-content{position:relative;z-index:2}
+.hero.hero-photo .hero-content>*{opacity:0;transform:translateY(14px);animation:heroIn .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero.hero-photo .hero-content>:nth-child(1){animation-delay:.1s}
+.hero.hero-photo .hero-content>:nth-child(2){animation-delay:.25s}
+.hero.hero-photo .hero-content>:nth-child(3){animation-delay:.4s}
+.hero.hero-photo .hero-content>:nth-child(4){animation-delay:.55s}
+.hero.hero-photo h1{text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.hero.hero-photo .hero-sub{color:rgba(255,255,255,.86);font-size:15px}
+@keyframes heroZoom{to{transform:scale(1)}}
+@keyframes heroIn{to{opacity:1;transform:none}}
+
+/* ── Nav shadow after scrolling ─────────────────────────────────────── */
+#mainNav.scrolled{box-shadow:0 4px 18px rgba(30,30,28,.08)}
+
+/* ── One-time reveal ────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ── Hidden property elements must win over component display rules ─ */
+[data-prop][hidden],.prop-hidden{display:none!important}
+
+/* ── Stay cards: from-price + status ribbon ─────────────────────────── */
+.stay-card{position:relative}
+.stay-from{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;margin:-.75rem 0 1.25rem;font-size:13.5px;color:var(--mid)}
+.stay-from strong{font-family:var(--serif);font-size:1.55rem;font-weight:500;color:var(--sage-dark);line-height:1}
+.stay-from .stay-from-note{font-size:12.5px;color:var(--light-mid)}
+.stay-ribbon{display:none;position:absolute;top:1.1rem;left:-.4rem;background:var(--charcoal);color:#fff;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;padding:.45rem .9rem;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.prop-paused .stay-ribbon{display:block}
+.prop-paused .stay-card-img img{filter:grayscale(.55) brightness(.85)}
+.prop-paused .stay-link{pointer-events:auto;background:var(--mid)}
+p.prop-note{display:block;font-size:13px;color:#8B6010;background:var(--gold-pale);border:1px solid var(--gold-light);border-radius:6px;padding:.55rem .8rem;margin:0 0 1rem}
+p.prop-note[hidden]{display:none}
+.prop-paused-msg{display:none;background:var(--gold-pale);border:1px solid var(--gold-light);border-radius:8px;padding:1rem 1.2rem;font-size:14.5px;color:#5A3800;margin-top:1.25rem;max-width:760px}
+.prop-paused .prop-paused-msg{display:block}
+.prop-paused .pricing-grid{display:none}
+.prop-paused .ac-tab::after{content:' · paused';color:var(--light-mid);font-weight:400}
+.prop-banner{background:var(--gold-pale);border-bottom:1px solid var(--gold-light);color:#5A3800;text-align:center;padding:.9rem 1.5rem;font-size:14.5px}
+.prop-banner a{color:var(--sage-dark)}
+.prop-closed-msg{background:var(--gold-pale);border:1px solid var(--gold-light);border-radius:8px;padding:1rem;color:#5A3800;text-align:center;margin-bottom:1rem}
+
+/* ── Price cards: season rows ───────────────────────────────────────── */
+.price-seasons .price-fee-row span small{display:block;font-size:11px;color:var(--light-mid);letter-spacing:.2px;margin-top:1px}
+.price-row-now strong{color:var(--sage-dark)}
+.price-row-now span{color:var(--charcoal)}
+.price-amount sup{font-size:1.1rem;vertical-align:super}
+.pricing-intro{font-size:15px;color:var(--mid);max-width:780px;line-height:1.75;margin-top:1rem}
+.pricing-intro strong{color:var(--sage-dark)}
+
+/* ── Form cells must be allowed to shrink on phones ─ */
+.bform .fg{min-width:0}
+.bform .fg select,.bform .fg input,.bform .fg textarea{max-width:100%}
+
+/* ── Booking estimate: season lines ─────────────────────────────────── */
+.pp-seasons{display:block;font-size:11.5px;color:rgba(255,255,255,.65);margin:-4px 0 8px}
+
+/* ── Reduced motion ─────────────────────────────────────────────────── */
+@media print{.reveal{opacity:1;transform:none;transition:none}.hero-bg img{animation:none;transform:none}.hero.hero-photo .hero-content>*{animation:none;opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+  .hero-bg img{animation:none;transform:none}
+  .hero.hero-photo .hero-content>*{animation:none;opacity:1;transform:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+@media (max-width:768px){
+  .hero.hero-photo{min-height:clamp(400px,70vh,620px);padding:3rem 1.5rem}
+  .hero.hero-photo.hero-short{min-height:clamp(340px,52vh,500px)}
+  .stay-ribbon{left:-.25rem}
+}

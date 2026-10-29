@@ -1,113 +1,176 @@
-/* victoriabnb.ca — shared pricing module.
-   Loaded by index.html and the property pages. Edit ONLY PRICING_CONFIG
-   to change rates; cards, calculator and schema all derive from it. */
+/* victoriabnb.ca — pricing engine. Reads SITE_CONFIG from assets/site-config.js.
+   Nothing here needs editing to change rates: use Site Manager or site-config.js. */
+(function (global) {
+  'use strict';
+  const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const NAMES = { suite: 'The Suite', smarthome: 'The Smart Home' };
 
-/* ══════════════════════════════════════════════════════════════════
-   PRICING CONFIG — edit ONLY this object to update all pricing.
-   Pricing cards, booking calculator, and JSON-LD schema are all
-   derived from these numbers; nothing else needs to change.
-   ══════════════════════════════════════════════════════════════════ */
-const PRICING_CONFIG = {
-  suite: {
-    nightly:          380,   // $ CAD – nightly base rate
-    cleaningFee:      150,   // $ one-time cleaning fee (keep as-is unless changing)
-    weeklyTotal:     2139,   // $ total for weeklyMin nights before cleaning fee
-    weeklyMin:          7,   // night threshold to unlock weekly rate
-    monthlyTotal:    8961,   // $ total for monthlyExNights before cleaning fee
-    monthlyExNights:   30,   // nights the monthlyTotal covers (used for $/night calc)
-    monthlyMin:        30,   // night threshold to unlock monthly rate
-  },
-  smarthome: {
-    nightly:          880,   // $ CAD – nightly base rate
-    cleaningFee:      175,   // $ one-time cleaning fee (keep as-is unless changing)
-    weeklyTotal:     5500,   // $ total for weeklyMin nights before cleaning fee
-    weeklyMin:          7,   // night threshold to unlock weekly rate
-    monthlyTotal:   15000,   // $ total for monthlyExNights before cleaning fee
-    monthlyExNights:   30,   // nights the monthlyTotal covers (used for $/night calc)
-    monthlyMin:        28,   // night threshold to unlock monthly rate (NOTE: 28, not 30)
+  function pricing() { return (global.SITE_CONFIG && global.SITE_CONFIG.pricing) || {}; }
+  function cfg(prop) { return pricing()[prop] || null; }
+  function props() { return Object.keys(pricing()).filter(k => typeof pricing()[k] === 'object'); }
+  function status(prop) {
+    const p = global.SITE_CONFIG && global.SITE_CONFIG.properties && global.SITE_CONFIG.properties[prop];
+    return (p && p.status) || 'open';
   }
-};
-
-/* ── Derived PRICING object used by the calculator ────────────────────
-   Auto-computed from PRICING_CONFIG — do not edit directly.         */
-const PRICING = {};
-(function buildPricing() {
-  for (const [key, c] of Object.entries(PRICING_CONFIG)) {
-    const wRate = c.weeklyTotal / c.weeklyMin;
-    const mRate = c.monthlyTotal / c.monthlyExNights;
-    PRICING[key] = {
-      base:  c.nightly,
-      clean: c.cleaningFee,
-      tiers: [
-        { min: c.monthlyMin, rate: mRate,
-          label: 'Monthly discount (' + ((1 - mRate/c.nightly)*100).toFixed(1) + '%)' },
-        { min: c.weeklyMin,  rate: wRate,
-          label: 'Weekly discount ('  + ((1 - wRate /c.nightly)*100).toFixed(1) + '%)' }
-      ]
-    };
+  function note(prop) {
+    const p = global.SITE_CONFIG && global.SITE_CONFIG.properties && global.SITE_CONFIG.properties[prop];
+    return (p && p.note) || '';
   }
-})();
 
-/* ── Formatting helpers ───────────────────────────────────────────────── */
-function fmtMoney(n) { return '$' + Math.round(n).toLocaleString('en-CA'); }
-function fmtRate(n)  { return (n === Math.round(n)) ? n.toLocaleString() : n.toFixed(2); }
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function mmdd(d) { return pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function inRange(md, from, to) { return from <= to ? (md >= from && md <= to) : (md >= from || md <= to); }
+  function parseISO(iso) { const p = iso.split('-').map(Number); return new Date(p[0], p[1] - 1, p[2], 12); }
+  function fmtMoney(n) { return '$' + Math.round(n).toLocaleString('en-CA'); }
+  function fmtMD(md) { const p = md.split('-').map(Number); return MONTHS[p[0] - 1] + ' ' + p[1]; }
 
-/* ── Render pricing cards from PRICING_CONFIG ────────────────────────── */
-function renderPricingCards() {
-  const props = {
-    suite:     { gridId: 'pricingGridSuite',     guests: 6 },
-    smarthome: { gridId: 'pricingGridSmarthome', guests: 8 },
-  };
-  for (const [key, def] of Object.entries(props)) {
-    const c  = PRICING_CONFIG[key];
-    const p  = PRICING[key];
-    const wt = p.tiers[1];  // weekly tier
-    const mt = p.tiers[0];  // monthly tier
-    const wSave      = c.nightly * c.weeklyMin       - c.weeklyTotal;
-    const mSave      = c.nightly * c.monthlyExNights - c.monthlyTotal;
-    const wWithClean = c.weeklyTotal  + c.cleaningFee;
-    const mWithClean = c.monthlyTotal + c.cleaningFee;
-    const wPct = ((1 - wt.rate / c.nightly) * 100).toFixed(1);
-    const mPct = ((1 - mt.rate / c.nightly) * 100).toFixed(1);
-    document.getElementById(def.gridId).innerHTML = [
-      /* Nightly */
-      `<div class="price-card">
-        <div class="price-label">Nightly Rate</div>
-        <div class="price-amount"><sup>$</sup>${fmtRate(c.nightly)}</div>
-        <div class="price-per">per night · CAD</div>
-        <div class="price-fees">
-          <div class="price-fee-row"><span>Cleaning fee (one-time)</span><strong>${fmtMoney(c.cleaningFee)}</strong></div>
-          <div class="price-fee-row"><span>Check-in</span><strong>3:00 PM</strong></div>
-          <div class="price-fee-row"><span>Check-out</span><strong>10:00 AM</strong></div>
-          <div class="price-fee-row"><span>Max guests</span><strong>${def.guests}</strong></div>
-        </div>
-      </div>`,
-      /* Weekly */
-      `<div class="price-card featured">
-        <div class="price-badge">Best Value — ${c.weeklyMin}+ Nights</div>
-        <div class="price-label">Weekly Stay</div>
-        <div class="price-amount"><sup>$</sup>${fmtRate(wt.rate)}</div>
-        <div class="price-per">per night · ${wPct}% off</div>
-        <div class="price-save">Save ${fmtMoney(wSave)} per week</div>
-        <div class="price-fees">
-          <div class="price-fee-row"><span>${c.weeklyMin} nights subtotal</span><strong>${fmtMoney(c.weeklyTotal)}</strong></div>
-          <div class="price-fee-row"><span>+ Cleaning fee</span><strong>${fmtMoney(c.cleaningFee)}</strong></div>
-          <div class="price-fee-row"><span>Total for ${c.weeklyMin} nights</span><strong>${fmtMoney(wWithClean)}</strong></div>
-        </div>
-      </div>`,
-      /* Monthly */
-      `<div class="price-card">
-        <div class="price-badge" style="background:var(--gold)">Best Rate — ${mt.min}+ Nights</div>
-        <div class="price-label">Monthly Stay</div>
-        <div class="price-amount"><sup>$</sup>${fmtRate(mt.rate)}</div>
-        <div class="price-per">per night · ${mPct}% off</div>
-        <div class="price-save">Save ${fmtMoney(mSave)} per month</div>
-        <div class="price-fees">
-          <div class="price-fee-row"><span>${c.monthlyExNights} nights subtotal</span><strong>${fmtMoney(c.monthlyTotal)}</strong></div>
-          <div class="price-fee-row"><span>+ Cleaning fee</span><strong>${fmtMoney(c.cleaningFee)}</strong></div>
-          <div class="price-fee-row"><span>Total for ${c.monthlyExNights} nights</span><strong>${fmtMoney(mWithClean)}</strong></div>
-        </div>
-      </div>`
-    ].join('');
+  function seasonFor(prop, date) {
+    const c = cfg(prop); if (!c) return null;
+    const md = mmdd(date);
+    for (const s of c.seasons || []) if (inRange(md, s.from, s.to)) return s;
+    return null;
   }
-}
+  function nightlyFor(prop, date) {
+    const c = cfg(prop); if (!c) return 0;
+    const s = seasonFor(prop, date);
+    return s ? s.nightly : (c.defaultNightly || 0);
+  }
+  function fromPrice(prop) {
+    const c = cfg(prop); if (!c) return 0;
+    const rates = (c.seasons || []).map(s => s.nightly);
+    if (c.defaultNightly) rates.push(c.defaultNightly);
+    return rates.length ? Math.min.apply(null, rates) : 0;
+  }
+  function maxPrice(prop) {
+    const c = cfg(prop); if (!c) return 0;
+    const rates = (c.seasons || []).map(s => s.nightly);
+    if (c.defaultNightly) rates.push(c.defaultNightly);
+    return rates.length ? Math.max.apply(null, rates) : 0;
+  }
+  function monthlyPerNight(prop) {
+    const c = cfg(prop); if (!c || !c.monthly) return 0;
+    return c.monthly.total / c.monthly.perNights;
+  }
+  function lowestPerNight(prop) {
+    const m = monthlyPerNight(prop);
+    return m ? Math.min(m, fromPrice(prop)) : fromPrice(prop);
+  }
+
+  /* Price a stay. Returns null when dates are missing or invalid. */
+  function quote(prop, checkinISO, checkoutISO) {
+    const c = cfg(prop); if (!c || !checkinISO || !checkoutISO) return null;
+    const a = parseISO(checkinISO), b = parseISO(checkoutISO);
+    const nights = Math.round((b - a) / 86400000);
+    if (!(nights > 0)) return null;
+    let subtotal = 0; const seasons = [];
+    for (let i = 0; i < nights; i++) {
+      const d = new Date(a); d.setDate(a.getDate() + i);
+      const s = seasonFor(prop, d);
+      const rate = s ? s.nightly : (c.defaultNightly || 0);
+      subtotal += rate;
+      const name = s ? s.name : 'Standard';
+      const last = seasons[seasons.length - 1];
+      if (last && last.name === name && last.rate === rate) last.nights++; else seasons.push({ name, rate, nights: 1 });
+    }
+    let accom = subtotal, discountPct = 0, discountAmt = 0, label = '', tier = null;
+    const m = c.monthly;
+    if (m && nights >= m.minNights) {
+      accom = Math.round(m.total / m.perNights * nights);
+      discountAmt = Math.max(0, subtotal - accom);
+      discountPct = subtotal ? Math.round(discountAmt / subtotal * 100) : 0;
+      label = 'Monthly rate (' + m.minNights + '+ nights)';
+      tier = 'monthly';
+    } else {
+      let best = null;
+      for (const t of c.discounts || []) if (nights >= t.minNights && (!best || t.minNights > best.minNights)) best = t;
+      if (best) {
+        discountPct = best.pct;
+        discountAmt = Math.round(subtotal * best.pct / 100);
+        accom = subtotal - discountAmt;
+        label = best.pct + '% off for ' + best.minNights + '+ nights';
+        tier = best.minNights;
+      }
+    }
+    const cleaning = c.cleaningFee || 0;
+    return { prop, nights, subtotal, seasons, accom, discountPct, discountAmt, label, tier, cleaning, total: accom + cleaning, perNight: accom / nights, avgNightly: subtotal / nights };
+  }
+
+  /* Seasons grouped by name, in config order, for display: [{name, ranges:'Nov 1 – Mar 31', nightly, current}] */
+  function seasonRows(prop) {
+    const c = cfg(prop); if (!c) return [];
+    const today = mmdd(new Date()), rows = [], byName = {};
+    for (const s of c.seasons || []) {
+      let r = byName[s.name];
+      if (!r) { r = byName[s.name] = { name: s.name, ranges: [], nightly: s.nightly, current: false }; rows.push(r); }
+      r.ranges.push(fmtMD(s.from) + ' – ' + fmtMD(s.to));
+      if (inRange(today, s.from, s.to)) r.current = true;
+    }
+    return rows;
+  }
+
+  function cardsHTML(prop) {
+    const c = cfg(prop); if (!c) return '';
+    const rows = seasonRows(prop);
+    const from = fromPrice(prop);
+    const seasonRowsHTML = rows.map(r =>
+      '<div class="price-fee-row' + (r.current ? ' price-row-now' : '') + '"><span>' + r.name + '<small>' + r.ranges.join(', ') + (r.current ? ' · now' : '') + '</small></span><strong>' + fmtMoney(r.nightly) + '</strong></div>').join('');
+    const discounts = (c.discounts || []).slice().sort((x, y) => x.minNights - y.minNights);
+    const bestPct = discounts.length ? Math.max.apply(null, discounts.map(d => d.pct)) : 0;
+    const minPct = discounts.length ? Math.min.apply(null, discounts.map(d => d.pct)) : 0;
+    const discountRows = discounts.map(d => '<div class="price-fee-row"><span>' + d.minNights + '+ nights</span><strong>' + d.pct + '% off</strong></div>').join('');
+    // worked example: 7 nights starting today
+    const t = new Date(); const ci = t.getFullYear() + '-' + pad(t.getMonth() + 1) + '-' + pad(t.getDate());
+    const ex = discounts.length ? quote(prop, ci, (function () { const e = new Date(t); e.setDate(t.getDate() + discounts[0].minNights); return e.getFullYear() + '-' + pad(e.getMonth() + 1) + '-' + pad(e.getDate()); })()) : null;
+    const exRow = ex ? '<div class="price-fee-row"><span>e.g. ' + ex.nights + ' nights this month, incl. cleaning</span><strong>' + fmtMoney(ex.total) + '</strong></div>' : '';
+    const m = c.monthly;
+    const monthlyCard = m ? '<div class="price-card">' +
+      '<div class="price-badge" style="background:var(--gold)">Lowest Rate — ' + m.minNights + '+ Nights</div>' +
+      '<div class="price-label">Monthly Stay</div>' +
+      '<div class="price-amount"><sup>$</sup>' + Math.round(m.total / m.perNights).toLocaleString('en-CA') + '</div>' +
+      '<div class="price-per">per night · CAD</div>' +
+      '<div class="price-save">All year, any season</div>' +
+      '<div class="price-fees">' +
+      '<div class="price-fee-row"><span>' + m.perNights + ' nights</span><strong>' + fmtMoney(m.total) + '</strong></div>' +
+      '<div class="price-fee-row"><span>+ Cleaning fee</span><strong>' + fmtMoney(c.cleaningFee || 0) + '</strong></div>' +
+      '<div class="price-fee-row"><span>Total for ' + m.perNights + ' nights</span><strong>' + fmtMoney(m.total + (c.cleaningFee || 0)) + '</strong></div>' +
+      '</div></div>' : '';
+    return '<div class="price-card">' +
+      '<div class="price-label">Nightly Rate</div>' +
+      '<div class="price-amount"><sup>$</sup>' + from.toLocaleString('en-CA') + '</div>' +
+      '<div class="price-per">per night from · CAD</div>' +
+      '<div class="price-fees price-seasons">' + seasonRowsHTML +
+      '<div class="price-fee-row"><span>Cleaning fee (one-time)</span><strong>' + fmtMoney(c.cleaningFee || 0) + '</strong></div>' +
+      '<div class="price-fee-row"><span>Max guests</span><strong>' + (c.maxGuests || '') + '</strong></div>' +
+      '</div></div>' +
+      (discounts.length ? '<div class="price-card featured">' +
+        '<div class="price-badge">Best Value — ' + discounts[0].minNights + '+ Nights</div>' +
+        '<div class="price-label">Stay Longer, Pay Less</div>' +
+        '<div class="price-amount">' + (minPct === bestPct ? bestPct : minPct + '–' + bestPct) + '<sup>%</sup></div>' +
+        '<div class="price-per">off the nightly rate</div>' +
+        '<div class="price-save">The longer the stay, the bigger the discount</div>' +
+        '<div class="price-fees">' + discountRows + exRow + '</div></div>' : '') +
+      monthlyCard;
+  }
+
+  function renderPricingCards() {
+    for (const prop of props()) {
+      const grid = document.getElementById(prop === 'suite' ? 'pricingGridSuite' : prop === 'smarthome' ? 'pricingGridSmarthome' : 'pricingGrid_' + prop);
+      if (!grid) continue;
+      grid.innerHTML = cardsHTML(prop);
+    }
+  }
+  function renderFromPrices() {
+    document.querySelectorAll('[data-from-price]').forEach(el => { el.textContent = fmtMoney(fromPrice(el.getAttribute('data-from-price'))); });
+    document.querySelectorAll('[data-monthly-total]').forEach(el => { const c = cfg(el.getAttribute('data-monthly-total')); if (c && c.monthly) el.textContent = fmtMoney(c.monthly.total); });
+    document.querySelectorAll('[data-monthly-night]').forEach(el => { const c = cfg(el.getAttribute('data-monthly-night')); if (c && c.monthly) el.textContent = fmtMoney(c.monthly.total / c.monthly.perNights); });
+    document.querySelectorAll('[data-monthly-min]').forEach(el => { const c = cfg(el.getAttribute('data-monthly-min')); if (c && c.monthly) el.textContent = c.monthly.minNights; });
+    document.querySelectorAll('[data-monthly-nights]').forEach(el => { const c = cfg(el.getAttribute('data-monthly-nights')); if (c && c.monthly) el.textContent = c.monthly.perNights; });
+    document.querySelectorAll('[data-cleaning-fee]').forEach(el => { const c = cfg(el.getAttribute('data-cleaning-fee')); if (c) el.textContent = fmtMoney(c.cleaningFee || 0); });
+    document.querySelectorAll('[data-ladder]').forEach(el => { const c = cfg(el.getAttribute('data-ladder')); if (!c) return; const ds = (c.discounts || []).slice().sort((a, b) => a.minNights - b.minNights); el.textContent = ds.map(d => d.pct + '% off ' + d.minNights + '+ nights').join(', '); });
+    document.querySelectorAll('[data-max-discount]').forEach(el => { const c = cfg(el.getAttribute('data-max-discount')); if (c) el.textContent = Math.max.apply(null, (c.discounts || [{ pct: 0 }]).map(d => d.pct)) + '%'; });
+  }
+
+  global.Pricing = { cfg, props, status, note, quote, nightlyFor, seasonFor, fromPrice, maxPrice, monthlyPerNight, lowestPerNight, seasonRows, cardsHTML, renderPricingCards, renderFromPrices, fmtMoney, NAMES };
+  global.renderPricingCards = renderPricingCards;
+  global.fmtMoney = fmtMoney;
+})(typeof window !== 'undefined' ? window : globalThis);

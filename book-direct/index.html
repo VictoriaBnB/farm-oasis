@@ -81,6 +81,14 @@
         },
         {
           "@type": "Question",
+          "name": "Is it really cheaper than Airbnb?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our direct rates are set below our Airbnb pricing, there's no platform guest fee on top, and longer stays are discounted further than anywhere else we list."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "How do I pay?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -92,7 +100,7 @@
           "name": "What does the quote include?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The nightly rate for your dates, any weekly or monthly discount, and the one-time cleaning fee. We'll spell out the total in writing so there are no surprises."
+            "text": "The nightly rate for your dates, any long-stay discount, and the one-time cleaning fee. We'll spell out the total in writing so there are no surprises."
           }
         },
         {
@@ -129,7 +137,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/assets/guides.css">
+<link rel="stylesheet" href="/assets/ui.css">
 <style>.steps{max-width:960px;margin:2rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}.step{background:var(--white);border:1px solid var(--border-light);border-radius:10px;padding:1.5rem}.step-n{font-family:var(--serif);font-size:2rem;color:var(--sage);line-height:1}.step h3{font-family:var(--serif);font-weight:500;font-size:1.25rem;margin:0.5rem 0 0.4rem;color:var(--charcoal)}.step p{font-size:14px;color:var(--mid);line-height:1.7}@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}@media(max-width:520px){.steps{grid-template-columns:1fr}}</style>
+<script src="/assets/site-config.js"></script>
+<script src="/assets/pricing.js"></script>
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
 
@@ -138,7 +150,7 @@
   <span class="announce-sep">|</span>
   <span>3 min to Victoria Airport · 10 min to Swartz Bay ferry</span>
   <span class="announce-sep">|</span>
-  <a href="/#booking">Book direct — no platform fees ↓</a>
+  <a href="/#booking">Book direct — lowest rates, no platform fees ↓</a>
 </div>
 
 <nav id="mainNav">
@@ -172,11 +184,12 @@
 
 <div class="crumbs"><a href="/">Farm Oasis</a> &rsaquo; Why Book Direct</div>
 
-<div class="hero">
+<div class="hero hero-photo hero-short">
+  <picture class="hero-bg"><source media="(max-width:700px)" srcset="/img/pat-bay-beach-sunset-800.webp"><img src="/img/pat-bay-beach-sunset.webp" width="1600" height="1200" alt="" fetchpriority="high" decoding="async"></picture>
   <div class="hero-content">
-    <div class="hero-eyebrow"><span class="hero-eyebrow-star">★★★★★</span> No platform fees &nbsp;·&nbsp; confirmed in hours &nbsp;·&nbsp; the same hosts</div>
-    <h1>Book Direct: <em>Same Homes, No Platform Fees</em></h1>
-    <p class="hero-sub">Booking through a platform adds a guest service fee on top of the price of the stay. Booking with us directly doesn't. You deal with the hosts, you get a written quote, and your deposit holds the dates.</p>
+    <div class="hero-eyebrow"><span class="hero-eyebrow-star">★★★★★</span> Lowest rates &nbsp;·&nbsp; no platform fees &nbsp;·&nbsp; the same hosts</div>
+    <h1>Book Direct: <em>Same Homes, Lower Price</em></h1>
+    <p class="hero-sub">Our direct rates are set below our Airbnb pricing, nothing is added on top, and the longer you stay the less each night costs. You deal with the hosts, you get a written quote, and your deposit holds the dates.</p>
     <div class="hero-btns">
       <a href="/#booking" class="btn-primary">Send a Booking Inquiry</a>
       <a href="/#availability" class="btn-outline">Check Availability</a>
@@ -190,8 +203,8 @@
     <h2 class="section-title" style="text-align:center">How a Direct Booking Works</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
     <div class="steps">
-      <div class="step"><div class="step-n">1</div><h3>Send your dates</h3><p>Use the <a href="/#booking" style="color:var(--sage-dark)">inquiry form</a>: pick the Suite or the Smart Home, your check-in and check-out, and how many guests. The form shows a price estimate instantly.</p></div>
-      <div class="step"><div class="step-n">2</div><h3>We confirm and quote</h3><p>We check the calendar and reply, usually within a few hours, with your confirmed dates and a written total: nightly rate, any weekly or monthly discount, and the cleaning fee.</p></div>
+      <div class="step"><div class="step-n">1</div><h3>Send your dates</h3><p>Use the <a href="/#booking" style="color:var(--sage-dark)">inquiry form</a>: pick the Suite or the Smart Home, your check-in and check-out, and how many guests. The form shows a price estimate instantly, discounts included.</p></div>
+      <div class="step"><div class="step-n">2</div><h3>We confirm and quote</h3><p>We check the calendar and reply, usually within a few hours, with your confirmed dates and a written total: nightly rate, any long-stay discount, and the cleaning fee.</p></div>
       <div class="step"><div class="step-n">3</div><h3>Deposit holds the dates</h3><p>A 50% deposit by Interac e-Transfer secures the booking. We confirm the balance due date in the quote. Outside Canada? Tell us and we'll explain your options.</p></div>
       <div class="step"><div class="step-n">4</div><h3>Arrival details</h3><p>Before your stay we send directions, the self check-in details and our phone number. Check-in is from 3:00 PM, check-out 10:00 AM.</p></div>
     </div>
@@ -205,15 +218,15 @@
       <h2 class="section-title">Where the Saving Comes From</h2>
       <div class="rule"></div>
       <div class="loc-body">
-        <p>Platforms charge guests a service fee on top of the host's price — typically in the range of 14% of the subtotal — and charge the host another fee on their side. When you book direct, neither applies: you pay the nightly rate for your dates plus one cleaning fee, and that's the whole bill.</p>
+        <p>Platforms charge guests a service fee on top of the host's price — typically around 14% of the subtotal — and charge the host another fee on their side. When you book direct, neither applies, and we pass that on: our direct nightly rates are set below our Airbnb pricing to begin with.</p>
         <p id="bdExample"></p>
-        <p>Weekly and monthly rates apply automatically for 7+ and 28–30+ nights. Prices are in Canadian dollars; your written quote is the number you'll pay.</p>
+        <p>Longer stays cost less per night — <span data-ladder="suite"></span>, and a flat monthly rate for the longest stays. Prices are in Canadian dollars; your written quote is the number you'll pay.</p>
       </div>
     </div>
     <div>
       <ul class="dist-list">
-        <li class="dist-item"><span>✓ &nbsp;Nightly rate for your dates</span><span class="dist-time">Included</span></li>
-        <li class="dist-item"><span>✓ &nbsp;Weekly / monthly discounts</span><span class="dist-time">Automatic</span></li>
+        <li class="dist-item"><span>✓ &nbsp;Nightly rate for your dates</span><span class="dist-time">Below Airbnb</span></li>
+        <li class="dist-item"><span>✓ &nbsp;Long-stay discounts</span><span class="dist-time">Automatic</span></li>
         <li class="dist-item"><span>✓ &nbsp;One cleaning fee per stay</span><span class="dist-time" id="bdClean"></span></li>
         <li class="dist-item"><span>✗ &nbsp;Platform guest service fee</span><span class="dist-time">None</span></li>
         <li class="dist-item"><span>✗ &nbsp;Hidden extras</span><span class="dist-time">None</span></li>
@@ -221,12 +234,18 @@
     </div>
   </div>
 </section>
-<script src="/assets/pricing.js"></script>
 <script>
 (function(){
-  var c=PRICING_CONFIG.suite, n=3, sub=c.nightly*n, direct=sub+c.cleaningFee, fee=Math.round((sub+c.cleaningFee)*0.14);
-  document.getElementById('bdExample').innerHTML='For example, a '+n+'-night stay in the Suite at the nightly rate is '+fmtMoney(sub)+' plus the '+fmtMoney(c.cleaningFee)+' cleaning fee, so '+fmtMoney(direct)+' direct. A platform guest fee of around 14% would add roughly '+fmtMoney(fee)+' to the same stay.';
-  document.getElementById('bdClean').textContent=fmtMoney(c.cleaningFee)+' / '+fmtMoney(PRICING_CONFIG.smarthome.cleaningFee);
+  if(!window.Pricing)return;
+  var c=Pricing.cfg('suite'), t=new Date();
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  var e=new Date(t);e.setDate(t.getDate()+3);
+  var q=Pricing.quote('suite',iso(t),iso(e));
+  if(q){
+    var fee=Math.round(q.total*0.14);
+    document.getElementById('bdExample').innerHTML='For example, '+q.nights+' nights in the Suite this month at '+fmtMoney(q.avgNightly)+' a night is '+fmtMoney(q.subtotal)+' plus the '+fmtMoney(q.cleaning)+' cleaning fee: <strong style="color:white">'+fmtMoney(q.total)+' direct</strong>. A platform guest fee of around 14% alone would add roughly '+fmtMoney(fee)+' to a stay like that.';
+  }
+  document.getElementById('bdClean').textContent=fmtMoney(c.cleaningFee||0)+' / '+fmtMoney((Pricing.cfg('smarthome')||{}).cleaningFee||0);
 })();
 </script>
 
@@ -263,7 +282,8 @@
     <h2 class="section-title" style="text-align:center">Choose Your Space</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
     <div class="stays-grid">
-      <div class="stay-card">
+      <div class="stay-card" data-prop="suite">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/suite-exterior-farm-views.webp" alt="2-bedroom + loft suite with farm views in North Saanich" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Suite &middot; Sleeps 6</div>
         <h3 class="stay-card-title">2BR + Loft Suite</h3>
@@ -273,9 +293,12 @@
           <div class="stay-stat"><span class="stay-stat-num">2.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">6</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="suite"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="suite"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-suite/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
       </div>
-      <div class="stay-card">
+      <div class="stay-card" data-prop="smarthome">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/smart-home-chefs-kitchen-island.webp" alt="4-bedroom solar-powered smart home chef's kitchen" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Smart Home &middot; Sleeps 8</div>
         <h3 class="stay-card-title">4BR Solar Smart Home</h3>
@@ -285,6 +308,8 @@
           <div class="stay-stat"><span class="stay-stat-num">5.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">8</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="smarthome"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="smarthome"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-smart-home/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
       </div>
     </div>
@@ -296,7 +321,7 @@
     <div class="eyebrow" style="text-align:center">Good to know</div>
     <h2 class="section-title" style="text-align:center">Direct Booking Questions</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
-    <div class="faq-list"><details><summary>Is it safe to book direct?</summary><p>You're booking with the same hosts and the same two homes you'll find on Airbnb, where we're a Superhost with more than 80 five-star reviews. The Suite is registered with the Province of BC (registration H295535660). We confirm everything in writing before any deposit is paid.</p></details><details><summary>How do I pay?</summary><p>By Interac e-Transfer from a Canadian bank account: a 50% deposit holds your dates and we confirm the balance due date in your quote. Travelling from the US or overseas? Say so in your inquiry and we'll let you know your options.</p></details><details><summary>What does the quote include?</summary><p>The nightly rate for your dates, any weekly or monthly discount, and the one-time cleaning fee. We'll spell out the total in writing so there are no surprises.</p></details><details><summary>What is the cancellation policy?</summary><p>Moderate: a full refund if you cancel at least 5 days before check-in, and a partial refund inside 5 days.</p></details><details><summary>How quickly will I hear back?</summary><p>Usually within a few hours during the day, and always within 24 hours.</p></details><details><summary>Can I check availability first?</summary><p>Yes. The calendar on the home page syncs from our booking calendars every few hours. If your dates show as free, send the inquiry and we'll confirm them.</p></details></div>
+    <div class="faq-list"><details><summary>Is it safe to book direct?</summary><p>You're booking with the same hosts and the same two homes you'll find on Airbnb, where we're a Superhost with more than 80 five-star reviews. The Suite is registered with the Province of BC (registration H295535660). We confirm everything in writing before any deposit is paid.</p></details><details><summary>Is it really cheaper than Airbnb?</summary><p>Yes. Our direct rates are set below our Airbnb pricing, there's no platform guest fee on top, and longer stays are discounted further than anywhere else we list.</p></details><details><summary>How do I pay?</summary><p>By Interac e-Transfer from a Canadian bank account: a 50% deposit holds your dates and we confirm the balance due date in your quote. Travelling from the US or overseas? Say so in your inquiry and we'll let you know your options.</p></details><details><summary>What does the quote include?</summary><p>The nightly rate for your dates, any long-stay discount, and the one-time cleaning fee. We'll spell out the total in writing so there are no surprises.</p></details><details><summary>What is the cancellation policy?</summary><p>Moderate: a full refund if you cancel at least 5 days before check-in, and a partial refund inside 5 days.</p></details><details><summary>How quickly will I hear back?</summary><p>Usually within a few hours during the day, and always within 24 hours.</p></details><details><summary>Can I check availability first?</summary><p>Yes. The calendar on the home page syncs from our booking calendars every few hours. If your dates show as free, send the inquiry and we'll confirm them.</p></details></div>
   </div>
 </section>
 

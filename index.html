@@ -70,7 +70,7 @@
         "latitude": 48.6612,
         "longitude": -123.4434
       },
-      "priceRange": "$299–$380 CAD/night",
+      "priceRange": "$200–$429 CAD/night",
       "numberOfRooms": 3,
       "numberOfBedrooms": 2,
       "numberOfBathroomsTotal": 2.5,
@@ -134,7 +134,7 @@
         "latitude": 48.6612,
         "longitude": -123.4434
       },
-      "priceRange": "$500–$880 CAD/night",
+      "priceRange": "$567–$1099 CAD/night",
       "numberOfRooms": 4,
       "numberOfBedrooms": 4,
       "numberOfBathroomsTotal": 5.5,
@@ -203,7 +203,7 @@
           "name": "Do you offer weekly or monthly rates?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Both rentals have discounted weekly rates (7+ nights) and monthly rates (28 or 30+ nights). The exact figures are in the rates section above."
+            "text": "Yes. Stays of 7+ nights are discounted, 14+ nights more so, and 28–30+ nights get a flat monthly rate. The estimate on the booking form applies them automatically, and the rates section shows the figures."
           }
         },
         {
@@ -829,6 +829,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 .guide-title{font-family:var(--serif);font-size:1.3rem;color:var(--charcoal);line-height:1.25}
 .guide-go{font-size:12.5px;color:var(--sage-dark);font-weight:500;margin-top:auto;padding-top:0.4rem}
 </style>
+<link rel="stylesheet" href="/assets/ui.css">
 </head>
 <body>
 
@@ -838,7 +839,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
   <span class="announce-sep">|</span>
   <span>3 min to Victoria Airport · 10 min to Swartz Bay ferry · Steps to Pat Bay Beach</span>
   <span class="announce-sep">|</span>
-  <a href="#booking">Book direct — no platform fees ↓</a>
+  <a href="#booking">Book direct — lowest rates, no platform fees ↓</a>
 </div>
 
 <!-- ══ NAV ══ -->
@@ -884,14 +885,15 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 </div>
 
 <!-- ══ HERO — Slim solid-sage banner ══ -->
-<div class="hero">
+<div class="hero hero-photo">
+  <picture class="hero-bg"><source media="(max-width:700px)" srcset="/img/pat-bay-beach-sunset-800.webp"><img src="/img/pat-bay-beach-sunset.webp" width="1600" height="1200" alt="" fetchpriority="high" decoding="async"></picture>
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-star">★★★★★</span>
       Airbnb Superhost &nbsp;·&nbsp; 4.9 · 88 Reviews &nbsp;·&nbsp; Sidney, BC
     </div>
     <h1>New Bright Modern <em>Farm Oasis</em></h1>
-    <p class="hero-sub">Two modern farmhouse stays on one serene farm property in North Saanich. Steps to Pat Bay Beach, minutes to Victoria Airport, the Swartz Bay ferry &amp; Butchart Gardens.</p>
+    <p class="hero-sub">Two modern farmhouse stays on one quiet farm in North Saanich: steps to Pat Bay Beach, minutes to Victoria Airport, the Swartz Bay ferry &amp; Butchart Gardens. Book direct for our lowest rates — and the longer you stay, the less each night costs.</p>
     <div class="hero-btns">
       <a href="#booking" class="btn-primary">Book Direct &amp; Save</a>
       <a href="#gallery" class="btn-outline">View Photos</a>
@@ -978,7 +980,8 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
     <p class="stays-intro">Modern Farm Oasis is one of two independent rentals on the same peaceful property. Whether it&rsquo;s just the two of you or the whole family, here&rsquo;s the space that fits your trip &mdash; both just steps from Pat Bay Beach and minutes from the airport.</p>
     <div class="stays-grid">
-      <div class="stay-card">
+      <div class="stay-card" data-prop="suite">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/suite-exterior-farm-views.webp" alt="New Bright Modern Farm Oasis — 2-bedroom + loft suite with farm views" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Suite &middot; 2BR + Loft &middot; Sleeps 6</div>
         <h3 class="stay-card-title">Modern Farm Oasis &mdash; 2BR + Loft Suite</h3>
@@ -988,19 +991,24 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
           <div class="stay-stat"><span class="stay-stat-num">2.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">6</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="suite"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="suite"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-suite/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
         <p class="stay-alt">Prefer a platform? <a href="https://airbnb.ca/h/modernfarmoasis" target="_blank" rel="noopener">See the suite on Airbnb</a> (platform fees apply).</p>
       </div>
-      <div class="stay-card">
+      <div class="stay-card" data-prop="smarthome">
+        <div class="stay-ribbon">Not taking bookings right now</div>
         <div class="stay-card-img"><img src="/img/smart-home-chefs-kitchen-island.webp" alt="Modern Farm Oasis smart home — chef's kitchen with island seating for twelve" loading="lazy"></div>
         <div class="stay-card-eyebrow">The Smart Home &middot; 4BR &middot; Sleeps 8</div>
         <h3 class="stay-card-title">Modern Farm Oasis &mdash; 4BR Smart Home</h3>
-        <p class="stay-card-desc">A 4,500&nbsp;sq&nbsp;ft solar-powered smart home built for family reunions and group getaways, with open-concept living and a chef&rsquo;s kitchen that seats 12. All four bedrooms come with their own private bathroom, and the home is loaded with extras &mdash; 1.5 gigabit WiFi, a Samsung Frame TV with Sonos sound, a home gym, and a spacious patio with the same farm views. Steps to the beach and wheelchair accessible.</p>
+        <p class="stay-card-desc">A 4,500&nbsp;sq&nbsp;ft solar-powered smart home built for family reunions and group getaways, with open-concept living and a chef&rsquo;s kitchen that seats 12. All four bedrooms come with their own private bathroom, and the home is loaded with extras &mdash; gigabit fibre WiFi, an 85&quot; Samsung Frame TV with Sonos sound, a home gym, and a spacious patio with the same farm views. Steps to the beach, step-free entry.</p>
         <div class="stay-stats">
           <div class="stay-stat"><span class="stay-stat-num">4</span><span class="stay-stat-label">Bedrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">5.5</span><span class="stay-stat-label">Bathrooms</span></div>
           <div class="stay-stat"><span class="stay-stat-num">8</span><span class="stay-stat-label">Max Guests</span></div>
         </div>
+        <div class="stay-from">From <strong data-from-price="smarthome"></strong> <span>/ night</span> <span class="stay-from-note">· up to <span data-max-discount="smarthome"></span> off longer stays</span></div>
+        <p class="prop-note" hidden></p>
         <a href="/the-smart-home/" class="btn-primary stay-link">Details, Photos &amp; Rates &rarr;</a>
         <p class="stay-alt">Prefer a platform? <a href="https://airbnb.ca/h/modernfarmoasis2" target="_blank" rel="noopener">See the Smart Home on Airbnb</a> (platform fees apply).</p>
       </div>
@@ -1025,7 +1033,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
   <div class="wrap">
 
     <!-- ── Gallery 1: The Suite ── -->
-    <div class="gallery-block" id="gallery-suite">
+    <div class="gallery-block" id="gallery-suite" data-prop="suite">
       <div class="eyebrow">The Suite &middot; <a href="/the-suite/" style="color:inherit">Full details &rarr;</a></div>
       <h2 class="section-title">The Suite &mdash; 2BR + Loft</h2>
       <div class="rule"></div>
@@ -1069,7 +1077,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     </div>
 
     <!-- ── Gallery 2: The Smart Home ── -->
-    <div class="gallery-block" id="gallery-smarthome">
+    <div class="gallery-block" id="gallery-smarthome" data-prop="smarthome">
       <div class="eyebrow">The Smart Home &middot; <a href="/the-smart-home/" style="color:inherit">Full details &rarr;</a></div>
       <h2 class="section-title">The Smart Home &mdash; 4BR</h2>
       <div class="rule"></div>
@@ -1359,15 +1367,22 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <div class="eyebrow">Transparent Pricing</div>
     <h2 class="section-title">Rates &amp; Policies</h2>
     <div class="rule"></div>
+    <p class="pricing-intro">Our direct rates are set <strong>below our Airbnb pricing</strong>, with no platform fee on top. Nightly rates change with the season, and every night costs less the longer you stay: <strong><span data-ladder="suite"></span></strong>, and a flat monthly rate for longer stays. The booking form applies the discounts automatically.</p>
     <!-- ── The Suite ── -->
-    <div class="eyebrow" style="margin-top:1.25rem">The Suite &middot; 2BR + Loft &middot; <a href="/the-suite/" style="color:inherit">details &rarr;</a></div>
+    <div data-prop="suite">
+    <div class="eyebrow" style="margin-top:1.75rem">The Suite &middot; 2BR + Loft &middot; <a href="/the-suite/" style="color:inherit">details &rarr;</a></div>
     <h3 class="pricing-sub">The Suite</h3>
     <div class="pricing-grid" id="pricingGridSuite" style="margin-top:1.25rem"></div>
+    <div class="prop-paused-msg">The Suite isn&rsquo;t taking bookings right now. <span class="prop-note"></span></div>
+    </div>
 
     <!-- ── The Smart Home ── -->
+    <div data-prop="smarthome">
     <div class="eyebrow" style="margin-top:3rem">The Smart Home &middot; 4BR Solar &middot; <a href="/the-smart-home/" style="color:inherit">details &rarr;</a></div>
     <h3 class="pricing-sub">The Smart Home</h3>
     <div class="pricing-grid" id="pricingGridSmarthome" style="margin-top:1.25rem"></div>
+    <div class="prop-paused-msg">The Smart Home isn&rsquo;t taking bookings right now. <span class="prop-note"></span></div>
+    </div>
 
     <h3 style="font-family:var(--serif);font-size:1.55rem;font-weight:400;margin-top:3.5rem;margin-bottom:0.4rem">House Rules</h3>
     <div class="rule"></div>
@@ -1375,7 +1390,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Self-Catering</div><div class="rule-note">Full kitchen · breakfast not served</div></div>
       <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Families &amp; Groups</div><div class="rule-note">Up to 6 (Suite) or 8 (Smart Home)</div></div>
       <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Self Check-in</div><div class="rule-note">Private entrance, flexible arrival</div></div>
-      <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Long Stays Welcome</div><div class="rule-note">Weekly &amp; monthly discounts</div></div>
+      <div class="rule-card rule-ok"><span class="rule-icon">✓</span><div class="rule-name">Long Stays Welcome</div><div class="rule-note">Bigger discounts at 7, 14 and 28–30+ nights</div></div>
       <div class="rule-card rule-no"><span class="rule-icon">✗</span><div class="rule-name">No Pets</div><div class="rule-note">Cannot accommodate pets</div></div>
       <div class="rule-card rule-no"><span class="rule-icon">✗</span><div class="rule-name">No Smoking</div><div class="rule-note">Strictly smoke-free property</div></div>
       <div class="rule-card rule-no"><span class="rule-icon">✗</span><div class="rule-name">No Vaping</div><div class="rule-note">No vaping indoors or on premises</div></div>
@@ -1427,7 +1442,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
     <div class="rule" style="margin:1.1rem auto 0"></div>
   </div>
   <div class="booking-card">
-    <p class="booking-intro">Fill in your details and we'll confirm availability and send e-transfer payment instructions within a few hours. No platform fees when you book direct.</p>
+    <p class="booking-intro">Fill in your details and we'll confirm availability and send e-transfer payment instructions within a few hours. No platform fees when you book direct, and longer stays are discounted automatically in the estimate below.</p>
     
     <form id="bookingForm" action="https://formspree.io/f/mvzdaryl" method="POST" class="bform">
 
@@ -1437,8 +1452,8 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 
       <div class="fg full"><label for="bProperty">Which property?</label>
         <select name="property" id="bProperty" onchange="onPropertyChange()">
-          <option value="suite">The Suite — 2BR + Loft (max 6)</option>
-          <option value="smarthome">The Smart Home — 4BR (max 8)</option>
+          <option value="suite" data-prop="suite">The Suite — 2BR + Loft (max 6)</option>
+          <option value="smarthome" data-prop="smarthome">The Smart Home — 4BR (max 8)</option>
         </select>
       </div>
       <div class="fg"><label for="bIn">Check-in Date</label><input type="date" name="checkin" id="bIn" onchange="calcPrice()" required></div>
@@ -1487,7 +1502,7 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
       <details><summary>Is breakfast included?</summary><p>No. Both rentals are self-catering: each has a full kitchen stocked with cooking basics, coffee and a coffee maker. Sidney's cafés and grocery stores are a 5-minute drive.</p></details>
       <details><summary>How far is it to Victoria Airport and the Swartz Bay ferry?</summary><p>About 3 minutes by car to Victoria International Airport (YYJ) and 10 minutes to the BC Ferries terminal at Swartz Bay. Downtown Victoria is roughly 35 minutes.</p></details>
       <details><summary>How does booking direct work?</summary><p>Send your dates through the inquiry form. We confirm availability and a quote within a few hours, a 50% deposit by Interac e-Transfer holds your dates, and there are no platform fees.</p></details>
-      <details><summary>Do you offer weekly or monthly rates?</summary><p>Yes. Both rentals have discounted weekly rates (7+ nights) and monthly rates (28 or 30+ nights). The exact figures are in the rates section above.</p></details>
+      <details><summary>Do you offer weekly or monthly rates?</summary><p>Yes. Stays of 7+ nights are discounted, 14+ nights more so, and 28–30+ nights get a flat monthly rate. The estimate on the booking form applies them automatically, and the rates section shows the figures.</p></details>
       <details><summary>Are pets allowed?</summary><p>No. Neither rental can accommodate pets, and both are strictly smoke- and vape-free.</p></details>
       <details><summary>Is either home wheelchair accessible?</summary><p>The Smart Home has step-free access and a guest entrance wider than 32 inches (81 cm). If you have specific accessibility needs, tell us in your inquiry and we'll confirm the details before you book.</p></details>
       <details><summary>What is the cancellation policy?</summary><p>Moderate: a full refund if you cancel at least 5 days before check-in, and a partial refund inside 5 days.</p></details>
@@ -1555,7 +1570,9 @@ footer p{color:rgba(255,255,255,0.55);line-height:1.75}
 </div>
 
 <!-- ══ JAVASCRIPT ══ -->
+<script src="/assets/site-config.js"></script>
 <script src="/assets/pricing.js"></script>
+<script src="/assets/site.js" defer></script>
 <script>
 /* ── MOBILE MENU ── */
 document.getElementById('menuBtn').onclick=()=>document.getElementById('mobileMenu').classList.add('open');
@@ -1617,10 +1634,8 @@ document.getElementById('lightbox').addEventListener('click',function(e){if(e.ta
 
 /* ── Inject JSON-LD structured data from PRICING_CONFIG ──────────────── */
 function injectJsonLd() {
-  const sc = PRICING_CONFIG.suite;
-  const sh = PRICING_CONFIG.smarthome;
-  const sLow = Math.round(sc.monthlyTotal / sc.monthlyExNights);
-  const hLow = Math.round(sh.monthlyTotal / sh.monthlyExNights);
+  const sLow = Math.round(Pricing.lowestPerNight('suite')), sHigh = Pricing.maxPrice('suite');
+  const hLow = Math.round(Pricing.lowestPerNight('smarthome')), hHigh = Pricing.maxPrice('smarthome');
   const ld = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -1640,7 +1655,7 @@ function injectJsonLd() {
         'address': {'@type':'PostalAddress','streetAddress':'1345 Munro Road',
           'addressLocality':'North Saanich','addressRegion':'BC','postalCode':'V8L 5S9','addressCountry':'CA'},
         'geo': {'@type':'GeoCoordinates','latitude':48.6612,'longitude':-123.4434},
-        'priceRange': '$' + sLow + '–$' + sc.nightly + ' CAD/night',
+        'priceRange': '$' + sLow + '–$' + sHigh + ' CAD/night',
         'numberOfRooms': 3, 'numberOfBedrooms': 2, 'numberOfBathroomsTotal': 2.5,
         'occupancy': {'@type':'QuantitativeValue','maxValue':6},
         'checkinTime':'15:00','checkoutTime':'10:00','petsAllowed':false,'smokingAllowed':false,
@@ -1664,7 +1679,7 @@ function injectJsonLd() {
         'address': {'@type':'PostalAddress','streetAddress':'1345 Munro Road',
           'addressLocality':'North Saanich','addressRegion':'BC','postalCode':'V8L 5S9','addressCountry':'CA'},
         'geo': {'@type':'GeoCoordinates','latitude':48.6612,'longitude':-123.4434},
-        'priceRange': '$' + hLow + '–$' + sh.nightly + ' CAD/night',
+        'priceRange': '$' + hLow + '–$' + hHigh + ' CAD/night',
         'numberOfRooms': 4, 'numberOfBedrooms': 4, 'numberOfBathroomsTotal': 5.5,
         'occupancy': {'@type':'QuantitativeValue','maxValue':8},
         'checkinTime':'15:00','checkoutTime':'10:00','petsAllowed':false,'smokingAllowed':false,
@@ -1690,26 +1705,27 @@ function calcPrice(){
   const ci=document.getElementById('bIn').value;
   const co=document.getElementById('bOut').value;
   if(!ci||!co)return;
-  const nights=Math.round((new Date(co)-new Date(ci))/86400000);
-  if(nights<=0)return;
   const pe=document.getElementById('bProperty');
-  const p=PRICING[pe&&pe.value?pe.value:'suite']||PRICING.suite;
-  let rate=p.base,discLabel='',discAmt=0;
-  for(const t of p.tiers){if(nights>=t.min){rate=t.rate;discLabel=t.label;discAmt=nights*(p.base-rate);break;}}
-  const sub=Math.round(nights*rate),total=sub+p.clean;
-  document.getElementById('ppNights').textContent=nights+' night'+(nights>1?'s':'')+' × $'+fmtRate(rate);
-  document.getElementById('ppNightsAmt').textContent='$'+sub.toLocaleString()+' CAD';
+  const prop=pe&&pe.value?pe.value:'suite';
+  const q=window.Pricing?Pricing.quote(prop,ci,co):null;
+  if(!q)return;
+  const multi=q.seasons.length>1;
+  const seasonTxt=multi?q.seasons.map(s=>s.nights+' × '+fmtMoney(s.rate)+' ('+s.name+')').join(' + '):q.seasons[0].name+' rate';
+  document.getElementById('ppNights').innerHTML=q.nights+' night'+(q.nights>1?'s':'')+(multi?'':' × '+fmtMoney(q.seasons[0].rate))+'<span class="pp-seasons">'+seasonTxt+'</span>';
+  document.getElementById('ppNightsAmt').textContent=fmtMoney(q.subtotal)+' CAD';
   const dr=document.getElementById('ppDiscRow');
-  if(discAmt>0){dr.style.display='flex';document.getElementById('ppDiscLabel').textContent=discLabel;document.getElementById('ppDiscAmt').textContent='-$'+Math.round(discAmt).toLocaleString();}
+  if(q.discountAmt>0){dr.style.display='flex';document.getElementById('ppDiscLabel').textContent=q.label;document.getElementById('ppDiscAmt').textContent='-'+fmtMoney(q.discountAmt);}
   else dr.style.display='none';
-  document.getElementById('ppCleanAmt').textContent='$'+p.clean.toLocaleString()+' CAD';
-  document.getElementById('ppTotal').textContent='$'+total.toLocaleString()+' CAD';
+  document.getElementById('ppCleanAmt').textContent=fmtMoney(q.cleaning)+' CAD';
+  document.getElementById('ppTotal').textContent=fmtMoney(q.total)+' CAD';
   document.getElementById('pricePreview').style.display='block';
   document.getElementById('etxBox').style.display='block';
 }
 /* Rebuild guest options (Suite 1–6, Smart Home 1–8) when property changes */
 function onPropertyChange(){
-  const max=document.getElementById('bProperty').value==='smarthome'?8:6;
+  const prop=document.getElementById('bProperty').value;
+  const pc=window.Pricing?Pricing.cfg(prop):null;
+  const max=(pc&&pc.maxGuests)||(prop==='smarthome'?8:6);
   const sel=document.getElementById('bGuests');
   const cur=parseInt(sel.value)||1, keep=Math.min(cur,max);
   sel.innerHTML='';
@@ -1794,7 +1810,10 @@ injectJsonLd();
 (function(){var y=document.getElementById('footerYear');if(y)y.textContent=new Date().getFullYear();})();
 /* ── Availability calendar + booking-form clash check (data: /availability.json) ── */
 (function(){
-  var AV=null, prop='suite', offset=0;
+  var ps=(window.SITE_CONFIG&&SITE_CONFIG.properties)||{};
+  function stOf(p){return ((ps[p]||{}).status)||'open';}
+  var AV=null, prop=(stOf('suite')==='open'||stOf('smarthome')!=='open')?'suite':'smarthome', offset=0;
+  var PEND_DEFAULT=(document.getElementById('acPending')||{}).textContent||'';
   var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
   function busyNights(p){
@@ -1804,6 +1823,9 @@ injectJsonLd();
   }
   function render(){
     var box=document.getElementById('acMonths'); if(!box) return;
+    var pend=document.getElementById('acPending');
+    if(stOf(prop)!=='open'){box.innerHTML='';box.style.opacity='1';pend.hidden=false;pend.textContent=(prop==='suite'?'The Suite':'The Smart Home')+' is not taking bookings right now.'+((ps[prop]||{}).note?' '+ps[prop].note:'');document.getElementById('acSynced').textContent='';document.getElementById('acPrev').disabled=true;return;}
+    pend.textContent=PEND_DEFAULT;
     var busy=busyNights(prop), now=new Date(), today=iso(now), html='';
     var connected=!!(AV&&AV[prop]&&AV[prop].connected);
     for(var m=0;m<2;m++){
@@ -1844,6 +1866,7 @@ injectJsonLd();
     var sel=document.getElementById('bProperty'); if(sel&&sel.value!==prop){sel.value=prop; if(typeof onPropertyChange==='function') onPropertyChange();}
     render(); clash();
   });});
+  document.querySelectorAll('.ac-tab').forEach(function(x){x.classList.toggle('active',x.dataset.prop===prop);x.setAttribute('aria-pressed',x.dataset.prop===prop);});
   document.getElementById('acPrev').addEventListener('click',function(){if(offset>0){offset-=2;render();}});
   document.getElementById('acNext').addEventListener('click',function(){if(offset<22){offset+=2;render();}});
   ['bIn','bOut','bProperty'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('change',clash);});
