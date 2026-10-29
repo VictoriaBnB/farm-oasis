@@ -14,6 +14,7 @@ Static site on GitHub Pages (`.github/workflows/static.yml` deploys `main` on ev
 | Crawler-visible bits that mirror the config (JSON-LD price range) | `tools/render_static.py` (Site Manager runs it on Save) |
 | Booked dates from Airbnb/Google calendars | `.github/workflows/sync-availability.yml` → `availability.json` every 3 hours |
 | Booking inquiries | Formspree form in `index.html` (`#bookingForm`) |
+| Review request page | `review/index.html` — **victoriabnb.ca/review** opens the Google review form for the Business Profile (Place ID in the file). Companion files: `tools/review-card.png` (printable 3.5×2 in QR card), `tools/review-qr.png`, `tools/review-request.md` (message drafts). Page is `noindex` and not in the sitemap. |
 | Screenshots + page checks (headless Chrome over the DevTools protocol) | `tools/shot.py` — `python tools/shot.py` captures every page, desktop + mobile, into `tools/shots/` (git-ignored) and reports console errors, broken images, overflow and empty prices; `python tools/shot.py / --clip ".hero" "#location"` captures just those parts |
 
 ## Where the visual pieces live (visual pass, 2026-10-29)

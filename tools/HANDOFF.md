@@ -39,7 +39,10 @@ Read `tools/README.md` first for how the site is put together. This file is the
 - Google Business Profile is DONE (owner, Oct 29: photos etc.). The remaining gap is Google reviews: there are none yet.
   Airbnb reviews don't carry over, so the first ones have to be asked for, guest by guest, after checkout (post-stay
   message/text with the GBP review link, a QR card in the welcome binder). Never incentivise reviews (Google policy).
-  Once a few exist: add a "reviews on Google" line/widget to the site, and link to the profile from the footer.
+  In place since Oct 29: `victoriabnb.ca/review` (forwards to the Google review form, Place ID
+  ChIJV_3pLQhpj1QRwMuoU19c6kI = "Modern Farm Oasis", 1345 Munro Rd — verified with Google's Place ID Finder), a printable
+  QR card (`tools/review-card.png`) and message drafts (`tools/review-request.md`). The owner is messaging past guests.
+  Once a few reviews exist: add a "reviews on Google" line/widget to the site, and link to the profile from the footer.
 - Payment option for non-Canadian guests (Interac only today).
 - Review count/rating on site vs Airbnb.
 - If short stays are ever re-opened on Airbnb, keep Airbnb nightly >= direct nightly.
