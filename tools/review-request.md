@@ -1,23 +1,33 @@
 # Asking guests for a Google review
 
-Everything points guests at **victoriabnb.ca/review** (the page forwards to the Google review form).
+Email, text and the QR card point guests at **victoriabnb.ca/review** (the page forwards to the Google review form).
 Direct review link, if you ever need it raw:
 `https://search.google.com/local/writereview?placeid=ChIJV_3pLQhpj1QRwMuoU19c6kI`
+
+**Airbnb messages are the exception.** Airbnb's filter blocks anything that looks like a link, email or phone number
+("Links and contact info can't be shared until after a new reservation is confirmed") — even `victoriabnb.ca/review`
+with no `https://` — so the Airbnb version below contains no web address at all. Don't try to disguise it
+("victoriabnb dot ca"); Airbnb flags that too and it reads as sneaky. The Google-search route works: searching
+Google or Google Maps for "Modern Farm Oasis North Saanich" goes straight to the listing (checked 2026-10-30).
 
 Rules of thumb: ask everyone (no cherry-picking), never offer anything in return (Google removes incentivised
 reviews and can suspend the profile), one ask per guest, keep it short.
 
-## 1. Airbnb message to past guests (no clickable link needed)
+## 1. Airbnb message to past guests (no link, no address — passes Airbnb's filter)
 
 > Hi [Name],
 >
 > Jessica here from the Farm Oasis in North Saanich — thank you again for staying with us [in July]. It was a pleasure having you.
 >
-> A small favour, if you have a minute: we've just set up our Google listing and, as a little farm stay, we don't have a single Google review yet. Would you mind sharing a line or two about your stay there? Just type **victoriabnb.ca/review** into your browser, or search Google for "Modern Farm Oasis North Saanich" and tap "Write a review".
+> A small favour, if you have a minute: we've just set up our Google listing and, as a little farm stay, we don't have a single Google review yet. Would you mind sharing a line or two about your stay there? Just search Google or Google Maps for "Modern Farm Oasis North Saanich" — our listing comes straight up — and tap "Write a review".
 >
 > No pressure at all, and thank you either way. We'd love to welcome you back.
 >
 > Jessica & Ryan
+
+Shorter version if you're sending a lot of these:
+
+> Hi [Name] — Jessica from the Farm Oasis here. Thanks again for staying with us! We've just set up our Google listing and have no reviews on it yet. If you have a minute, would you search Google for "Modern Farm Oasis North Saanich" and tap "Write a review"? A line or two is plenty. No pressure, and thank you either way. — Jessica & Ryan
 
 ## 2. Email / text after checkout (direct-booking guests)
 
